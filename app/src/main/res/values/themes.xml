@@ -2,8 +2,8 @@
     <!-- Base application theme. -->
     <style name="Theme.MapleLeaves" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/purple_500</item>
-        <item name="colorPrimaryVariant">@color/purple_700</item>
+        <item name="colorPrimary">@color/cuilv</item>
+        <item name="colorPrimaryVariant">@color/cuilv</item>
         <item name="colorOnPrimary">@color/white</item>
         <!-- Secondary brand color. -->
         <item name="colorSecondary">@color/teal_200</item>
@@ -15,7 +15,10 @@
     </style>
 
     <!-- 底部导航栏字体样式 -->
-    <style name="BottomTabTextStyle" >
+    <style name="BottomTabTextStyleActive" >
+        <item name="android:textSize">12sp</item>
+    </style>
+    <style name="BottomTabTextStyleInactive" >
         <item name="android:textSize">12sp</item>
     </style>
 </resources>
