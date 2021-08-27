@@ -15,5 +15,16 @@
 
     <string name="bottom_name">AndroidProject  By Bamboo</string>
     <string name="splash_name">MapleLeaves</string>
+    <string name="user_name">苏前猛</string>
+    <string name="school">桂林电子科技大学</string>
+    <string name="message">消息</string>
+    <string name="my_course">我的课程</string>
+
+    <!-- 课程项 -->
+    <string name="student_count">80人</string>
+    <string name="course_desc">苏前猛</string>
+    <string name="course_name">Android应用开发</string>
+    <string name="other">other</string>
+    <string name="coursePicture">picture of course</string>
 
 </resources>

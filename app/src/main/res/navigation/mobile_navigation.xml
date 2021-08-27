@@ -9,7 +9,11 @@
         android:id="@+id/navigation_home"
         android:name="com.example.mapleleaves.ui.home.HomeFragment"
         android:label="@string/title_home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_navigation_home_to_courseManagementDialogFragment"
+            app:destination="@id/courseManagementDialogFragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/navigation_dashboard"
@@ -28,4 +32,9 @@
         android:name="com.example.mapleleaves.ui.me.MeFragment"
         android:label="@string/title_me"
         tools:layout="@layout/fragment_me" />
+
+    <dialog
+        android:id="@+id/courseManagementDialogFragment"
+        android:name="com.example.mapleleaves.ui.dashboard.CourseManagementDialogFragment"
+        android:label="CourseManagementDialogFragment" />
 </navigation>

@@ -6,14 +6,18 @@
         <entry key="..\:/Users/14729/AndroidStudioProjects/2021AndroidDevCourse/MapleLeaves/app/src/main/res/drawable/home_found_off_ic.xml" value="0.26979166666666665" />
         <entry key="..\:/Users/14729/AndroidStudioProjects/2021AndroidDevCourse/MapleLeaves/app/src/main/res/drawable/home_navigation_color_selector.xml" value="0.26979166666666665" />
         <entry key="..\:/Users/14729/AndroidStudioProjects/2021AndroidDevCourse/MapleLeaves/app/src/main/res/drawable/ic_home_black_24dp.xml" value="0.26979166666666665" />
-        <entry key="..\:/Users/14729/AndroidStudioProjects/2021AndroidDevCourse/MapleLeaves/app/src/main/res/layout/activity_main.xml" value="0.14356884057971014" />
+        <entry key="..\:/Users/14729/AndroidStudioProjects/2021AndroidDevCourse/MapleLeaves/app/src/main/res/layout/activity_main.xml" value="0.1503623188405797" />
         <entry key="..\:/Users/14729/AndroidStudioProjects/2021AndroidDevCourse/MapleLeaves/app/src/main/res/layout/activity_splash.xml" value="0.1" />
+        <entry key="..\:/Users/14729/AndroidStudioProjects/2021AndroidDevCourse/MapleLeaves/app/src/main/res/layout/course_item.xml" value="0.136" />
+        <entry key="..\:/Users/14729/AndroidStudioProjects/2021AndroidDevCourse/MapleLeaves/app/src/main/res/layout/course_management_dialog_fragment.xml" value="0.16259057971014493" />
         <entry key="..\:/Users/14729/AndroidStudioProjects/2021AndroidDevCourse/MapleLeaves/app/src/main/res/layout/fragment_dashboard.xml" value="0.14356884057971014" />
         <entry key="..\:/Users/14729/AndroidStudioProjects/2021AndroidDevCourse/MapleLeaves/app/src/main/res/layout/fragment_home.xml" value="0.14356884057971014" />
-        <entry key="..\:/Users/14729/AndroidStudioProjects/2021AndroidDevCourse/MapleLeaves/app/src/main/res/layout/fragment_me.xml" value="0.19021739130434784" />
+        <entry key="..\:/Users/14729/AndroidStudioProjects/2021AndroidDevCourse/MapleLeaves/app/src/main/res/layout/fragment_me.xml" value="0.152" />
         <entry key="..\:/Users/14729/AndroidStudioProjects/2021AndroidDevCourse/MapleLeaves/app/src/main/res/layout/fragment_notifications.xml" value="0.14356884057971014" />
+        <entry key="..\:/Users/14729/AndroidStudioProjects/2021AndroidDevCourse/MapleLeaves/app/src/main/res/layout/nav_header.xml" value="0.1296875" />
         <entry key="..\:/Users/14729/AndroidStudioProjects/2021AndroidDevCourse/MapleLeaves/app/src/main/res/menu/bottom_nav_menu.xml" value="0.25364583333333335" />
         <entry key="..\:/Users/14729/AndroidStudioProjects/2021AndroidDevCourse/MapleLeaves/app/src/main/res/menu/home_bottom_nav_menu.xml" value="0.23981481481481481" />
+        <entry key="..\:/Users/14729/AndroidStudioProjects/2021AndroidDevCourse/MapleLeaves/app/src/main/res/menu/nav_menu.xml" value="0.25364583333333335" />
       </map>
     </option>
   </component>

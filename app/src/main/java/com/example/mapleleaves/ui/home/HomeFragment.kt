@@ -7,13 +7,21 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
-import com.example.mapleleaves.R
+import androidx.lifecycle.ViewModelProviders
+import androidx.navigation.findNavController
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.mapleleaves.databinding.FragmentHomeBinding
+import com.example.mapleleaves.logic.model.Course
 
 class HomeFragment : Fragment() {
 
-    private lateinit var homeViewModel: HomeViewModel
+//    private lateinit var homeViewModel: HomeViewModel
+
+    //下面这种方式与上面的区别？？？
+    private val homeViewModel by lazy { ViewModelProviders.of(this).get(HomeViewModel::class.java) }
+
+    private lateinit var listAdapter: CourseListAdapter
+
     private var _binding: FragmentHomeBinding? = null
 
     // This property is only valid between onCreateView and
@@ -25,11 +33,19 @@ class HomeFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        homeViewModel =
-            ViewModelProvider(this).get(HomeViewModel::class.java)
+//        homeViewModel =
+//            ViewModelProvider(this).get(HomeViewModel::class.java)
 
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
         val root: View = binding.root
+        val layoutManager=LinearLayoutManager(activity)
+        binding.recycleView.layoutManager=layoutManager
+        listAdapter= CourseListAdapter(this,homeViewModel.courseList)
+        binding.recycleView.adapter=listAdapter
+        homeViewModel.courseList.add(Course("课程名","课程描述",80))
+        homeViewModel.courseList.add(Course("课程名","课程描述",81))
+        homeViewModel.courseList.add(Course("课程名","课程描述",60))
+        listAdapter.notifyDataSetChanged()
 
         val textView: TextView = binding.textHome
         homeViewModel.text.observe(viewLifecycleOwner, Observer {

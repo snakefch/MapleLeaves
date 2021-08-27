@@ -18,7 +18,7 @@ class SplashActivity : AppCompatActivity() {
         binding= ActivitySplashBinding.inflate(layoutInflater)
         setContentView(binding.root)
         thread {
-            Thread.sleep(2000)
+            Thread.sleep(1000)
             MainActivity.startMainActivity(this)
         }
     }

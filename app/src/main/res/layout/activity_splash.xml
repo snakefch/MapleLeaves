@@ -13,7 +13,7 @@
         android:layout_gravity="center|top"
         android:layout_marginTop="200dp"
         android:text="@string/splash_name"
-        android:textColor="@color/xinghui"
+        android:textColor="@color/cuilv"
         android:textSize="32sp"
         android:textStyle="italic"/>
 

@@ -11,4 +11,12 @@
     <color name="cuilv">#20A162</color>
     <color name="zhulv">#1BA782</color>
     <color name="xinghui">#B2BBBE</color>
+
+    <color name="blue">#6BB5F1</color>
+    <color name="LightGray">#EEEEEE</color>
+    <color name="DarkGray">#BBBBBB</color>
+    <color name="Gray">#ECEDED</color>
+
+    <color name="theme">@color/cuilv</color>
+    <color name="textViewColor">#000000</color>
 </resources>
