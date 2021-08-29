@@ -25,6 +25,10 @@
     <string name="course_desc">苏前猛</string>
     <string name="course_name">Android应用开发</string>
     <string name="other">other</string>
-    <string name="coursePicture">picture of course</string>
+    <string name="course_picture">picture of course</string>
+    <string name="add_course_code_text">加课码</string>
+    <string name="course_code_text">课程号</string>
+    <string name="add_course_code">BV4869</string>
+    <string name="course_code">20210829</string>
 
 </resources>

@@ -11,6 +11,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.mapleleaves.R
 import com.example.mapleleaves.logic.model.Course
+import com.example.mapleleaves.ui.course.CourseActivity
 
 class CourseListAdapter (private val fragment: HomeFragment, private val courseList: List<Course>):
     RecyclerView.Adapter<CourseListAdapter.ViewHolder>(){
@@ -36,6 +37,9 @@ class CourseListAdapter (private val fragment: HomeFragment, private val courseL
         holder.otherButton.setOnClickListener {
             //使用safeargs
             it.findNavController().navigate(HomeFragmentDirections.actionNavigationHomeToCourseManagementDialogFragment())
+        }
+        holder.itemView.setOnClickListener {
+            fragment.context?.let { context -> CourseActivity.startCourseActivity(context) }
         }
     }
 
