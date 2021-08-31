@@ -17,6 +17,12 @@
     <color name="DarkGray">#BBBBBB</color>
     <color name="Gray">#ECEDED</color>
 
+    <color name="color_main">#6BB5F1</color>
+    <color name="colorBlack">#000000</color>
+    <color name="colorLightGray">#EEEEEE</color>
+    <color name="colorDarkGray">#BBBBBB</color>
+    <color name="colorGray">#ECEDED</color>
+
     <color name="theme">@color/cuilv</color>
     <color name="textViewColor">#000000</color>
 </resources>

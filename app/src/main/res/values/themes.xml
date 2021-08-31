@@ -16,6 +16,8 @@
 
     <!-- 全屏主题样式 -->
     <style name="FullScreenTheme" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/theme</item>
+        <item name="colorPrimaryVariant">@color/theme</item>
         <item name="android:windowFullscreen">true</item>
     </style>
 

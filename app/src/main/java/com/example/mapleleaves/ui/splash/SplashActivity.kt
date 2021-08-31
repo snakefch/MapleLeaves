@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.view.View
 import com.example.mapleleaves.MainActivity
 import com.example.mapleleaves.databinding.ActivitySplashBinding
+import com.example.mapleleaves.ui.login.LoginActivity
 import kotlin.concurrent.thread
 
 
@@ -19,7 +20,7 @@ class SplashActivity : AppCompatActivity() {
         setContentView(binding.root)
         thread {
             Thread.sleep(1000)
-            MainActivity.startMainActivity(this)
+            LoginActivity.startLoginActivity(this)
         }
     }
 

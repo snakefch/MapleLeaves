@@ -106,14 +106,11 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="考勤"
+                android:background="@color/DarkGray"
                 android:textColor="@color/black"
                 android:textSize="22sp"/>
             <TextView
