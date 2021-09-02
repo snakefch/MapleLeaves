@@ -3,15 +3,19 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/14729/AndroidStudioProjects/2021AndroidDevCourse/MapleLeaves/app/src/main/res/drawable/check_work_attendance.xml" value="0.14583333333333334" />
         <entry key="..\:/Users/14729/AndroidStudioProjects/2021AndroidDevCourse/MapleLeaves/app/src/main/res/drawable/home_found_off_ic.xml" value="0.26979166666666665" />
+        <entry key="..\:/Users/14729/AndroidStudioProjects/2021AndroidDevCourse/MapleLeaves/app/src/main/res/drawable/home_me_off_ic.xml" value="0.14583333333333334" />
         <entry key="..\:/Users/14729/AndroidStudioProjects/2021AndroidDevCourse/MapleLeaves/app/src/main/res/drawable/home_navigation_color_selector.xml" value="0.26979166666666665" />
         <entry key="..\:/Users/14729/AndroidStudioProjects/2021AndroidDevCourse/MapleLeaves/app/src/main/res/drawable/ic_home_black_24dp.xml" value="0.26979166666666665" />
         <entry key="..\:/Users/14729/AndroidStudioProjects/2021AndroidDevCourse/MapleLeaves/app/src/main/res/drawable/shape_btn_all_circular.xml" value="0.14895833333333333" />
         <entry key="..\:/Users/14729/AndroidStudioProjects/2021AndroidDevCourse/MapleLeaves/app/src/main/res/drawable/shape_edit_all_circular.xml" value="0.14895833333333333" />
-        <entry key="..\:/Users/14729/AndroidStudioProjects/2021AndroidDevCourse/MapleLeaves/app/src/main/res/layout/activity_course.xml" value="0.16394927536231885" />
+        <entry key="..\:/Users/14729/AndroidStudioProjects/2021AndroidDevCourse/MapleLeaves/app/src/main/res/layout/activity_check_work_attendance.xml" value="0.1328125" />
+        <entry key="..\:/Users/14729/AndroidStudioProjects/2021AndroidDevCourse/MapleLeaves/app/src/main/res/layout/activity_course.xml" value="0.1" />
         <entry key="..\:/Users/14729/AndroidStudioProjects/2021AndroidDevCourse/MapleLeaves/app/src/main/res/layout/activity_login.xml" value="0.14628623188405798" />
         <entry key="..\:/Users/14729/AndroidStudioProjects/2021AndroidDevCourse/MapleLeaves/app/src/main/res/layout/activity_main.xml" value="0.1503623188405797" />
         <entry key="..\:/Users/14729/AndroidStudioProjects/2021AndroidDevCourse/MapleLeaves/app/src/main/res/layout/activity_splash.xml" value="0.1" />
+        <entry key="..\:/Users/14729/AndroidStudioProjects/2021AndroidDevCourse/MapleLeaves/app/src/main/res/layout/check_item.xml" value="0.1328125" />
         <entry key="..\:/Users/14729/AndroidStudioProjects/2021AndroidDevCourse/MapleLeaves/app/src/main/res/layout/course_item.xml" value="0.136" />
         <entry key="..\:/Users/14729/AndroidStudioProjects/2021AndroidDevCourse/MapleLeaves/app/src/main/res/layout/course_management_dialog_fragment.xml" value="0.16259057971014493" />
         <entry key="..\:/Users/14729/AndroidStudioProjects/2021AndroidDevCourse/MapleLeaves/app/src/main/res/layout/fragment_dashboard.xml" value="0.14356884057971014" />

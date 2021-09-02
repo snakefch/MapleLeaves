@@ -25,4 +25,11 @@
 
     <color name="theme">@color/cuilv</color>
     <color name="textViewColor">#000000</color>
+
+    <!-- 考勤数字颜色 -->
+    <color name="pinlan">#2B73AF</color>
+    <color name="shenghui">#515151</color>
+    <color name="meiguihong">#D2357D</color>
+    <color name="qianhui">#F8F8F8</color>
+
 </resources>
