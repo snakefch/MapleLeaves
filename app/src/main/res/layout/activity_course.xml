@@ -7,7 +7,7 @@
     tools:context=".ui.course.CourseActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/courseHead"
+        android:id="@+id/cl_course_head"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="20dp"
@@ -18,7 +18,7 @@
         android:orientation="vertical">
 
         <TextView
-            android:id="@+id/courseName"
+            android:id="@+id/tv_course_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/course_name"
@@ -28,66 +28,66 @@
             android:textSize="30sp"/>
 
         <TextView
-            android:id="@+id/addCourseCodeText"
+            android:id="@+id/tv_add_course_code_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/add_course_code_text"
             android:layout_marginTop="20dp"
             android:textColor="@color/white"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/courseName"
+            app:layout_constraintTop_toBottomOf="@+id/tv_course_name"
             android:textSize="16sp"/>
 
         <TextView
-            android:id="@+id/addCourseCode"
+            android:id="@+id/tv_add_course_code"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/add_course_code"
             android:layout_marginStart="16dp"
             android:textColor="@color/white"
-            app:layout_constraintStart_toEndOf="@+id/addCourseCodeText"
-            app:layout_constraintTop_toTopOf="@id/addCourseCodeText"
+            app:layout_constraintStart_toEndOf="@+id/tv_add_course_code_text"
+            app:layout_constraintTop_toTopOf="@id/tv_add_course_code_text"
             android:textSize="16sp"/>
 
         <TextView
-            android:id="@+id/courseCodeText"
+            android:id="@+id/tv_course_code_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/course_code_text"
             android:layout_marginTop="6dp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/addCourseCode"
+            app:layout_constraintTop_toBottomOf="@+id/tv_add_course_code"
             android:textColor="@color/white"
             android:textSize="16sp"/>
 
         <TextView
-            android:id="@+id/courseCode"
+            android:id="@+id/tv_course_code"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/course_code"
             android:layout_marginStart="16dp"
-            app:layout_constraintStart_toEndOf="@id/courseCodeText"
-            app:layout_constraintTop_toTopOf="@id/courseCodeText"
+            app:layout_constraintStart_toEndOf="@id/tv_course_code_text"
+            app:layout_constraintTop_toTopOf="@id/tv_course_code_text"
             android:textColor="@color/white"
             android:textSize="16sp"/>
 
         <TextView
-            android:id="@+id/courseMember"
+            android:id="@+id/tv_course_member"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="成员"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/courseCodeText"
+            app:layout_constraintTop_toBottomOf="@id/tv_course_code_text"
             android:layout_marginTop="20dp"
             android:textColor="@color/white"
             android:textSize="14sp"/>
         <TextView
-            android:id="@+id/courseMemberCount"
+            android:id="@+id/tv_course_member_count"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
-            app:layout_constraintStart_toEndOf="@+id/courseMember"
-            app:layout_constraintTop_toTopOf="@id/courseMember"
+            app:layout_constraintStart_toEndOf="@+id/tv_course_member"
+            app:layout_constraintTop_toTopOf="@id/tv_course_member"
             android:text="80人"
             android:textColor="@color/white"
             android:textSize="14sp"/>
@@ -99,7 +99,7 @@
         android:layout_height="wrap_content"
         android:elevation="10dp"
         app:cardCornerRadius="24dp"
-        app:layout_constraintTop_toBottomOf="@+id/courseHead"
+        app:layout_constraintTop_toBottomOf="@+id/cl_course_head"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
 
@@ -115,7 +115,7 @@
                 android:layout_marginStart="10dp"
                 android:orientation="vertical">
                 <ImageView
-                    android:id="@+id/checkWorkImage"
+                    android:id="@+id/iv_check_work"
                     android:layout_width="52dp"
                     android:layout_height="52dp"
                     android:layout_gravity="center_horizontal"

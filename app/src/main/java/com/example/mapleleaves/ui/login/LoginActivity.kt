@@ -40,12 +40,12 @@ class LoginActivity : AppCompatActivity() {
         if (isRemember){
             val userName=sp.getString("userName","")
             val password=sp.getString("password","")
-            binding.userName.setText(userName)
+            binding.tvUserName.setText(userName)
             binding.password.setText(password)
-            binding.rememberPass.isChecked=true
+            binding.cbRememberPass.isChecked=true
         }
         binding.login.setOnClickListener{
-            val userName=binding.userName.text.toString()
+            val userName=binding.tvUserName.text.toString()
             val password=binding.password.text.toString()
             if (userName==null||userName.trim().isEmpty()){
                 Toast.makeText(applicationContext,"用户名不能空", Toast.LENGTH_SHORT).show()
@@ -60,7 +60,7 @@ class LoginActivity : AppCompatActivity() {
                 return@setOnClickListener
             }
             val editor=sp.edit()
-            if (binding.rememberPass.isChecked){
+            if (binding.cbRememberPass.isChecked){
                 editor.putBoolean("remember_password",true)
                 editor.putString("userName",userName)
                 editor.putString("password",password)

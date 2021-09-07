@@ -7,7 +7,7 @@
     tools:context=".ui.splash.SplashActivity">
 
     <TextView
-        android:id="@+id/text_splash_name"
+        android:id="@+id/tv_splash_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center|top"
@@ -32,7 +32,7 @@
         android:background="@drawable/blue_circle" />
 
     <TextView
-        android:id="@+id/splash_name"
+        android:id="@+id/tv_project_desc"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal|bottom"

@@ -6,8 +6,6 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.navigation.findNavController
-import androidx.navigation.fragment.NavHostFragment.findNavController
-import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.mapleleaves.R
 import com.example.mapleleaves.logic.model.Course
@@ -17,10 +15,10 @@ class CourseListAdapter (private val fragment: HomeFragment, private val courseL
     RecyclerView.Adapter<CourseListAdapter.ViewHolder>(){
 
         inner class ViewHolder(view: View):RecyclerView.ViewHolder(view){
-            val courseName: TextView =view.findViewById(R.id.courseName)
-            val courseDesc: TextView =view.findViewById(R.id.courseDesc)
-            val studentCount:TextView=view.findViewById(R.id.studentCount)
-            val otherButton:ImageView=view.findViewById(R.id.otherButton)
+            val courseName: TextView =view.findViewById(R.id.tv_course_name)
+            val courseDesc: TextView =view.findViewById(R.id.tv_course_desc)
+            val studentCount:TextView=view.findViewById(R.id.tv_student_count)
+            val otherButton:ImageView=view.findViewById(R.id.iv_other_button)
         }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {

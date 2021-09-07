@@ -2,7 +2,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.mapleleaves">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
+        android:name=".MapleLeavesApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -36,6 +39,8 @@
         <activity
             android:name=".ui.login.LoginActivity"
             android:theme="@style/SplashTheme"></activity>
+        <activity android:name=".ui.weather.WeatherActivity"
+            android:exported="true"></activity>
     </application>
 
 </manifest>

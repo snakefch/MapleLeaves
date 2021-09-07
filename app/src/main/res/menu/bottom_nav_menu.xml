@@ -22,7 +22,7 @@
         android:title="@string/home_nav_index"/>
 
     <item
-        android:id="@+id/navigation_dashboard"
+        android:id="@+id/navigation_placeFragment"
         android:icon="@drawable/home_found_selector"
         android:title="@string/home_nav_found"/>
 

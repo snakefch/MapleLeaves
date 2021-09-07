@@ -37,4 +37,9 @@
         android:id="@+id/courseManagementDialogFragment"
         android:name="com.example.mapleleaves.ui.dashboard.CourseManagementDialogFragment"
         android:label="CourseManagementDialogFragment" />
+    <fragment
+        android:id="@+id/navigation_placeFragment"
+        android:name="com.example.mapleleaves.ui.place.PlaceFragment"
+        android:label="PlaceFragment"
+        tools:layout="@layout/fragment_place"/>
 </navigation>

@@ -39,9 +39,9 @@ class HomeFragment : Fragment() {
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
         val root: View = binding.root
         val layoutManager=LinearLayoutManager(activity)
-        binding.recycleView.layoutManager=layoutManager
+        binding.rvCourse.layoutManager=layoutManager
         listAdapter= CourseListAdapter(this,homeViewModel.courseList)
-        binding.recycleView.adapter=listAdapter
+        binding.rvCourse.adapter=listAdapter
         homeViewModel.courseList.add(Course("课程名","课程描述",80))
         homeViewModel.courseList.add(Course("课程名","课程描述",81))
         homeViewModel.courseList.add(Course("课程名","课程描述",60))

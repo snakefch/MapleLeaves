@@ -19,7 +19,7 @@ class CourseActivity : AppCompatActivity() {
        // setContentView(R.layout.activity_course)
         val binding=ActivityCourseBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        binding.checkWorkImage.setOnClickListener {
+        binding.ivCheckWork.setOnClickListener {
             CheckWorkAttendanceActivity.startActivity(this)
         }
     }

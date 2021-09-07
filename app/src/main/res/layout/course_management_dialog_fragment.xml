@@ -5,8 +5,9 @@
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
+
     <TextView
-        android:id="@+id/dropOut"
+        android:id="@+id/tv_drop_out"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
@@ -20,18 +21,25 @@
         android:layout_centerHorizontal="true"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/dropOut"
+        android:layout_below="@id/tv_drop_out"
         android:layout_margin="12dp"
         android:textSize="18sp"
         android:textColor="@color/textViewColor"
         android:text="置顶"/>
+
+    <View
+        android:id="@+id/line1"
+        android:layout_width="match_parent"
+        android:layout_height="10dp"
+        android:layout_below="@+id/topping"
+        android:background="@color/qianhui" />
 
     <TextView
         android:id="@+id/cancel"
         android:layout_centerHorizontal="true"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/topping"
+        android:layout_below="@id/line1"
         android:layout_margin="12dp"
         android:textSize="18sp"
         android:textColor="@color/textViewColor"

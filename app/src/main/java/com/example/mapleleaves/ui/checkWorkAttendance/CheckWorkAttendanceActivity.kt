@@ -25,9 +25,9 @@ class CheckWorkAttendanceActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         val layoutManager=LinearLayoutManager(this)
-        binding.checkRecycleView.layoutManager=layoutManager
+        binding.rvCheck.layoutManager=layoutManager
         listAdapter= CheckListAdapter(checkViewModel.checkList)
-        binding.checkRecycleView.adapter=listAdapter
+        binding.rvCheck.adapter=listAdapter
         checkViewModel.checkList.add(Check("标题1"))
         checkViewModel.checkList.add(Check("标题2"))
         checkViewModel.checkList.add(Check("标题3"))
