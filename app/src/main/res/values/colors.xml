@@ -17,11 +17,6 @@
     <color name="DarkGray">#BBBBBB</color>
     <color name="Gray">#ECEDED</color>
 
-    <color name="colorBlue">#6BB5F1</color>
-    <color name="colorBlack">#000000</color>
-    <color name="colorLightGray">#EEEEEE</color>
-    <color name="colorDarkGray">#BBBBBB</color>
-    <color name="colorGray">#ECEDED</color>
 
     <color name="theme">@color/cuilv</color>
     <color name="textViewColor">#000000</color>
@@ -31,5 +26,17 @@
     <color name="shenghui">#515151</color>
     <color name="meiguihong">#D2357D</color>
     <color name="qianhui">#F8F8F8</color>
+
+    <!--灰度颜色排列-->
+    <color name="Gray1">#e6e6e6</color>
+    <color name="Gray2">#dbdbdb</color>
+    <color name="Gray3">#cdcdcd</color>
+    <color name="Gray4">#bfbfbf</color>
+    <color name="Gray5">#8a8a8a</color>
+    <color name="Gray6">#707070</color>
+    <color name="Gray7">#515151</color>
+    <color name="Gray8">#2c2c2c</color>
+
+    <color name="Graya4">#a4a4a4</color>
 
 </resources>

@@ -42,15 +42,11 @@ class HomeFragment : Fragment() {
         binding.rvCourse.layoutManager=layoutManager
         listAdapter= CourseListAdapter(this,homeViewModel.courseList)
         binding.rvCourse.adapter=listAdapter
-        homeViewModel.courseList.add(Course("课程名","课程描述",80))
+        homeViewModel.courseList.add(Course("Android应用开发","2023280",80))
         homeViewModel.courseList.add(Course("课程名","课程描述",81))
         homeViewModel.courseList.add(Course("课程名","课程描述",60))
         listAdapter.notifyDataSetChanged()
 
-        val textView: TextView = binding.textHome
-        homeViewModel.text.observe(viewLifecycleOwner, Observer {
-            textView.text = it
-        })
         return root
     }
 

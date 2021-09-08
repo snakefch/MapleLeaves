@@ -5,8 +5,11 @@
       <map>
         <entry key="..\:/Users/14729/AndroidStudioProjects/2021AndroidDevCourse/MapleLeaves/app/src/main/res/drawable/check_work_attendance.xml" value="0.14583333333333334" />
         <entry key="..\:/Users/14729/AndroidStudioProjects/2021AndroidDevCourse/MapleLeaves/app/src/main/res/drawable/home_found_off_ic.xml" value="0.26979166666666665" />
+        <entry key="..\:/Users/14729/AndroidStudioProjects/2021AndroidDevCourse/MapleLeaves/app/src/main/res/drawable/home_found_selector.xml" value="0.13854166666666667" />
+        <entry key="..\:/Users/14729/AndroidStudioProjects/2021AndroidDevCourse/MapleLeaves/app/src/main/res/drawable/home_home_off_ic.xml" value="0.13854166666666667" />
         <entry key="..\:/Users/14729/AndroidStudioProjects/2021AndroidDevCourse/MapleLeaves/app/src/main/res/drawable/home_me_off_ic.xml" value="0.14583333333333334" />
         <entry key="..\:/Users/14729/AndroidStudioProjects/2021AndroidDevCourse/MapleLeaves/app/src/main/res/drawable/home_navigation_color_selector.xml" value="0.26979166666666665" />
+        <entry key="..\:/Users/14729/AndroidStudioProjects/2021AndroidDevCourse/MapleLeaves/app/src/main/res/drawable/ic_baseline_more_vert_24.xml" value="0.1421875" />
         <entry key="..\:/Users/14729/AndroidStudioProjects/2021AndroidDevCourse/MapleLeaves/app/src/main/res/drawable/ic_home_black_24dp.xml" value="0.26979166666666665" />
         <entry key="..\:/Users/14729/AndroidStudioProjects/2021AndroidDevCourse/MapleLeaves/app/src/main/res/drawable/shape_btn_all_circular.xml" value="0.14895833333333333" />
         <entry key="..\:/Users/14729/AndroidStudioProjects/2021AndroidDevCourse/MapleLeaves/app/src/main/res/drawable/shape_edit_all_circular.xml" value="0.14895833333333333" />
@@ -17,7 +20,7 @@
         <entry key="..\:/Users/14729/AndroidStudioProjects/2021AndroidDevCourse/MapleLeaves/app/src/main/res/layout/activity_splash.xml" value="0.1" />
         <entry key="..\:/Users/14729/AndroidStudioProjects/2021AndroidDevCourse/MapleLeaves/app/src/main/res/layout/activity_weather.xml" value="0.1" />
         <entry key="..\:/Users/14729/AndroidStudioProjects/2021AndroidDevCourse/MapleLeaves/app/src/main/res/layout/check_item.xml" value="0.1328125" />
-        <entry key="..\:/Users/14729/AndroidStudioProjects/2021AndroidDevCourse/MapleLeaves/app/src/main/res/layout/course_item.xml" value="0.136" />
+        <entry key="..\:/Users/14729/AndroidStudioProjects/2021AndroidDevCourse/MapleLeaves/app/src/main/res/layout/course_item.xml" value="0.1" />
         <entry key="..\:/Users/14729/AndroidStudioProjects/2021AndroidDevCourse/MapleLeaves/app/src/main/res/layout/course_management_dialog_fragment.xml" value="0.16259057971014493" />
         <entry key="..\:/Users/14729/AndroidStudioProjects/2021AndroidDevCourse/MapleLeaves/app/src/main/res/layout/forecast.xml" value="0.12604166666666666" />
         <entry key="..\:/Users/14729/AndroidStudioProjects/2021AndroidDevCourse/MapleLeaves/app/src/main/res/layout/forecast_item.xml" value="0.12604166666666666" />
