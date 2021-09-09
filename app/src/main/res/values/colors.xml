@@ -8,6 +8,7 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
 
+    <!--中国色 - 中国传统颜色 http://zhongguose.com/-->
     <color name="cuilv">#20A162</color>
     <color name="zhulv">#1BA782</color>
     <color name="xinghui">#B2BBBE</color>
@@ -17,7 +18,7 @@
     <color name="DarkGray">#BBBBBB</color>
     <color name="Gray">#ECEDED</color>
 
-
+    <!--主题颜色-->
     <color name="theme">@color/cuilv</color>
     <color name="textViewColor">#000000</color>
 
@@ -37,6 +38,7 @@
     <color name="Gray7">#515151</color>
     <color name="Gray8">#2c2c2c</color>
 
+    <!--更接近bilibili、qq使用的灰色？？-->
     <color name="Graya4">#a4a4a4</color>
 
 </resources>

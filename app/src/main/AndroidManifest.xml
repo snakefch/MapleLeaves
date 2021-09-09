@@ -8,7 +8,7 @@
 
     <application
         android:name=".MapleLeavesApplication"
-        android:allowBackup="true"
+        android:allowBackup="false"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
@@ -23,8 +23,9 @@
         <activity
             android:name=".ui.splash.SplashActivity"
             android:launchMode="singleTop"
-            android:screenOrientation="portrait"
-            android:theme="@style/SplashTheme">
+            android:screenOrientation="fullSensor"
+            android:theme="@style/SplashTheme"
+            android:exported="true">
 
             <!-- 程序入口 -->
             <intent-filter>
@@ -37,12 +38,13 @@
         <activity
             android:name=".MainActivity"
             android:exported="true"
-            android:label="@string/app_name"></activity>
+            android:label="@string/app_name" />
         <activity
             android:name=".ui.login.LoginActivity"
-            android:theme="@style/SplashTheme"></activity>
-        <activity android:name=".ui.weather.WeatherActivity"
-            android:exported="true"></activity>
+            android:theme="@style/SplashTheme" />
+        <activity
+            android:name=".ui.weather.WeatherActivity"
+            android:exported="true" />
     </application>
 
 </manifest>
