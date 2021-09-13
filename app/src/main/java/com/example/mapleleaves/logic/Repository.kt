@@ -6,6 +6,8 @@ import com.example.mapleleaves.logic.dao.PlaceDao
 import com.example.mapleleaves.logic.model.Place
 import com.example.mapleleaves.logic.model.Weather
 import com.example.mapleleaves.logic.network.SunnyWeatherNetwork
+import com.example.mapleleaves.logic.network.course.CourseNetwork
+import com.example.mapleleaves.utils.LogUtil
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.async
 import kotlinx.coroutines.coroutineScope
@@ -48,6 +50,17 @@ object Repository {
                 }
 
             }
+    }
+
+    fun postLogin(userName:String,passWord:String)= fire(Dispatchers.IO){
+        val userResponse = CourseNetwork.postLogin(userName,passWord)
+        if (userResponse.code=="200"){
+            val data=userResponse.data
+            LogUtil.d("userData",data.toString())
+            Result.success(data)
+        }else{
+            Result.failure(RuntimeException("response code is ${userResponse.code}"))
+        }
     }
 
     private fun<T>fire(context: CoroutineContext, block:suspend ()->Result<T>)=

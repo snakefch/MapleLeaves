@@ -6,15 +6,23 @@ import android.content.Intent
 import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.Toast
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProviders
 import com.example.mapleleaves.MainActivity
 import com.example.mapleleaves.databinding.ActivityLoginBinding
+import com.example.mapleleaves.logic.Repository
+import com.example.mapleleaves.ui.place.PlaceViewModel
+import com.example.mapleleaves.utils.LogUtil
 import com.permissionx.guolindev.PermissionX
 
 class LoginActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityLoginBinding
+
+    val viewModel by lazy { ViewModelProviders.of(this).get(LoginViewModel::class.java) }
 
     companion object{
 
@@ -60,24 +68,24 @@ class LoginActivity : AppCompatActivity() {
             val userName=sp.getString("userName","")
             val password=sp.getString("password","")
             binding.tvUserName.setText(userName)
-            binding.password.setText(password)
+            binding.tvPassword.setText(password)
             binding.cbRememberPass.isChecked=true
         }
         binding.login.setOnClickListener{
             val userName=binding.tvUserName.text.toString()
-            val password=binding.password.text.toString()
-            if (userName==null||userName.trim().isEmpty()){
-                Toast.makeText(applicationContext,"用户名不能空", Toast.LENGTH_SHORT).show()
-                return@setOnClickListener
-            }
-            if (password==null||password.trim().isEmpty()){
-                Toast.makeText(applicationContext,"密码不能空", Toast.LENGTH_SHORT).show()
-                return@setOnClickListener
-            }
-            if (userName.trim().length!==11||!userName.trim().startsWith("1")){
-                Toast.makeText(applicationContext,"用户名不规范", Toast.LENGTH_SHORT).show()
-                return@setOnClickListener
-            }
+            val password=binding.tvPassword.text.toString()
+//            if (userName==null||userName.trim().isEmpty()){
+//                Toast.makeText(applicationContext,"用户名不能空", Toast.LENGTH_SHORT).show()
+//                return@setOnClickListener
+//            }
+//            if (password==null||password.trim().isEmpty()){
+//                Toast.makeText(applicationContext,"密码不能空", Toast.LENGTH_SHORT).show()
+//                return@setOnClickListener
+//            }
+//            if (userName.trim().length!==11||!userName.trim().startsWith("1")){
+//                Toast.makeText(applicationContext,"用户名不规范", Toast.LENGTH_SHORT).show()
+//                return@setOnClickListener
+//            }
             val editor=sp.edit()
             if (binding.cbRememberPass.isChecked){
                 editor.putBoolean("remember_password",true)
@@ -88,7 +96,9 @@ class LoginActivity : AppCompatActivity() {
             }
             editor.apply()
 
-            MainActivity.startMainActivity(this )
+            //MainActivity.startMainActivity(this )
+
+            viewModel.postLogin(userName,password)
 
            // val intent=Intent(this, MainActivity::class.java)
            // startActivity(intent)
@@ -96,5 +106,24 @@ class LoginActivity : AppCompatActivity() {
             //login()
             //finish()
         }
+//        binding.loginTest.setOnClickListener {
+////            val data =Repository.postLogin("1800301333","123456")
+////            LogUtil.d("data",data.toString())
+//
+//            //需要使用下面这种方式，修改数据加监听组合，只修改数据无效；上面的方式无效
+//            viewModel.postLogin("1800301333")
+//        }
+
+        viewModel.userLiveData.observe(this, Observer { result->
+            val userData=result.getOrNull()
+            if (userData!=null){
+                MainActivity.startMainActivity(this )
+                Log.d("用户数据",userData.toString())
+            }else{
+                Toast.makeText(this,"登录失败",Toast.LENGTH_SHORT).show()
+                result.exceptionOrNull()?.printStackTrace()
+            }
+        })
+
     }
 }
