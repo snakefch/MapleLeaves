@@ -2,6 +2,7 @@ package com.example.mapleleaves.ui.me
 
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -37,11 +38,19 @@ class MeFragment : Fragment() {
         meViewModel.text.observe(viewLifecycleOwner, Observer {
             textView.text = it
         })*/
+        Log.d("MeFragmentLife","onCreateView")
         return root
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
+        Log.d("MeFragmentLife","onDestroy")
         _binding = null
     }
+
+    override fun onDetach() {
+        Log.d("MeFragmentLife","onDetach")
+        super.onDetach()
+    }
+
 }

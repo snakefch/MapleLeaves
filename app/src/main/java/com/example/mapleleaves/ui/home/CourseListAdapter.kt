@@ -5,13 +5,14 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.mapleleaves.R
 import com.example.mapleleaves.logic.model.Course
 import com.example.mapleleaves.ui.course.CourseActivity
 
-class CourseListAdapter (private val fragment: HomeFragment, private val courseList: List<Course>):
+class CourseListAdapter (private val fragment: Fragment, private val courseList: List<Course>):
     RecyclerView.Adapter<CourseListAdapter.ViewHolder>(){
 
         inner class ViewHolder(view: View):RecyclerView.ViewHolder(view){

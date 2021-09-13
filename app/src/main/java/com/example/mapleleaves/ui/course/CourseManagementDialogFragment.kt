@@ -11,7 +11,6 @@ import androidx.lifecycle.ViewModelProvider
 import com.example.mapleleaves.R
 import com.example.mapleleaves.databinding.ActivityMainBinding.inflate
 import com.example.mapleleaves.databinding.CourseManagementDialogFragmentBinding
-import com.example.mapleleaves.databinding.FragmentDashboardBinding
 import com.example.mapleleaves.ui.course.CourseManagementDialogViewModel
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 

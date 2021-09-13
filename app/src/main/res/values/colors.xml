@@ -26,6 +26,7 @@
     <color name="pinlan">#2B73AF</color>
     <color name="shenghui">#515151</color>
     <color name="meiguihong">#D2357D</color>
+    <!--底层背景色-->
     <color name="qianhui">#F8F8F8</color>
 
     <!--灰度颜色排列-->
