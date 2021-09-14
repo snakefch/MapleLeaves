@@ -10,11 +10,14 @@ import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.example.mapleleaves.databinding.ActivityMainBinding
+import com.example.mapleleaves.utils.MyObserver
 
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
+
+    private val TAG=this::class.java.simpleName
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -35,6 +38,8 @@ class MainActivity : AppCompatActivity() {
         //setupActionBarWithNavController(navController, appBarConfiguration)
         //注释掉ActionBar
         navView.setupWithNavController(navController)
+
+        lifecycle.addObserver(MyObserver(TAG))
     }
 
     companion object {

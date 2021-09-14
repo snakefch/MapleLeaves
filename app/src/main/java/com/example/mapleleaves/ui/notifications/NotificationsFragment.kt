@@ -10,15 +10,23 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.example.mapleleaves.R
 import com.example.mapleleaves.databinding.FragmentNotificationsBinding
+import com.example.mapleleaves.utils.MyObserver
 
 class NotificationsFragment : Fragment() {
 
     private lateinit var notificationsViewModel: NotificationsViewModel
     private var _binding: FragmentNotificationsBinding? = null
 
+    private val TAG=this::class.java.simpleName
+
     // This property is only valid between onCreateView and
     // onDestroyView.
     private val binding get() = _binding!!
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        lifecycle.addObserver(MyObserver(TAG))
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,

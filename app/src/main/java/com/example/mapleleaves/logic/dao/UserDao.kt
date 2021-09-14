@@ -12,12 +12,12 @@ object UserDao {
     getSharedPreferences("user", Context.MODE_PRIVATE)
 
     fun saveUser(user: User){
-        sharedPreferences().edit(){
+        sharedPreferences().edit{
             putString("user", Gson().toJson(user))
         }
     }
 
-    fun getUesr(): User {
+    fun getUser(): User {
         val userJson= sharedPreferences().getString("user","")
         return Gson().fromJson(userJson, User::class.java)
     }
@@ -25,7 +25,7 @@ object UserDao {
     fun isUserSaved()= sharedPreferences().contains("user")
 
     fun saveRememberPassword(boolean: Boolean){
-        sharedPreferences().edit(){
+        sharedPreferences().edit{
             putBoolean("remember_password",boolean)
         }
     }

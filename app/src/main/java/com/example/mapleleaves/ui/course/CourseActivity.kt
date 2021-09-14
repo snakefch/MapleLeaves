@@ -11,10 +11,13 @@ import com.example.mapleleaves.R
 import com.example.mapleleaves.databinding.ActivityCheckWorkAttendanceBinding
 import com.example.mapleleaves.databinding.ActivityCourseBinding
 import com.example.mapleleaves.ui.checkWorkAttendance.CheckWorkAttendanceActivity
+import com.example.mapleleaves.utils.MyObserver
 
 class CourseActivity : AppCompatActivity() {
 
     lateinit var binding: ActivityCourseBinding
+
+    private val TAG=this::class.java.simpleName
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -41,6 +44,8 @@ class CourseActivity : AppCompatActivity() {
         binding.ivCheckWork.setOnClickListener {
             CheckWorkAttendanceActivity.startActivity(this)
         }
+
+        lifecycle.addObserver(MyObserver(TAG))
     }
 
     companion object {

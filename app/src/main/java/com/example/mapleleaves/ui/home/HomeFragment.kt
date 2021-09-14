@@ -15,6 +15,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.viewpager.widget.ViewPager
 import com.example.mapleleaves.databinding.FragmentHomeBinding
 import com.example.mapleleaves.logic.model.Course
+import com.example.mapleleaves.utils.MyObserver
 import com.google.android.material.tabs.TabLayout
 
 class HomeFragment : Fragment() {
@@ -33,6 +34,13 @@ class HomeFragment : Fragment() {
     // This property is only valid between onCreateView and
     // onDestroyView.
     private val binding get() = _binding!!
+
+    private val TAG=this::class.java.simpleName
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        lifecycle.addObserver(MyObserver(TAG))
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,

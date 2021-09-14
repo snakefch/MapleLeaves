@@ -15,6 +15,8 @@ object CourseNetwork {
 
     suspend fun postLogin(userName:String,passName:String)= userService.postLogin(userName,passName).await()
 
+    suspend fun getCoursesAttended(studentId:String)= userService.getCoursesAttended(studentId).await()
+
     private suspend fun <T> Call<T>.await():T{
 
         return suspendCoroutine { continuation ->

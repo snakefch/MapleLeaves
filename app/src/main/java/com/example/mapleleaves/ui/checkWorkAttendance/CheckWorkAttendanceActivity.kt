@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.mapleleaves.R
 import com.example.mapleleaves.databinding.ActivityCheckWorkAttendanceBinding
 import com.example.mapleleaves.logic.model.Check
+import com.example.mapleleaves.utils.MyObserver
 
 class CheckWorkAttendanceActivity : AppCompatActivity() {
 
@@ -17,6 +18,7 @@ class CheckWorkAttendanceActivity : AppCompatActivity() {
     lateinit var binding: ActivityCheckWorkAttendanceBinding
     lateinit var listAdapter: CheckListAdapter
 
+    private val TAG=this::class.java.simpleName
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -33,6 +35,7 @@ class CheckWorkAttendanceActivity : AppCompatActivity() {
         checkViewModel.checkList.add(Check("标题3"))
         listAdapter.notifyDataSetChanged()
 
+        lifecycle.addObserver(MyObserver(TAG))
     }
 
     companion object{

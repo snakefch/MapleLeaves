@@ -17,6 +17,7 @@ import com.example.mapleleaves.logic.Repository
 import com.example.mapleleaves.logic.model.User
 import com.example.mapleleaves.ui.place.PlaceViewModel
 import com.example.mapleleaves.utils.LogUtil
+import com.example.mapleleaves.utils.MyObserver
 import com.permissionx.guolindev.PermissionX
 
 class LoginActivity : AppCompatActivity() {
@@ -24,6 +25,8 @@ class LoginActivity : AppCompatActivity() {
     private lateinit var binding: ActivityLoginBinding
 
     val viewModel by lazy { ViewModelProviders.of(this).get(LoginViewModel::class.java) }
+
+    private val TAG=this::class.java.simpleName
 
     companion object{
 
@@ -106,6 +109,8 @@ class LoginActivity : AppCompatActivity() {
             //MainActivity.startMainActivity(this )
 
             viewModel.postLogin(userName,password)
+
+            lifecycle.addObserver(MyObserver(TAG))
 
            // val intent=Intent(this, MainActivity::class.java)
            // startActivity(intent)

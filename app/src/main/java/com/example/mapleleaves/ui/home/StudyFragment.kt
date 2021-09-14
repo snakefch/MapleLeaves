@@ -11,6 +11,7 @@ import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.mapleleaves.R
 import com.example.mapleleaves.databinding.FragmentStudyBinding
+import com.example.mapleleaves.utils.MyObserver
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -27,6 +28,8 @@ class StudyFragment : Fragment() {
     private var _binding:FragmentStudyBinding?=null
     private val binding get() = _binding!!
 
+    private val TAG=this::class.java.simpleName
+
     private val homeViewModel by lazy { ViewModelProviders.of(this).get(HomeViewModel::class.java) }
     private lateinit var studyListAdapter: CourseListAdapter
 
@@ -36,6 +39,7 @@ class StudyFragment : Fragment() {
             param1 = it.getString(ARG_PARAM1)
             param2 = it.getString(ARG_PARAM2)
         }
+        lifecycle.addObserver(MyObserver(TAG))
     }
 
     override fun onCreateView(

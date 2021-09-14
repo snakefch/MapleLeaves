@@ -13,15 +13,23 @@ import com.example.mapleleaves.R
 import com.example.mapleleaves.databinding.FragmentHomeBinding
 import com.example.mapleleaves.databinding.FragmentMeBinding
 import com.example.mapleleaves.ui.home.HomeViewModel
+import com.example.mapleleaves.utils.MyObserver
 
 class MeFragment : Fragment() {
 
     private lateinit var meViewModel: MeViewModel
     private var _binding: FragmentMeBinding? = null
 
+    private val TAG=this::class.java.simpleName
+
     // This property is only valid between onCreateView and
     // onDestroyView.
     private val binding get() = _binding!!
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        lifecycle.addObserver(MyObserver(TAG))
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -33,24 +41,13 @@ class MeFragment : Fragment() {
 
         _binding = FragmentMeBinding.inflate(inflater, container, false)
         val root: View = binding.root
-/*
-        val textView: TextView = binding.textMe
-        meViewModel.text.observe(viewLifecycleOwner, Observer {
-            textView.text = it
-        })*/
-        Log.d("MeFragmentLife","onCreateView")
+
         return root
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
-        Log.d("MeFragmentLife","onDestroy")
         _binding = null
-    }
-
-    override fun onDetach() {
-        Log.d("MeFragmentLife","onDetach")
-        super.onDetach()
     }
 
 }
