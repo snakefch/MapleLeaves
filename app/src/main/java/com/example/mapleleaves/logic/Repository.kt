@@ -3,7 +3,9 @@ package com.example.mapleleaves.logic
 import android.util.Log
 import androidx.lifecycle.liveData
 import com.example.mapleleaves.logic.dao.PlaceDao
+import com.example.mapleleaves.logic.dao.UserDao
 import com.example.mapleleaves.logic.model.Place
+import com.example.mapleleaves.logic.model.User
 import com.example.mapleleaves.logic.model.Weather
 import com.example.mapleleaves.logic.network.SunnyWeatherNetwork
 import com.example.mapleleaves.logic.network.course.CourseNetwork
@@ -78,5 +80,12 @@ object Repository {
     fun getPlace()=PlaceDao.getPlace()
 
     fun isPlaceSaved()=PlaceDao.isPlaceSaved()
+
+    fun saveUser(user: User)= UserDao.saveUser(user)
+    fun getUser()= UserDao.getUesr()
+    fun isUserSaved()= UserDao.isUserSaved()
+
+    fun saveRememberPassword(boolean: Boolean)= UserDao.saveRememberPassword(boolean)
+    fun getRememberPassword()= UserDao.getRememberPassword()
 
 }

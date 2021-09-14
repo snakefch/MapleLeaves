@@ -20,11 +20,13 @@ import com.google.android.material.tabs.TabLayout
 class HomeFragment : Fragment() {
 
    // private lateinit var homeViewModel: HomeViewModel
-
-    //下面这种方式与上面的区别？？？
-//    private val homeViewModel by lazy { ViewModelProviders.of(this).get(HomeViewModel::class.java) }
+    // 下面这种方式与上面的区别？？？
+  //  private val homeViewModel by lazy { ViewModelProviders.of(this).get(HomeViewModel::class.java) }
 //
 //    private lateinit var listAdapter: CourseListAdapter
+
+   /* private lateinit var studyListAdapter: CourseListAdapter
+    private lateinit var teachListAdapter: CourseListAdapter*/
 
     private var _binding: FragmentHomeBinding? = null
 
@@ -42,6 +44,8 @@ class HomeFragment : Fragment() {
 
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
         val root: View = binding.root
+
+        //初始,第一次的方法
 //        val layoutManager=LinearLayoutManager(activity)
 //        binding.rvCourse.layoutManager=layoutManager
 //        listAdapter= CourseListAdapter(this,homeViewModel.courseList)
@@ -51,6 +55,8 @@ class HomeFragment : Fragment() {
 //        homeViewModel.courseList.add(Course("课程名","课程描述",60))
 //        listAdapter.notifyDataSetChanged()
 
+
+        //第二次，使用viewPage,有Bug
         val sectionsPagerAdapter =
             this.context?.let { parentFragmentManager?.let { it1 -> SectionsPagerAdapter(it, it1) } }
         val viewPager: ViewPager = binding.viewPager
@@ -58,30 +64,25 @@ class HomeFragment : Fragment() {
         val tabs: TabLayout = binding.tabs
         tabs.setupWithViewPager(viewPager)
 
-        Log.d("HomeFragmentLife","onCreateView")
+        //第三次,使用两个recycleView,不行
+      /*  val layoutManager=LinearLayoutManager(activity)
+        binding.incldueStudy.rvStudyCourse.layoutManager=layoutManager
+        studyListAdapter= CourseListAdapter(this,homeViewModel.studyCourseList)
+        binding.incldueStudy.rvStudyCourse.adapter=studyListAdapter
+        studyListAdapter.notifyDataSetChanged()
+
+        val teachLayoutManager=LinearLayoutManager(activity)
+        binding.incldueTeach.rvTeachCourse.layoutManager=teachLayoutManager
+        teachListAdapter= CourseListAdapter(this,homeViewModel.teachCourseList)
+        binding.incldueStudy.rvStudyCourse.adapter=teachListAdapter
+        teachListAdapter.notifyDataSetChanged()*/
+
         return root
-    }
-
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-
-//        val sectionsPagerAdapter =
-//            this.context?.let { parentFragmentManager?.let { it1 -> SectionsPagerAdapter(it, it1) } }
-//        val viewPager: ViewPager = binding.viewPager
-//        viewPager.adapter = sectionsPagerAdapter
-//        val tabs: TabLayout = binding.tabs
-//        tabs.setupWithViewPager(viewPager)
-        Log.d("HomeFragmentLife","onActivityCreated")
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
-        Log.d("HomeFragmentLife","onDestroy")
         _binding = null
     }
 
-    override fun onDetach() {
-        Log.d("HomeFragmentLife","onDetach")
-        super.onDetach()
-    }
 }

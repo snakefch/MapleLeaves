@@ -14,6 +14,7 @@ import androidx.lifecycle.ViewModelProviders
 import com.example.mapleleaves.MainActivity
 import com.example.mapleleaves.databinding.ActivityLoginBinding
 import com.example.mapleleaves.logic.Repository
+import com.example.mapleleaves.logic.model.User
 import com.example.mapleleaves.ui.place.PlaceViewModel
 import com.example.mapleleaves.utils.LogUtil
 import com.permissionx.guolindev.PermissionX
@@ -62,11 +63,14 @@ class LoginActivity : AppCompatActivity() {
             }
 
 
-        val sp=getSharedPreferences("user", MODE_PRIVATE)
-        val isRemember=sp.getBoolean("remember_password",false)
+        /*val sp=getSharedPreferences("user", MODE_PRIVATE)
+        val isRemember=sp.getBoolean("remember_password",false)*/
+        val isRemember=Repository.getRememberPassword()
         if (isRemember){
-            val userName=sp.getString("userName","")
-            val password=sp.getString("password","")
+            /*val userName=sp.getString("userName","")
+            val password=sp.getString("password","")*/
+            val userName=Repository.getUser().userName
+            val password=Repository.getUser().password
             binding.tvUserName.setText(userName)
             binding.tvPassword.setText(password)
             binding.cbRememberPass.isChecked=true
@@ -86,15 +90,18 @@ class LoginActivity : AppCompatActivity() {
 //                Toast.makeText(applicationContext,"用户名不规范", Toast.LENGTH_SHORT).show()
 //                return@setOnClickListener
 //            }
-            val editor=sp.edit()
+           // val editor=sp.edit()
             if (binding.cbRememberPass.isChecked){
-                editor.putBoolean("remember_password",true)
+                /*editor.putBoolean("remember_password",true)
                 editor.putString("userName",userName)
-                editor.putString("password",password)
+                editor.putString("password",password)*/
+                Repository.saveRememberPassword(true)
+                Repository.saveUser(User(userName,password))
             }else{
-                editor.clear()
+                //editor.clear()
+                Repository.saveRememberPassword(false)
             }
-            editor.apply()
+           // editor.apply()
 
             //MainActivity.startMainActivity(this )
 

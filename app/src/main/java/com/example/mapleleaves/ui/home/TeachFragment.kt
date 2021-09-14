@@ -57,39 +57,7 @@ class TeachFragment : Fragment() {
         return binding.root
     }
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        Log.d(TAG,"onActivityCreated")
-        super.onActivityCreated(savedInstanceState)
-    }
-
-    override fun onStart() {
-        Log.d(TAG,"onStart")
-        super.onStart()
-    }
-
-    override fun onStop() {
-        Log.d(TAG,"onStop")
-        super.onStop()
-    }
-
-    override fun onResume() {
-        Log.d(TAG,"onResume")
-        super.onResume()
-    }
-
-    override fun onPause() {
-        Log.d(TAG,"onPause")
-        super.onPause()
-    }
-
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
-    }
-
     companion object {
-
-        private const val TAG="TeachFragment"
 
         /**
          * The fragment argument representing the section number for this

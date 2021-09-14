@@ -78,18 +78,6 @@ class PlaceFragment:Fragment() {
             }
         })
 
-        Log.d("PlaceFragmentLife","onActivityCreate")
-    }
-
-    override fun onDestroyView() {
-        super.onDestroyView()
-        Log.d("PlaceFragmentLife","onDestroy")
-        _binding = null
-    }
-
-    override fun onDetach() {
-        Log.d("PlaceFragmentLife","onDetach")
-        super.onDetach()
     }
 
 }
