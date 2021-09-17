@@ -6,18 +6,24 @@ import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProviders
 import com.example.mapleleaves.MainActivity
 import com.example.mapleleaves.R
 import com.example.mapleleaves.databinding.ActivityCheckWorkAttendanceBinding
 import com.example.mapleleaves.databinding.ActivityCourseBinding
+import com.example.mapleleaves.logic.model.CoursesAttendedResponse
 import com.example.mapleleaves.ui.checkWorkAttendance.CheckWorkAttendanceActivity
 import com.example.mapleleaves.utils.MyObserver
+import com.google.gson.Gson
 
 class CourseActivity : AppCompatActivity() {
 
     lateinit var binding: ActivityCourseBinding
 
     private val TAG=this::class.java.simpleName
+
+    private val courseViewModel by lazy { ViewModelProviders.of(this).get(CourseViewModel::class.java) }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -41,6 +47,26 @@ class CourseActivity : AppCompatActivity() {
         注意： fitsSystemWindows只作用在Android4.4及以上的系统，因为4.4以下的系统StatusBar没有透明状态。
          */
 
+        val jsonData=intent.getStringExtra("courseData")
+        val courseData=Gson().fromJson(jsonData,CoursesAttendedResponse.Data::class.java)
+        courseViewModel.saveCourseData(courseData)
+        courseViewModel.courseLiveData.observe(this, Observer {
+            binding.apply {
+                tvCourseName.text=it.name
+                tvCourseCode.text=it.id
+                tvCourseMemberCount.text= it.number.toString()+"人"
+
+            }
+        })
+
+        //上面与这里的区别？哪个好？
+        /*binding.apply {
+            tvCourseName.text=courseData.name
+            tvCourseCode.text=courseData.id
+            tvCourseMemberCount.text= courseData.number.toString()+"人"
+
+        }*/
+
         binding.ivCheckWork.setOnClickListener {
             CheckWorkAttendanceActivity.startActivity(this)
         }
@@ -49,9 +75,10 @@ class CourseActivity : AppCompatActivity() {
     }
 
     companion object {
-        fun startCourseActivity(context: Context){
-            val intent= Intent(context, CourseActivity::class.java)
-            //intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+        fun startCourseActivity(context: Context,courseData:CoursesAttendedResponse.Data){
+            val intent= Intent(context, CourseActivity::class.java).apply {
+                putExtra("courseData",Gson().toJson(courseData))
+            }
             context.startActivity(intent)
         }
     }

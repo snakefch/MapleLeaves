@@ -16,6 +16,7 @@ import com.example.mapleleaves.databinding.ActivityLoginBinding
 import com.example.mapleleaves.logic.Repository
 import com.example.mapleleaves.logic.model.User
 import com.example.mapleleaves.ui.place.PlaceViewModel
+import com.example.mapleleaves.ui.register.RegisterActivity
 import com.example.mapleleaves.utils.LogUtil
 import com.example.mapleleaves.utils.MyObserver
 import com.permissionx.guolindev.PermissionX
@@ -106,17 +107,19 @@ class LoginActivity : AppCompatActivity() {
             }
            // editor.apply()
 
-            //MainActivity.startMainActivity(this )
-
             viewModel.postLogin(userName,password)
-
-            lifecycle.addObserver(MyObserver(TAG))
 
            // val intent=Intent(this, MainActivity::class.java)
            // startActivity(intent)
             // editor.commit()//commit 与 apply有所区别
             //login()
             //finish()
+        }
+
+        lifecycle.addObserver(MyObserver(TAG))
+
+        binding.tvRegister.setOnClickListener {
+            RegisterActivity.startActivity(this)
         }
 //        binding.loginTest.setOnClickListener {
 ////            val data =Repository.postLogin("1800301333","123456")

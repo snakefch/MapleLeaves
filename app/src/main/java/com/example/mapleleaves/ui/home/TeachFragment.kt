@@ -6,10 +6,12 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.mapleleaves.R
 import com.example.mapleleaves.databinding.FragmentTeachBinding
+import com.example.mapleleaves.utils.LogUtil
 import com.example.mapleleaves.utils.MyObserver
 
 // TODO: Rename parameter arguments, choose names that match
@@ -27,7 +29,7 @@ class TeachFragment : Fragment() {
     private var _binding:FragmentTeachBinding?=null
     private val binding get() = _binding!!
 
-    private val homeViewModel by lazy { ViewModelProviders.of(this).get(HomeViewModel::class.java) }
+    private val teacherViewModel by lazy { ViewModelProviders.of(this).get(TeachViewModel::class.java) }
     private lateinit var teachListAdapter: CourseListAdapter
 
     private val TAG=this::class.java.simpleName
@@ -50,9 +52,23 @@ class TeachFragment : Fragment() {
 
         val layoutManager= LinearLayoutManager(activity)
         binding.rvTeachCourse.layoutManager=layoutManager
-        teachListAdapter= CourseListAdapter(this,homeViewModel.teachCourseList)
-        binding.rvTeachCourse.adapter=teachListAdapter
-        teachListAdapter.notifyDataSetChanged()
+
+        teacherViewModel.setTeacherId("1800301331")
+
+        teacherViewModel.teaCoursesLiveData.observe(viewLifecycleOwner, Observer { result->
+            val teaCourses=result.getOrNull()
+            if (teaCourses!=null){
+                LogUtil.d(TAG,teaCourses.toString())
+                teacherViewModel.teachCoursesList.addAll(teaCourses)
+                teachListAdapter= CourseListAdapter(this,teacherViewModel.teachCoursesList)
+                binding.rvTeachCourse.adapter=teachListAdapter
+                teachListAdapter.notifyDataSetChanged()
+            }else{
+                LogUtil.d(TAG,"课程数据为空")
+            }
+
+        })
+
         binding.tvCreateCourse.setOnClickListener {
 
         }

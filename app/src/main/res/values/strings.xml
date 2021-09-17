@@ -41,5 +41,6 @@
     <string name="create_course">创建课程</string>
     <string name="tab_text_1">我加入的课程</string>
     <string name="tab_text_2">我创建的课程</string>
+    <string name="register">注册</string>
 
 </resources>

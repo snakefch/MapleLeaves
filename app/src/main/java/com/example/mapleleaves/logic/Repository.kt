@@ -68,8 +68,8 @@ object Repository {
     fun getCoursesAttended(studentId:String)= fire(Dispatchers.IO){
         val coursesResponse=CourseNetwork.getCoursesAttended(studentId)
         if (coursesResponse.code=="200"){
-            val data=coursesResponse.msg
-            LogUtil.d("coursesResponse.msg",data)
+            val data=coursesResponse.data
+            LogUtil.d("coursesResponse.msg",data.toString())
             Result.success(data)
         }else{
             Result.failure(RuntimeException("response code is ${coursesResponse.code}"))

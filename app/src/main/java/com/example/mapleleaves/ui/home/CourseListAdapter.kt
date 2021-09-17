@@ -10,9 +10,10 @@ import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.mapleleaves.R
 import com.example.mapleleaves.logic.model.Course
+import com.example.mapleleaves.logic.model.CoursesAttendedResponse
 import com.example.mapleleaves.ui.course.CourseActivity
 
-class CourseListAdapter (private val fragment: Fragment, private val courseList: List<Course>):
+class CourseListAdapter (private val fragment: Fragment, private val courseList: List<CoursesAttendedResponse.Data>):
     RecyclerView.Adapter<CourseListAdapter.ViewHolder>(){
 
         inner class ViewHolder(view: View):RecyclerView.ViewHolder(view){
@@ -30,15 +31,15 @@ class CourseListAdapter (private val fragment: Fragment, private val courseList:
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val course=courseList[position]
-        holder.courseName.text=course.courseName
-        holder.courseDesc.text=course.courseDesc
-        holder.studentCount.text= course.studentcount.toString()+"人"
+        holder.courseName.text=course.name
+        holder.courseDesc.text=course.introduction
+        holder.studentCount.text= course.number.toString()+"人"
         holder.otherButton.setOnClickListener {
             //使用safeargs
             it.findNavController().navigate(HomeFragmentDirections.actionNavigationHomeToCourseManagementDialogFragment())
         }
         holder.itemView.setOnClickListener {
-            fragment.context?.let { context -> CourseActivity.startCourseActivity(context) }
+            fragment.context?.let { context -> CourseActivity.startCourseActivity(context,course) }
         }
     }
 

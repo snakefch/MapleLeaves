@@ -1,16 +1,15 @@
 package com.example.mapleleaves.ui.home
 
-import android.content.Context
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.mapleleaves.R
 import com.example.mapleleaves.databinding.FragmentStudyBinding
+import com.example.mapleleaves.utils.LogUtil
 import com.example.mapleleaves.utils.MyObserver
 
 // TODO: Rename parameter arguments, choose names that match
@@ -30,7 +29,7 @@ class StudyFragment : Fragment() {
 
     private val TAG=this::class.java.simpleName
 
-    private val homeViewModel by lazy { ViewModelProviders.of(this).get(HomeViewModel::class.java) }
+    private val studyViewModel by lazy { ViewModelProviders.of(this).get(StudyViewModel::class.java) }
     private lateinit var studyListAdapter: CourseListAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -52,9 +51,22 @@ class StudyFragment : Fragment() {
 
         val layoutManager=LinearLayoutManager(activity)
         binding.rvStudyCourse.layoutManager=layoutManager
-        studyListAdapter= CourseListAdapter(this,homeViewModel.studyCourseList)
-        binding.rvStudyCourse.adapter=studyListAdapter
-        studyListAdapter.notifyDataSetChanged()
+
+        studyViewModel.setStudentId("1800301331")
+
+        studyViewModel.stuCoursesLiveData.observe(viewLifecycleOwner, Observer { result->
+            val stuCourses=result.getOrNull()
+            if (stuCourses!=null){
+                LogUtil.d(TAG,stuCourses.toString())
+                studyViewModel.stuCoursesList.addAll(stuCourses)
+                studyListAdapter= CourseListAdapter(this,studyViewModel.stuCoursesList)
+                binding.rvStudyCourse.adapter=studyListAdapter
+                studyListAdapter.notifyDataSetChanged()
+            }else{
+                LogUtil.d(TAG,"课程数据为空")
+            }
+
+        })
 
         return binding.root
     }
