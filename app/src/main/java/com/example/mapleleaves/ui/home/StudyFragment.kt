@@ -53,11 +53,12 @@ class StudyFragment : Fragment() {
         val layoutManager=LinearLayoutManager(activity)
         binding.rvStudyCourse.layoutManager=layoutManager
 
-        studyViewModel.setStudentId("1800301331")
+        //studyViewModel.setStudentId(studyViewModel.getUserId())
 
         studyViewModel.stuCoursesLiveData.observe(viewLifecycleOwner, Observer { result->
             val stuCourses=result.getOrNull()
             if (stuCourses!=null){
+                studyViewModel.stuCoursesList.clear()
                 LogUtil.d(TAG,stuCourses.toString())
                 studyViewModel.stuCoursesList.addAll(stuCourses)
                 studyListAdapter= CourseListAdapter(this,studyViewModel.stuCoursesList)
@@ -74,6 +75,11 @@ class StudyFragment : Fragment() {
         }
 
         return binding.root
+    }
+
+    override fun onResume() {
+        super.onResume()
+        studyViewModel.setStudentId(studyViewModel.getUserId())
     }
 
     override fun onDestroyView() {

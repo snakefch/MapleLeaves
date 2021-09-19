@@ -16,6 +16,10 @@ class StudyViewModel:ViewModel() {
         Repository.getCoursesAttended(studentId)
     }
 
+    fun getUserId():String{
+        return Repository.getUser().id
+    }
+
     fun setStudentId(studentId:String){
         studentIdLiveData.value=studentId
     }
