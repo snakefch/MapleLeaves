@@ -1,3 +1,6 @@
 package com.example.mapleleaves.logic.model
 
-data class User(val userName:String,val password:String)
+import com.google.gson.annotations.SerializedName
+
+data class User(val id:String="", @SerializedName("username") val userName:String,
+                @SerializedName("password") val password:String, val name:String="", val gender:String="")

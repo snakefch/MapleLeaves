@@ -16,7 +16,7 @@ class LoginViewModel:ViewModel() {
     }
 
     fun postLogin(userName:String,password:String){
-        loginLiveData.value=User(userName,password)
+        loginLiveData.value=User(userName=userName,password=password)
     }
 
 }

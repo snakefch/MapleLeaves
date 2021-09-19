@@ -16,6 +16,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MapleLeaves">
         <activity
+            android:name=".ui.joinCourse.JoinCourseActivity"
+            android:exported="true" />
+        <activity
             android:name=".ui.register.RegisterActivity"
             android:exported="true" />
         <activity

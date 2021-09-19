@@ -95,16 +95,16 @@ class LoginActivity : AppCompatActivity() {
 //                return@setOnClickListener
 //            }
            // val editor=sp.edit()
-            if (binding.cbRememberPass.isChecked){
+            /*if (binding.cbRememberPass.isChecked){
                 /*editor.putBoolean("remember_password",true)
                 editor.putString("userName",userName)
                 editor.putString("password",password)*/
                 Repository.saveRememberPassword(true)
-                Repository.saveUser(User(userName,password))
+                Repository.saveUser(User(userName = userName,password = password))
             }else{
                 //editor.clear()
                 Repository.saveRememberPassword(false)
-            }
+            }*/
            // editor.apply()
 
             viewModel.postLogin(userName,password)
@@ -125,13 +125,20 @@ class LoginActivity : AppCompatActivity() {
 ////            val data =Repository.postLogin("1800301333","123456")
 ////            LogUtil.d("data",data.toString())
 //
-//            //需要使用下面这种方式，修改数据加监听组合，只修改数据无效；上面的方式无效
+//            //需要使用下面这种方式，修改数据加监听组合，只修改数据无效；上面的方式无效。仓库层只有ViewModel层持有，且为单向，例如
+//            仓库层不能持有ViewModel层的引用。并且引用不能跨层持有
 //            viewModel.postLogin("1800301333")
 //        }
 
         viewModel.userLiveData.observe(this, Observer { result->
             val userData=result.getOrNull()
             if (userData!=null){
+                if (binding.cbRememberPass.isChecked){
+                    Repository.saveRememberPassword(true)
+                    Repository.saveUser(User(userData.id,userData.userName,userData.password,userData.name,userData.gender))
+                }else{
+                    Repository.saveRememberPassword(false)
+                }
                 MainActivity.startMainActivity(this )
                 Log.d("用户数据",userData.toString())
             }else{
