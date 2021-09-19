@@ -1,6 +1,7 @@
 package com.example.mapleleaves.logic.network.course
 
 import com.example.mapleleaves.logic.model.CoursesAttendedResponse
+import com.example.mapleleaves.logic.model.JoinTheCourseResponse
 import com.example.mapleleaves.logic.model.UserResponse
 import retrofit2.Call
 import retrofit2.http.GET
@@ -15,5 +16,8 @@ interface UserService {
 
     @GET("getCoursesAttended?")
     fun getCoursesAttended(@Query("studentId") studentId:String):Call<CoursesAttendedResponse>
+
+    @POST("joinTheCourse?")
+    fun joinTheCourse(@Query("studentId") studentId: String,@Query("addClassCode") addClassCode:String):Call<JoinTheCourseResponse>
 
 }

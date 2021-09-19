@@ -17,6 +17,8 @@ object CourseNetwork {
 
     suspend fun getCoursesAttended(studentId:String)= userService.getCoursesAttended(studentId).await()
 
+    suspend fun joinTheCourse(studentId:String, addClassCode:String)= userService.joinTheCourse(studentId, addClassCode).await()
+
     private suspend fun <T> Call<T>.await():T{
 
         return suspendCoroutine { continuation ->

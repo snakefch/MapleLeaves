@@ -69,10 +69,21 @@ object Repository {
         val coursesResponse=CourseNetwork.getCoursesAttended(studentId)
         if (coursesResponse.code=="200"){
             val data=coursesResponse.data
-            LogUtil.d("coursesResponse.msg",data.toString())
+            LogUtil.d("coursesResponse.data",data.toString())
             Result.success(data)
         }else{
             Result.failure(RuntimeException("response code is ${coursesResponse.code}"))
+        }
+    }
+
+    fun joinTheCourse(studentId:String,addClassCode:String)= fire(Dispatchers.IO){
+        val joinTheCourseResponse=CourseNetwork.joinTheCourse(studentId,addClassCode)
+        if (joinTheCourseResponse.code=="200"){
+            val data=joinTheCourseResponse.code
+            LogUtil.d("joinTheCourseResponse.code",data)
+            Result.success(data)
+        }else{
+            Result.failure(RuntimeException("response code is ${joinTheCourseResponse.code}"))
         }
     }
 

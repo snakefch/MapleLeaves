@@ -9,7 +9,6 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.mapleleaves.R
-import com.example.mapleleaves.logic.model.Course
 import com.example.mapleleaves.logic.model.CoursesAttendedResponse
 import com.example.mapleleaves.ui.course.CourseActivity
 
@@ -18,7 +17,7 @@ class CourseListAdapter (private val fragment: Fragment, private val courseList:
 
         inner class ViewHolder(view: View):RecyclerView.ViewHolder(view){
             val courseName: TextView =view.findViewById(R.id.tv_course_name)
-            val courseDesc: TextView =view.findViewById(R.id.tv_course_desc)
+            val courseCode: TextView =view.findViewById(R.id.tv_course_code)
             val studentCount:TextView=view.findViewById(R.id.tv_student_count)
             val otherButton:ImageView=view.findViewById(R.id.iv_other_button)
         }
@@ -32,7 +31,7 @@ class CourseListAdapter (private val fragment: Fragment, private val courseList:
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val course=courseList[position]
         holder.courseName.text=course.name
-        holder.courseDesc.text=course.introduction
+        holder.courseCode.text=course.id
         holder.studentCount.text= course.number.toString()+"人"
         holder.otherButton.setOnClickListener {
             //使用safeargs

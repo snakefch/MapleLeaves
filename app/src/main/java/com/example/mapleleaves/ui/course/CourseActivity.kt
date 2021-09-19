@@ -54,6 +54,7 @@ class CourseActivity : AppCompatActivity() {
             binding.apply {
                 tvCourseName.text=it.name
                 tvCourseCode.text=it.id
+                tvAddCourseCode.text=it.addClassCode
                 tvCourseMemberCount.text= it.number.toString()+"人"
 
             }
