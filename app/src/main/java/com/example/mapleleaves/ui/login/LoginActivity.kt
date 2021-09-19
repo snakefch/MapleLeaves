@@ -13,7 +13,6 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.example.mapleleaves.MainActivity
 import com.example.mapleleaves.databinding.ActivityLoginBinding
-import com.example.mapleleaves.logic.Repository
 import com.example.mapleleaves.logic.model.User
 import com.example.mapleleaves.ui.place.PlaceViewModel
 import com.example.mapleleaves.ui.register.RegisterActivity
@@ -66,15 +65,10 @@ class LoginActivity : AppCompatActivity() {
                 }
             }
 
-
-        /*val sp=getSharedPreferences("user", MODE_PRIVATE)
-        val isRemember=sp.getBoolean("remember_password",false)*/
-        val isRemember=Repository.getRememberPassword()
+        val isRemember=viewModel.getRememberPassword()
         if (isRemember){
-            /*val userName=sp.getString("userName","")
-            val password=sp.getString("password","")*/
-            val userName=Repository.getUser().userName
-            val password=Repository.getUser().password
+            val userName=viewModel.getUser().userName
+            val password=viewModel.getUser().password
             binding.tvUserName.setText(userName)
             binding.tvPassword.setText(password)
             binding.cbRememberPass.isChecked=true
@@ -94,26 +88,9 @@ class LoginActivity : AppCompatActivity() {
 //                Toast.makeText(applicationContext,"用户名不规范", Toast.LENGTH_SHORT).show()
 //                return@setOnClickListener
 //            }
-           // val editor=sp.edit()
-            /*if (binding.cbRememberPass.isChecked){
-                /*editor.putBoolean("remember_password",true)
-                editor.putString("userName",userName)
-                editor.putString("password",password)*/
-                Repository.saveRememberPassword(true)
-                Repository.saveUser(User(userName = userName,password = password))
-            }else{
-                //editor.clear()
-                Repository.saveRememberPassword(false)
-            }*/
-           // editor.apply()
 
             viewModel.postLogin(userName,password)
 
-           // val intent=Intent(this, MainActivity::class.java)
-           // startActivity(intent)
-            // editor.commit()//commit 与 apply有所区别
-            //login()
-            //finish()
         }
 
         lifecycle.addObserver(MyObserver(TAG))
@@ -134,10 +111,10 @@ class LoginActivity : AppCompatActivity() {
             val userData=result.getOrNull()
             if (userData!=null){
                 if (binding.cbRememberPass.isChecked){
-                    Repository.saveRememberPassword(true)
-                    Repository.saveUser(User(userData.id,userData.userName,userData.password,userData.name,userData.gender))
+                    viewModel.saveRememberPassword(true)
+                    viewModel.saveUser(User(userData.id,userData.userName,userData.password,userData.name,userData.gender))
                 }else{
-                    Repository.saveRememberPassword(false)
+                    viewModel.saveRememberPassword(false)
                 }
                 MainActivity.startMainActivity(this )
                 Log.d("用户数据",userData.toString())

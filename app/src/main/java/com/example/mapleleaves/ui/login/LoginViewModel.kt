@@ -19,4 +19,12 @@ class LoginViewModel:ViewModel() {
         loginLiveData.value=User(userName=userName,password=password)
     }
 
+    fun getUser()=Repository.getUser()
+
+    fun getRememberPassword()=Repository.getRememberPassword()
+
+    fun saveRememberPassword(boolean: Boolean)=Repository.saveRememberPassword(boolean)
+
+    fun saveUser(user: User)=Repository.saveUser(user)
+
 }
