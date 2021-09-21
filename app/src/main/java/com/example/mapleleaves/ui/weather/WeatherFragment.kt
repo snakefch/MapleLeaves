@@ -70,7 +70,7 @@ class WeatherFragment:Fragment() {
     }
 
     fun refreshWeather(){
-        viewModel.getPlace().apply {
+        viewModel.getPlace()?.apply {
             viewModel.placeName=name
             location.apply {
                 viewModel.locationLat=lat

@@ -14,9 +14,9 @@ object PlaceDao {
         }
     }
 
-    fun getPlace(): Place {
+    fun getPlace(): Place? {
         val placeJson= sharedPreferences().getString("place","")
-        return Gson().fromJson(placeJson, Place::class.java)
+        return if(placeJson!="") Gson().fromJson(placeJson, Place::class.java) else null
     }
 
     fun isPlaceSaved()= sharedPreferences().contains("place")
