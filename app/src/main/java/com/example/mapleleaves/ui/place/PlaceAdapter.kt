@@ -25,7 +25,8 @@ class PlaceAdapter(private val fragment: PlaceFragment, private val placeList:Li
             val position=holder.adapterPosition
             val place=placeList[position]
 
-            val activity=fragment.activity
+            //第一种方式，启动activity显示天气
+           /* val activity=fragment.activity
             if (activity is WeatherActivity){
                 activity.binding.drawerLayout.closeDrawers()
                 activity.viewModel.locationLng=place.location.lng
@@ -40,8 +41,11 @@ class PlaceAdapter(private val fragment: PlaceFragment, private val placeList:Li
                 }
                 fragment.startActivity(intent)
                 //fragment.activity?.finish()
-            }
+            }*/
+
+            //第二钟方式，使用子Fragment显示天气
             fragment.viewModel.savePlace(place)
+            fragment.stopSearch()
         }
 
         return holder

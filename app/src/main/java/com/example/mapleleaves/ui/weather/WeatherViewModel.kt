@@ -25,4 +25,6 @@ class WeatherViewModel:ViewModel() {
         locationLiveData.value= Location(lng,lat)
     }
 
+    fun getPlace()=Repository.getPlace()
+
 }

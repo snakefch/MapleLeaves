@@ -13,22 +13,22 @@
         android:contentDescription="@string/fp_contentDescription" />
 
     <FrameLayout
+        android:id="@+id/actionBarLayout"
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:id="@+id/actionBarLayout"
         android:background="@color/theme">
 
         <EditText
+            android:id="@+id/searchPlaceEdit"
             android:layout_width="match_parent"
             android:layout_height="40dp"
-            android:id="@+id/searchPlaceEdit"
             android:layout_gravity="center_vertical"
             android:layout_marginStart="10dp"
             android:layout_marginEnd="10dp"
-            android:paddingStart="10dp"
-            android:paddingEnd="10dp"
+            android:background="@drawable/search_bg"
             android:hint="@string/fp_hint"
-            android:background="@drawable/search_bg" />
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp" />
 
     </FrameLayout>
 
@@ -38,5 +38,17 @@
         android:id="@+id/recyclerView"
         android:layout_below="@+id/actionBarLayout"
         android:visibility="gone"/>
+
+    <FrameLayout
+        android:id="@+id/frame_layout_weather"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/actionBarLayout">
+        <fragment
+            android:id="@+id/weatherFragment"
+            android:name="com.example.mapleleaves.ui.weather.WeatherFragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </FrameLayout>
 
 </RelativeLayout>

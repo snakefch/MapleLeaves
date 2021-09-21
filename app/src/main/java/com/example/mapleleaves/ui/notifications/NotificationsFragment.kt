@@ -10,6 +10,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.example.mapleleaves.R
 import com.example.mapleleaves.databinding.FragmentNotificationsBinding
+import com.example.mapleleaves.ui.weather.WeatherFragment
 import com.example.mapleleaves.utils.MyObserver
 
 class NotificationsFragment : Fragment() {
@@ -39,10 +40,14 @@ class NotificationsFragment : Fragment() {
         _binding = FragmentNotificationsBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        val textView: TextView = binding.textNotifications
-        notificationsViewModel.text.observe(viewLifecycleOwner, Observer {
-            textView.text = it
-        })
+        //测试使用子fragment显示天气数据
+        //如何获取子Fragment的实例，并调用其方法
+//        val weatherFragment=childFragmentManager.findFragmentById(R.id.weatherFragment) as WeatherFragment
+//        binding.btTest.setOnClickListener {
+//            weatherFragment.refreshWeather()
+//            binding.frameLayoutWeather.visibility=View.GONE
+//        }
+
         return root
     }
 

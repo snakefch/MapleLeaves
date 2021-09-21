@@ -1,20 +1,21 @@
 package com.example.mapleleaves.ui.place
 
-import android.content.Intent
+import android.content.Context
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
 import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.mapleleaves.MainActivity
+import com.example.mapleleaves.R
 import com.example.mapleleaves.databinding.FragmentPlaceBinding
-import com.example.mapleleaves.ui.weather.WeatherActivity
+import com.example.mapleleaves.ui.weather.WeatherFragment
 
 class PlaceFragment:Fragment() {
 
@@ -59,6 +60,7 @@ class PlaceFragment:Fragment() {
             }   else{
                 binding.recyclerView.visibility=View.GONE
                 binding.bgImageView.visibility=View.VISIBLE
+                binding.frameLayoutWeather.visibility=View.VISIBLE
                 viewModel.placeList.clear()
                 adapter.notifyDataSetChanged()
             }
@@ -69,6 +71,7 @@ class PlaceFragment:Fragment() {
             if (places!=null){
                 binding.recyclerView.visibility=View.VISIBLE
                 binding.bgImageView.visibility=View.GONE
+                binding.frameLayoutWeather.visibility=View.GONE
                 viewModel.placeList.clear()
                 viewModel.placeList.addAll(places)
                 adapter.notifyDataSetChanged()
@@ -78,6 +81,22 @@ class PlaceFragment:Fragment() {
             }
         })
 
+    }
+
+    fun stopSearch(){
+        //收起软键盘
+        val inputMethodManager= context?.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+        inputMethodManager.hideSoftInputFromWindow(binding.searchPlaceEdit.windowToken,0)
+        //清空editText内容
+        binding.searchPlaceEdit.setText("")
+        //获取WeatherFragment实例，并调用其refreshWeather()方法刷新天气
+        val weatherFragment=childFragmentManager.findFragmentById(R.id.weatherFragment) as WeatherFragment
+        weatherFragment.refreshWeather()
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 
 }
