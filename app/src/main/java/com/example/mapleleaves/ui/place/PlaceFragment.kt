@@ -1,6 +1,7 @@
 package com.example.mapleleaves.ui.place
 
 import android.content.Context
+import android.graphics.Color
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -32,6 +33,12 @@ class PlaceFragment:Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         _binding= FragmentPlaceBinding.inflate(inflater,container,false)
+
+        activity?.window?.let {
+            it.decorView.systemUiVisibility=View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN or View.SYSTEM_UI_FLAG_LAYOUT_STABLE
+            it.statusBarColor= Color.TRANSPARENT
+        }
+
         return binding.root
     }
 
@@ -53,11 +60,15 @@ class PlaceFragment:Fragment() {
         adapter= PlaceAdapter(this,viewModel.placeList)
         binding.recyclerView.adapter=adapter
         binding.searchPlaceEdit.addTextChangedListener { editable->
+            binding.actionBarLayout.setBackgroundColor(resources.getColor(R.color.theme))
+            activity?.window?.statusBarColor=resources.getColor(R.color.theme)
             val content=editable.toString()
             if (content.isNotEmpty()){
                 viewModel.searchPlaces(content)
                 Log.d("PlaceFragmentContent",content)
             }   else{
+                binding.actionBarLayout.setBackgroundColor(Color.TRANSPARENT)
+                activity?.window?.statusBarColor=Color.TRANSPARENT
                 binding.recyclerView.visibility=View.GONE
                 binding.bgImageView.visibility=View.VISIBLE
                 binding.frameLayoutWeather.visibility=View.VISIBLE
