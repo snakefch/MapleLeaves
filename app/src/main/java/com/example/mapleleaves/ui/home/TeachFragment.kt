@@ -11,6 +11,7 @@ import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.mapleleaves.R
 import com.example.mapleleaves.databinding.FragmentTeachBinding
+import com.example.mapleleaves.ui.createCourse.CreateCourseActivity
 import com.example.mapleleaves.utils.LogUtil
 import com.example.mapleleaves.utils.MyObserver
 
@@ -70,7 +71,7 @@ class TeachFragment : Fragment() {
         })
 
         binding.tvCreateCourse.setOnClickListener {
-
+            context?.let { it1 -> CreateCourseActivity.startCreateCourseActivity(it1) }
         }
 
         return binding.root

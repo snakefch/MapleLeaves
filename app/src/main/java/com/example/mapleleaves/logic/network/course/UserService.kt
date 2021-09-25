@@ -1,13 +1,8 @@
 package com.example.mapleleaves.logic.network.course
 
-import com.example.mapleleaves.logic.model.CoursesAttendedResponse
-import com.example.mapleleaves.logic.model.JoinTheCourseResponse
-import com.example.mapleleaves.logic.model.UserResponse
+import com.example.mapleleaves.logic.model.*
 import retrofit2.Call
-import retrofit2.http.GET
-import retrofit2.http.POST
-import retrofit2.http.Path
-import retrofit2.http.Query
+import retrofit2.http.*
 
 interface UserService {
 
@@ -20,4 +15,7 @@ interface UserService {
     @POST("joinTheCourse?")
     fun joinTheCourse(@Query("studentId") studentId: String,@Query("addClassCode") addClassCode:String):Call<JoinTheCourseResponse>
 
+    //创建课堂
+    @POST("createCourse")
+    fun createCourse(@Body course: CourseForCreate):Call<CourseForCreateResponse>
 }

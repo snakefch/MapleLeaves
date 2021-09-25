@@ -38,9 +38,9 @@
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:layout_gravity="center_vertical"
-            android:layout_marginStart="10dp"
-            android:layout_marginEnd="10dp"
-            android:background="@drawable/search_bg"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:background="@drawable/shape_edit_transparent_all_circle"
             android:hint="@string/fp_hint"
             android:paddingStart="10dp"
             android:paddingEnd="10dp" />

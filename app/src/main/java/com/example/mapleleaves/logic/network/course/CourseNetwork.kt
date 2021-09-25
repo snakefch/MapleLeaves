@@ -1,6 +1,7 @@
 package com.example.mapleleaves.logic.network.course
 
 import android.util.Log
+import com.example.mapleleaves.logic.model.CourseForCreate
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -18,6 +19,8 @@ object CourseNetwork {
     suspend fun getCoursesAttended(studentId:String)= userService.getCoursesAttended(studentId).await()
 
     suspend fun joinTheCourse(studentId:String, addClassCode:String)= userService.joinTheCourse(studentId, addClassCode).await()
+
+    suspend fun createCourse(courseForCreate: CourseForCreate)= userService.createCourse(courseForCreate).await()
 
     private suspend fun <T> Call<T>.await():T{
 

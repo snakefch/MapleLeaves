@@ -4,6 +4,7 @@ import android.util.Log
 import androidx.lifecycle.liveData
 import com.example.mapleleaves.logic.dao.PlaceDao
 import com.example.mapleleaves.logic.dao.UserDao
+import com.example.mapleleaves.logic.model.CourseForCreate
 import com.example.mapleleaves.logic.model.Place
 import com.example.mapleleaves.logic.model.User
 import com.example.mapleleaves.logic.model.Weather
@@ -84,6 +85,16 @@ object Repository {
             Result.success(data)
         }else{
             Result.failure(RuntimeException("response code is ${joinTheCourseResponse.code}"))
+        }
+    }
+
+    fun createCourse(courseForCreate: CourseForCreate)= fire(Dispatchers.IO){
+        val courseForCreateResponse = CourseNetwork.createCourse(courseForCreate)
+        if(courseForCreateResponse.code=="200"){
+            val data=courseForCreateResponse.code
+            Result.success(data)
+        }else{
+            Result.failure(RuntimeException("response code is ${courseForCreateResponse.code}"))
         }
     }
 

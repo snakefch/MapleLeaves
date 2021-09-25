@@ -9,6 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
+import androidx.core.app.ActivityCompat
 import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
@@ -66,7 +67,9 @@ class PlaceFragment:Fragment() {
             if (content.isNotEmpty()){
                 viewModel.searchPlaces(content)
                 Log.d("PlaceFragmentContent",content)
+                binding.searchPlaceEdit.background= context?.let { ActivityCompat.getDrawable(it,R.drawable.shape_edit_all_circular) }
             }   else{
+                binding.searchPlaceEdit.background=context?.let { ActivityCompat.getDrawable(it,R.drawable.shape_edit_transparent_all_circle) }
                 binding.actionBarLayout.setBackgroundColor(Color.TRANSPARENT)
                 activity?.window?.statusBarColor=Color.TRANSPARENT
                 binding.recyclerView.visibility=View.GONE
