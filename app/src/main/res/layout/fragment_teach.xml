@@ -31,11 +31,12 @@
         app:layout_constraintEnd_toEndOf="parent"
         android:textColor="@color/theme"
         android:textSize="16sp"/>
-
+<!--recycleView下界不确定会导致最后一个自子项显示不全？？,设置高度为wrap_content导致显示不全，可能会跟随父布局超出屏幕
+且recycleView的高度超过父布局的高度也会导致最后一个自子项显示不全-->
     <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
+        android:layout_height="300dp"
+        android:layout_marginTop="20dp"
         android:id="@+id/rv_teach_course"
         app:layout_constraintTop_toBottomOf="@id/tv_my_teach_course"
         app:layout_constraintEnd_toEndOf="parent"
