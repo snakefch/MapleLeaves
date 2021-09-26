@@ -44,6 +44,11 @@ class TeachFragment : Fragment() {
         lifecycle.addObserver(MyObserver(TAG))
     }
 
+    override fun onResume() {
+        super.onResume()
+        teacherViewModel.refresh()
+    }
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -55,12 +60,13 @@ class TeachFragment : Fragment() {
         binding.rvTeachCourse.layoutManager=layoutManager
 
        // teacherViewModel.setTeacherId(teacherViewModel.getTeacherId())
-        teacherViewModel.refresh()
+//        teacherViewModel.refresh()
 
         teacherViewModel.teaCoursesLiveData.observe(viewLifecycleOwner, Observer { result->
             val teaCourses=result.getOrNull()
             if (teaCourses!=null){
                 LogUtil.d(TAG,teaCourses.toString())
+                teacherViewModel.teachCoursesList.clear()
                 teacherViewModel.teachCoursesList.addAll(teaCourses)
                 teachListAdapter= CourseListAdapter(this,teacherViewModel.teachCoursesList)
                 binding.rvTeachCourse.adapter=teachListAdapter
