@@ -14,6 +14,7 @@ import com.example.mapleleaves.utils.LogUtil
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.async
 import kotlinx.coroutines.coroutineScope
+import okhttp3.Dispatcher
 import kotlin.Exception
 import kotlin.coroutines.CoroutineContext
 
@@ -95,6 +96,18 @@ object Repository {
             Result.success(data)
         }else{
             Result.failure(RuntimeException("response code is ${courseForCreateResponse.code}"))
+        }
+    }
+
+    //获取创建课程数据
+    fun getCoursesCreated(id:String)= fire(Dispatchers.IO){
+        val coursesResponse=CourseNetwork.getCoursesCreated(id)
+        if (coursesResponse.code=="200"){
+            val data=coursesResponse.data
+            LogUtil.d("coursesResponse.data",data.toString())
+            Result.success(data)
+        }else{
+            Result.failure(RuntimeException("response code is ${coursesResponse.code}"))
         }
     }
 

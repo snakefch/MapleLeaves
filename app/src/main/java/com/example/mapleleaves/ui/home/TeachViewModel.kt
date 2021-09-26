@@ -13,12 +13,19 @@ class TeachViewModel:ViewModel() {
     private val teacherIdLiveData= MutableLiveData<String>()
 
     val teaCoursesLiveData= Transformations.switchMap(teacherIdLiveData){ teacherId->
-        Repository.getCoursesAttended(teacherId)
+        Repository.getCoursesCreated(teacherId)
     }
 
     fun setTeacherId(teacherId:String){
         teacherIdLiveData.value=teacherId
     }
 
+    fun getTeacherId():String{
+        return Repository.getUser().id
+    }
+
+    fun refresh(){
+        teacherIdLiveData.value=Repository.getUser().id
+    }
 
 }

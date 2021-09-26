@@ -54,7 +54,8 @@ class TeachFragment : Fragment() {
         val layoutManager= LinearLayoutManager(activity)
         binding.rvTeachCourse.layoutManager=layoutManager
 
-        teacherViewModel.setTeacherId("1800301331")
+       // teacherViewModel.setTeacherId(teacherViewModel.getTeacherId())
+        teacherViewModel.refresh()
 
         teacherViewModel.teaCoursesLiveData.observe(viewLifecycleOwner, Observer { result->
             val teaCourses=result.getOrNull()
