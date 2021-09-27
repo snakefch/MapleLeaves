@@ -1,5 +1,6 @@
 package com.example.mapleleaves.ui.place
 
+import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Transformations
 import androidx.lifecycle.ViewModel
@@ -13,6 +14,7 @@ class PlaceViewModel:ViewModel() {
     val placeList=ArrayList<Place>()
 
     val placeLiveData=Transformations.switchMap(searchLiveData){ query->
+        Log.d("查询值","$query")
         Repository.searchPlaces(query)
 
     }
