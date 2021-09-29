@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.mapleleaves.R
 import com.example.mapleleaves.logic.model.CoursesAttendedResponse
 import com.example.mapleleaves.ui.course.CourseActivity
+import com.example.mapleleaves.ui.course.TeacherCourseActivity
 
 class CourseListAdapter (private val fragment: Fragment, private val courseList: List<CoursesAttendedResponse.Data>):
     RecyclerView.Adapter<CourseListAdapter.ViewHolder>(){
@@ -35,10 +36,16 @@ class CourseListAdapter (private val fragment: Fragment, private val courseList:
         holder.studentCount.text= course.number.toString()+"人"
         holder.otherButton.setOnClickListener {
             //使用safeargs
-            it.findNavController().navigate(HomeFragmentDirections.actionNavigationHomeToCourseManagementDialogFragment())
+            //在使用safeargs的2.3.5和2.4.0-alpha01传递参数时，不知从何而来，构建正在崩溃与导航组件相关的一个奇怪的错误，
+            // 即使它以前工作过，错误是在生成的类HomeFragmentDirections,更新safeArg插件到2.4.0-alpha04，摆脱错误消息。
+            it.findNavController().navigate(HomeFragmentDirections.actionNavigationHomeToCourseManagementDialogFragment(course.id.toLong()))
         }
         holder.itemView.setOnClickListener {
-            fragment.context?.let { context -> CourseActivity.startCourseActivity(context,course) }
+            fragment.context?.let { context ->
+                //将判断放到里面可以减少重复判断fragment.context?
+                if (fragment is StudyFragment) CourseActivity.startCourseActivity(context,course)
+                else TeacherCourseActivity.startTeacherCourseActivity(context,course)
+            }
         }
     }
 

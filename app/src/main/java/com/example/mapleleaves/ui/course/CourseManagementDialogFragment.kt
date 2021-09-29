@@ -8,10 +8,12 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.navArgs
 import com.example.mapleleaves.R
 import com.example.mapleleaves.databinding.ActivityMainBinding.inflate
 import com.example.mapleleaves.databinding.CourseManagementDialogFragmentBinding
 import com.example.mapleleaves.ui.course.CourseManagementDialogViewModel
+import com.example.mapleleaves.utils.LogUtil
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 
 class CourseManagementDialogFragment : BottomSheetDialogFragment() {
@@ -33,6 +35,12 @@ class CourseManagementDialogFragment : BottomSheetDialogFragment() {
 
         _binding = CourseManagementDialogFragmentBinding.inflate(inflater, container, false)
         val root: View = binding.root
+
+        val args:CourseManagementDialogFragmentArgs by navArgs()
+
+        if (args.itemId>0){
+            LogUtil.d("args.itemId:","${args.itemId}")
+        }
 
         return root
     }
