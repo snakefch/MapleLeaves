@@ -8,6 +8,8 @@ import com.example.mapleleaves.logic.model.CourseForCreate
 import com.example.mapleleaves.logic.model.Place
 import com.example.mapleleaves.logic.model.User
 import com.example.mapleleaves.logic.model.Weather
+import com.example.mapleleaves.logic.model.body.SignInByStudentBody
+import com.example.mapleleaves.logic.model.body.StartCheckInBody
 import com.example.mapleleaves.logic.network.SunnyWeatherNetwork
 import com.example.mapleleaves.logic.network.course.CourseNetwork
 import com.example.mapleleaves.utils.LogUtil
@@ -15,6 +17,8 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.async
 import kotlinx.coroutines.coroutineScope
 import okhttp3.Dispatcher
+import retrofit2.http.Body
+import retrofit2.http.Query
 import kotlin.Exception
 import kotlin.coroutines.CoroutineContext
 
@@ -89,6 +93,30 @@ object Repository {
         }
     }
 
+    //退出课堂
+    fun quitTheCourse(studentId: String,courseId: String)= fire(Dispatchers.IO){
+        val quitTheCourseResponse=CourseNetwork.quitTheCourse(studentId, courseId)
+        if (quitTheCourseResponse.code=="200"){
+            val data=quitTheCourseResponse.code
+            LogUtil.d("quitTheCourseResponseCode",data)
+            Result.success(data)
+        }else{
+            Result.failure(RuntimeException("response code is ${quitTheCourseResponse.code}"))
+        }
+    }
+
+    //学生签到
+    fun signInByStudent(signInByStudentBody: SignInByStudentBody)= fire(Dispatchers.IO){
+        val genericResponse=CourseNetwork.signInByStudent(signInByStudentBody)
+        if (genericResponse.code=="200"){
+            val data=genericResponse.code
+            LogUtil.d("genericResponse.code",data)
+            Result.success(data)
+        }else{
+            Result.failure(RuntimeException("response code is ${genericResponse.code}"))
+        }
+    }
+
     fun createCourse(courseForCreate: CourseForCreate)= fire(Dispatchers.IO){
         val courseForCreateResponse = CourseNetwork.createCourse(courseForCreate)
         if(courseForCreateResponse.code=="200"){
@@ -108,6 +136,65 @@ object Repository {
             Result.success(data)
         }else{
             Result.failure(RuntimeException("response code is ${coursesResponse.code}"))
+        }
+    }
+
+    //删除创建的课程
+    fun removeCourseCreated(id:String)= fire(Dispatchers.IO){
+        val removeCourseCreatedResponse=CourseNetwork.removeCourseCreated(id)
+        if (removeCourseCreatedResponse.code=="200"){
+            val data=removeCourseCreatedResponse.code
+            Result.success(data)
+        }else{
+            Result.failure(RuntimeException("response code is ${removeCourseCreatedResponse.code}"))
+        }
+    }
+
+    //开始签到
+    fun startSignIn(startCheckInBody: StartCheckInBody)= fire(Dispatchers.IO){
+        val genericResponse=CourseNetwork.startSignIn(startCheckInBody)
+        if (genericResponse.code=="200"){
+            val data=genericResponse.code
+            LogUtil.d("genericResponse.code",data)
+            Result.success(data)
+        }else{
+            Result.failure(RuntimeException("response code is ${genericResponse.code}"))
+        }
+    }
+
+    //停止签到
+    fun stopSignIn(signInId:String)= fire(Dispatchers.IO){
+        val genericResponse=CourseNetwork.stopSignIn(signInId)
+        if (genericResponse.code=="200"){
+            val data=genericResponse.code
+            LogUtil.d("genericResponse.code",data)
+            Result.success(data)
+        }else{
+            Result.failure(RuntimeException("response code is ${genericResponse.code}"))
+        }
+    }
+
+    //老师获取签到记录
+    fun getSignInByTeacher(teacherId:String, courseId:String)= fire(Dispatchers.IO){
+        val getSignInByTeacherResponse=CourseNetwork.getSignInByTeacher(teacherId, courseId)
+        if (getSignInByTeacherResponse.code=="200"){
+            val data=getSignInByTeacherResponse.data
+            LogUtil.d("getSignInByTeacherResponse.data",data.toString())
+            Result.success(data)
+        }else{
+            Result.failure(RuntimeException("response code is ${getSignInByTeacherResponse.code}"))
+        }
+    }
+
+    //老师获取学生具体签到记录
+    fun getStudentSignInByTeacher(signInId: String)= fire(Dispatchers.IO){
+        val getStudentSignInByTeacherResponse=CourseNetwork.getStudentSignInByTeacher(signInId)
+        if (getStudentSignInByTeacherResponse.code=="200"){
+            val data=getStudentSignInByTeacherResponse.data
+            LogUtil.d("getStudentSignInByTeacherResponse.data",data.toString())
+            Result.success(data)
+        }else{
+            Result.failure(RuntimeException("response code is ${getStudentSignInByTeacherResponse.code}"))
         }
     }
 
@@ -133,5 +220,4 @@ object Repository {
 
     fun saveRememberPassword(boolean: Boolean)= UserDao.saveRememberPassword(boolean)
     fun getRememberPassword()= UserDao.getRememberPassword()
-
 }

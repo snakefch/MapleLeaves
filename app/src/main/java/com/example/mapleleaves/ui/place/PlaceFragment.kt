@@ -73,7 +73,7 @@ class PlaceFragment:Fragment() {
                 viewModel.searchPlaces(content)
                 binding.searchPlaceEdit.background= context?.let { ActivityCompat.getDrawable(it,R.drawable.shape_edit_all_circular) }
             }   else{
-                LogUtil.d(TAG,"搜索内容改变：$content")
+                LogUtil.d(TAG,"搜索内容改变为空：$content")
                 binding.searchPlaceEdit.background=context?.let { ActivityCompat.getDrawable(it,R.drawable.shape_edit_transparent_all_circle) }
                 binding.actionBarLayout.setBackgroundColor(Color.TRANSPARENT)
                 activity?.window?.statusBarColor=Color.TRANSPARENT
@@ -86,7 +86,7 @@ class PlaceFragment:Fragment() {
         }
         //viewLifecycleOwner 代替this
         viewModel.placeLiveData.observe(viewLifecycleOwner, Observer { result->
-            val places=result.getOrNull()
+            var places=result.getOrNull()
             if (places!=null){
                 LogUtil.d(TAG,"place不为空$places")
                 binding.recyclerView.visibility=View.VISIBLE
@@ -105,7 +105,7 @@ class PlaceFragment:Fragment() {
 
     override fun onResume() {
         super.onResume()
-        //解决place页面返回时，editText状态由“”变为“”，而placeLivedata监听事件触发，并得到上一次的结果，导致天气页面不显示的Bug,Bug具体原因未知！！！
+        //B01第一种方案:粗暴解决place页面返回时，editText状态由“”变为“”，而placeLivedata监听事件触发，并得到上一次的结果，导致天气页面不显示的Bug,Bug具体原因未知！！！
         binding.searchPlaceEdit.setText("")
     }
 

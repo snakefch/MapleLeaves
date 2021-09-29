@@ -30,8 +30,7 @@
         app:layout_constraintTop_toTopOf="parent"
         android:id="@+id/actionBarLayout"
         android:layout_width="match_parent"
-        android:layout_marginTop="20dp"
-        android:paddingBottom="10dp"
+        android:layout_marginTop="30dp"
         android:layout_height="60dp">
 
         <EditText
