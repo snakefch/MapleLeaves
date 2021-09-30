@@ -13,7 +13,7 @@ import com.example.mapleleaves.logic.model.CoursesAttendedResponse
 import com.example.mapleleaves.ui.course.CourseActivity
 import com.example.mapleleaves.ui.course.TeacherCourseActivity
 
-class CourseListAdapter (private val fragment: Fragment, private val courseList: List<CoursesAttendedResponse.Data>):
+class CourseListAdapter (private val fragment: Fragment, private val courseList: List<CoursesAttendedResponse.Data>,private val userId:String=""):
     RecyclerView.Adapter<CourseListAdapter.ViewHolder>(){
 
         inner class ViewHolder(view: View):RecyclerView.ViewHolder(view){
@@ -26,6 +26,7 @@ class CourseListAdapter (private val fragment: Fragment, private val courseList:
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view=LayoutInflater.from(parent.context).inflate(R.layout.course_item,parent,false)
         val holder=ViewHolder(view)
+
         return holder
     }
 
@@ -38,7 +39,11 @@ class CourseListAdapter (private val fragment: Fragment, private val courseList:
             //使用safeargs
             //在使用safeargs的2.3.5和2.4.0-alpha01传递参数时，不知从何而来，构建正在崩溃与导航组件相关的一个奇怪的错误，
             // 即使它以前工作过，错误是在生成的类HomeFragmentDirections,更新safeArg插件到2.4.0-alpha04，摆脱错误消息。
-            it.findNavController().navigate(HomeFragmentDirections.actionNavigationHomeToCourseManagementDialogFragment(course.id.toLong()))
+           // it.findNavController().navigate(HomeFragmentDirections.actionNavigationHomeToCourseManagementDialogFragment(course.id.toLong(),2))
+
+            if (fragment is StudyFragment) it.findNavController().navigate(HomeFragmentDirections.actionNavigationHomeToCourseManagementDialogFragment(course.id.toLong(),1,userId.toLong()))
+            else it.findNavController().navigate(HomeFragmentDirections.actionNavigationHomeToCourseManagementDialogFragment(course.id.toLong(),2))
+
         }
         holder.itemView.setOnClickListener {
             fragment.context?.let { context ->

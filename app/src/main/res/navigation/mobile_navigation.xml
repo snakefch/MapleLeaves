@@ -37,7 +37,15 @@
         android:name="com.example.mapleleaves.ui.dashboard.CourseManagementDialogFragment"
         android:label="CourseManagementDialogFragment" >
         <argument
-            android:name="itemId"
+            android:name="courseId"
+            app:argType="long"
+            android:defaultValue="-1L" />
+        <argument
+            android:name="identity"
+            app:argType="integer"
+            android:defaultValue="-1" />
+        <argument
+            android:name="studentId"
             app:argType="long"
             android:defaultValue="-1L" />
     </dialog>

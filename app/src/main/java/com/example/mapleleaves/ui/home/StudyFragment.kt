@@ -61,7 +61,7 @@ class StudyFragment : Fragment() {
                 studyViewModel.stuCoursesList.clear()
                 LogUtil.d(TAG,stuCourses.toString())
                 studyViewModel.stuCoursesList.addAll(stuCourses)
-                studyListAdapter= CourseListAdapter(this,studyViewModel.stuCoursesList)
+                studyListAdapter= CourseListAdapter(this,studyViewModel.stuCoursesList,studyViewModel.getUserId())
                 binding.rvStudyCourse.adapter=studyListAdapter
                 studyListAdapter.notifyDataSetChanged()
             }else{

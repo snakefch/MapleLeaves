@@ -4,16 +4,14 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
-import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.navArgs
 import com.example.mapleleaves.R
-import com.example.mapleleaves.databinding.ActivityMainBinding.inflate
 import com.example.mapleleaves.databinding.CourseManagementDialogFragmentBinding
 import com.example.mapleleaves.ui.course.CourseManagementDialogViewModel
 import com.example.mapleleaves.utils.LogUtil
+import com.example.mapleleaves.utils.showToast
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 
 class CourseManagementDialogFragment : BottomSheetDialogFragment() {
@@ -24,6 +22,16 @@ class CourseManagementDialogFragment : BottomSheetDialogFragment() {
     // This property is only valid between onCreateView and
     // onDestroyView.
     private val binding get() = _binding!!
+
+    private enum class Identity {
+        Student,
+        Teacher
+    }
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setStyle(STYLE_NORMAL,R.style.AppBottomSheet)
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -38,8 +46,50 @@ class CourseManagementDialogFragment : BottomSheetDialogFragment() {
 
         val args:CourseManagementDialogFragmentArgs by navArgs()
 
-        if (args.itemId>0){
-            LogUtil.d("args.itemId:","${args.itemId}")
+        if (args.courseId>0){
+            LogUtil.d("args.itemId:","${args.courseId}")
+        }
+
+        val identity= if (args.identity==1) Identity.Student else Identity.Teacher
+
+        if (identity==Identity.Student){
+            binding.tvDropOut.setOnClickListener {
+                courseManagementDialogViewModel.setStuCourseId(args.courseId.toString())
+            }
+
+            courseManagementDialogViewModel.quitResultLiveData.observe(this, Observer {
+                val result=it.getOrNull()
+                if (result!=null){
+                    "成功退出课程".showToast()
+                    dismiss()
+                }else{
+                    "退出失败".showToast()
+                }
+            })
+
+        }else{
+            binding.tvDropOut.apply {
+                text="删除课程"
+                setOnClickListener {
+                    courseManagementDialogViewModel.setTeaCourseId(args.courseId.toString())
+                }
+            }
+
+            courseManagementDialogViewModel.removeResultLiveData.observe(this, Observer {
+                val result=it.getOrNull()
+                if (result!=null){
+                    "成功删除课程".showToast()
+                    dismiss()
+//                val parent=parentFragment as TeachFragment
+//                parent.refreshList()
+                }else{
+                    "删除失败".showToast()
+                }
+            })
+        }
+
+        binding.cancel.setOnClickListener {
+            dismiss()
         }
 
         return root
