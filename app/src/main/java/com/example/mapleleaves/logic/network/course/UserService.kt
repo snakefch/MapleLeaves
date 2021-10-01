@@ -2,7 +2,7 @@ package com.example.mapleleaves.logic.network.course
 
 import com.example.mapleleaves.logic.model.*
 import com.example.mapleleaves.logic.model.body.SignInByStudentBody
-import com.example.mapleleaves.logic.model.body.StartCheckInBody
+import com.example.mapleleaves.logic.model.body.StartSignInBody
 import com.example.mapleleaves.logic.model.response.GenericResponse
 import com.example.mapleleaves.logic.model.response.GetSignInByTeacherResponse
 import com.example.mapleleaves.logic.model.response.GetStudentSignInByTeacherResponse
@@ -52,19 +52,19 @@ interface UserService {
 
     //开始签到
     @POST("startSignIn")
-    fun startSignIn(@Body startCheckInBody: StartCheckInBody):Call<GenericResponse>
+    fun startSignIn(@Body startSignInBody: StartSignInBody):Call<GenericResponse>
 
     //停止签到 stopSignIn?signInId=1441277313168732161
     @POST("stopSignIn?")
     fun stopSignIn(@Query("signInId") signInId:String):Call<GenericResponse>
 
     //老师获取签到记录 getSignInByTeacher?teacherId=1800301331&courseId=1437390830607310860
-    @POST("getSignInByTeacher?")
+    @GET("getSignInByTeacher?")
     fun getSignInByTeacher(@Query("teacherId")teacherId:String,
                            @Query("courseId")courseId:String):Call<GetSignInByTeacherResponse>
 
     //老师获取学生具体签到记录 getStudentSignInByTeacher?signInId=1441277313168732161
-    @POST("getStudentSignInByTeacher?")
+    @GET("getStudentSignInByTeacher?")
     fun getStudentSignInByTeacher(@Query("signInId")signInId: String):Call<GetStudentSignInByTeacherResponse>
 
 }

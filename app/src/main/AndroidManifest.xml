@@ -16,6 +16,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MapleLeaves">
         <activity
+            android:name=".ui.startsignin.StartSignInActivity"
+            android:exported="true" />
+        <activity
+            android:name=".ui.signinsheet.SignInSheetActivity"
+            android:exported="true" />
+        <activity
             android:name=".ui.course.TeacherCourseActivity"
             android:exported="true" />
         <activity
@@ -31,7 +37,7 @@
             android:name=".ui.checkWorkAttendance.CheckWorkAttendanceActivity"
             android:exported="true" />
         <activity
-            android:name=".ui.course.CourseActivity"
+            android:name=".ui.course.StudentCourseActivity"
             android:exported="true" />
         <activity
             android:name=".ui.splash.SplashActivity"

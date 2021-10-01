@@ -3,11 +3,10 @@ package com.example.mapleleaves.logic.network.course
 import android.util.Log
 import com.example.mapleleaves.logic.model.CourseForCreate
 import com.example.mapleleaves.logic.model.body.SignInByStudentBody
-import com.example.mapleleaves.logic.model.body.StartCheckInBody
+import com.example.mapleleaves.logic.model.body.StartSignInBody
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import retrofit2.http.Query
 import java.lang.RuntimeException
 import kotlin.coroutines.resume
 import kotlin.coroutines.resumeWithException
@@ -38,7 +37,7 @@ object CourseNetwork {
 
     suspend fun removeCourseCreated(id:String)= userService.removeCourseCreated(id).await()
 
-    suspend fun startSignIn(startCheckInBody: StartCheckInBody)= userService.startSignIn(startCheckInBody).await()
+    suspend fun startSignIn(startSignInBody: StartSignInBody)= userService.startSignIn(startSignInBody).await()
 
     suspend fun stopSignIn(signInId:String)= userService.stopSignIn(signInId).await()
 

@@ -9,16 +9,13 @@ import com.example.mapleleaves.logic.model.Place
 import com.example.mapleleaves.logic.model.User
 import com.example.mapleleaves.logic.model.Weather
 import com.example.mapleleaves.logic.model.body.SignInByStudentBody
-import com.example.mapleleaves.logic.model.body.StartCheckInBody
+import com.example.mapleleaves.logic.model.body.StartSignInBody
 import com.example.mapleleaves.logic.network.SunnyWeatherNetwork
 import com.example.mapleleaves.logic.network.course.CourseNetwork
 import com.example.mapleleaves.utils.LogUtil
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.async
 import kotlinx.coroutines.coroutineScope
-import okhttp3.Dispatcher
-import retrofit2.http.Body
-import retrofit2.http.Query
 import kotlin.Exception
 import kotlin.coroutines.CoroutineContext
 
@@ -151,8 +148,8 @@ object Repository {
     }
 
     //开始签到
-    fun startSignIn(startCheckInBody: StartCheckInBody)= fire(Dispatchers.IO){
-        val genericResponse=CourseNetwork.startSignIn(startCheckInBody)
+    fun startSignIn(startSignInBody: StartSignInBody)= fire(Dispatchers.IO){
+        val genericResponse=CourseNetwork.startSignIn(startSignInBody)
         if (genericResponse.code=="200"){
             val data=genericResponse.code
             LogUtil.d("genericResponse.code",data)

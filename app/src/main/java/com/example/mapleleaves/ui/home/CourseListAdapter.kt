@@ -10,7 +10,7 @@ import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.mapleleaves.R
 import com.example.mapleleaves.logic.model.CoursesAttendedResponse
-import com.example.mapleleaves.ui.course.CourseActivity
+import com.example.mapleleaves.ui.course.StudentCourseActivity
 import com.example.mapleleaves.ui.course.TeacherCourseActivity
 
 class CourseListAdapter (private val fragment: Fragment, private val courseList: List<CoursesAttendedResponse.Data>,private val userId:String=""):
@@ -48,7 +48,7 @@ class CourseListAdapter (private val fragment: Fragment, private val courseList:
         holder.itemView.setOnClickListener {
             fragment.context?.let { context ->
                 //将判断放到里面可以减少重复判断fragment.context?
-                if (fragment is StudyFragment) CourseActivity.startCourseActivity(context,course)
+                if (fragment is StudyFragment) StudentCourseActivity.startCourseActivity(context,course)
                 else TeacherCourseActivity.startTeacherCourseActivity(context,course)
             }
         }

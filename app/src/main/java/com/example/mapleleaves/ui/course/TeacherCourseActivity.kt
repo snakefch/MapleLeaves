@@ -6,6 +6,9 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.mapleleaves.databinding.ActivityTeacherCourseBinding
 import com.example.mapleleaves.logic.model.CoursesAttendedResponse
+import com.example.mapleleaves.ui.signinsheet.SignInSheetActivity
+import com.example.mapleleaves.ui.startsignin.StartSignInActivity
+import com.example.mapleleaves.utils.LogUtil
 import com.google.gson.Gson
 
 class TeacherCourseActivity : AppCompatActivity() {
@@ -17,6 +20,19 @@ class TeacherCourseActivity : AppCompatActivity() {
         //setContentView(R.layout.activity_teacher_course)
         binding= ActivityTeacherCourseBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        val jsonData=intent.getStringExtra("courseData")
+        val courseData=Gson().fromJson(jsonData,CoursesAttendedResponse.Data::class.java)
+
+        binding.ivCheckWork.setOnClickListener {
+            StartSignInActivity.actionStart(this,courseData)
+        }
+
+        binding.ivSignInList.setOnClickListener {
+            LogUtil.d("传送的id","${courseData.id}")
+            SignInSheetActivity.actionStart(this,courseData.id)
+        }
+
     }
 
     companion object {

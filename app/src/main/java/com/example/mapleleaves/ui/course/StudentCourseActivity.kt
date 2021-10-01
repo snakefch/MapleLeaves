@@ -8,18 +8,15 @@ import android.os.Bundle
 import android.view.View
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
-import com.example.mapleleaves.MainActivity
-import com.example.mapleleaves.R
-import com.example.mapleleaves.databinding.ActivityCheckWorkAttendanceBinding
-import com.example.mapleleaves.databinding.ActivityCourseBinding
+import com.example.mapleleaves.databinding.ActivityStudentCourseBinding
 import com.example.mapleleaves.logic.model.CoursesAttendedResponse
 import com.example.mapleleaves.ui.checkWorkAttendance.CheckWorkAttendanceActivity
 import com.example.mapleleaves.utils.MyObserver
 import com.google.gson.Gson
 
-class CourseActivity : AppCompatActivity() {
+class StudentCourseActivity : AppCompatActivity() {
 
-    lateinit var binding: ActivityCourseBinding
+    lateinit var binding: ActivityStudentCourseBinding
 
     private val TAG=this::class.java.simpleName
 
@@ -28,7 +25,7 @@ class CourseActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
        // setContentView(R.layout.activity_course)
-        val binding=ActivityCourseBinding.inflate(layoutInflater)
+        val binding=ActivityStudentCourseBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         //Activity的布局会显示在状态栏上
@@ -77,7 +74,7 @@ class CourseActivity : AppCompatActivity() {
 
     companion object {
         fun startCourseActivity(context: Context,courseData:CoursesAttendedResponse.Data){
-            val intent= Intent(context, CourseActivity::class.java).apply {
+            val intent= Intent(context, StudentCourseActivity::class.java).apply {
                 putExtra("courseData",Gson().toJson(courseData))
             }
             context.startActivity(intent)
