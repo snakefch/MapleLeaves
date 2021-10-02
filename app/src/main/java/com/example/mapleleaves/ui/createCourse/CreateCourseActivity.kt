@@ -12,6 +12,7 @@ import com.example.mapleleaves.databinding.ActivityCreateCourseBinding
 import com.example.mapleleaves.logic.Repository
 import com.example.mapleleaves.logic.model.CourseForCreate
 import com.example.mapleleaves.utils.MyObserver
+import com.example.mapleleaves.utils.Notifier
 import com.example.mapleleaves.utils.showToast
 
 class CreateCourseActivity : AppCompatActivity() {
@@ -38,6 +39,7 @@ class CreateCourseActivity : AppCompatActivity() {
             if (data!=null){
                 Log.d("Code",data.toString())
                 "创建成功".showToast()
+                Notifier.postNotification(111,this,null)
                 finish()
             }else{
                 Toast.makeText(this,"创建失败",Toast.LENGTH_SHORT).show()

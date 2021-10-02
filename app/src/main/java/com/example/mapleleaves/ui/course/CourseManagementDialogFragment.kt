@@ -1,4 +1,4 @@
-package com.example.mapleleaves.ui.dashboard
+package com.example.mapleleaves.ui.course
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -9,8 +9,8 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.navArgs
 import com.example.mapleleaves.R
 import com.example.mapleleaves.databinding.CourseManagementDialogFragmentBinding
-import com.example.mapleleaves.ui.course.CourseManagementDialogViewModel
 import com.example.mapleleaves.utils.LogUtil
+import com.example.mapleleaves.utils.Notifier
 import com.example.mapleleaves.utils.showToast
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 
@@ -52,7 +52,7 @@ class CourseManagementDialogFragment : BottomSheetDialogFragment() {
 
         val identity= if (args.identity==1) Identity.Student else Identity.Teacher
 
-        if (identity==Identity.Student){
+        if (identity== Identity.Student){
             binding.tvDropOut.setOnClickListener {
                 courseManagementDialogViewModel.setStuCourseId(args.courseId.toString())
             }

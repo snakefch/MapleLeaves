@@ -12,6 +12,7 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.example.mapleleaves.databinding.ActivityMainBinding
 import com.example.mapleleaves.utils.MyObserver
+import com.example.mapleleaves.utils.Notifier
 
 
 class MainActivity : AppCompatActivity() {
@@ -43,6 +44,7 @@ class MainActivity : AppCompatActivity() {
         navView.setupWithNavController(navController)
 
         lifecycle.addObserver(MyObserver(TAG))
+        Notifier.init(this)
     }
 
     companion object {

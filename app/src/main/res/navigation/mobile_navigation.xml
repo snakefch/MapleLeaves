@@ -34,7 +34,7 @@
         tools:layout="@layout/fragment_place"/>
     <dialog
         android:id="@+id/courseManagementDialogFragment"
-        android:name="com.example.mapleleaves.ui.dashboard.CourseManagementDialogFragment"
+        android:name="com.example.mapleleaves.ui.course.CourseManagementDialogFragment"
         android:label="CourseManagementDialogFragment" >
         <argument
             android:name="courseId"
