@@ -1,5 +1,9 @@
 package com.example.mapleleaves.ui.home
 
+import android.content.BroadcastReceiver
+import android.content.Context
+import android.content.Intent
+import android.content.IntentFilter
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -35,6 +39,8 @@ class TeachFragment : Fragment() {
 
     private val TAG=this::class.java.simpleName
 
+    private lateinit var refreshReceiver:RefreshReceiver
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
@@ -47,6 +53,11 @@ class TeachFragment : Fragment() {
     override fun onResume() {
         super.onResume()
         teacherViewModel.refresh()
+
+        val intentFilter=IntentFilter()
+        intentFilter.addAction("com.example.mapleleaves.Refresh")
+        refreshReceiver=RefreshReceiver()
+        activity?.registerReceiver(refreshReceiver,intentFilter)
     }
 
     override fun onCreateView(
@@ -84,6 +95,11 @@ class TeachFragment : Fragment() {
         return binding.root
     }
 
+    override fun onPause() {
+        super.onPause()
+        activity?.unregisterReceiver(refreshReceiver)
+    }
+
     companion object {
 
         /**
@@ -111,5 +127,12 @@ class TeachFragment : Fragment() {
                     putString(ARG_PARAM2, param2)
                 }
             }
+    }
+
+    inner class RefreshReceiver:BroadcastReceiver(){
+        override fun onReceive(context: Context?, intent: Intent?) {
+            LogUtil.d("收到广播","刷新课程列表")
+            teacherViewModel.refresh()
+        }
     }
 }

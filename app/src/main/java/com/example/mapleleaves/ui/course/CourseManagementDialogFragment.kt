@@ -1,5 +1,6 @@
 package com.example.mapleleaves.ui.course
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -79,6 +80,8 @@ class CourseManagementDialogFragment : BottomSheetDialogFragment() {
                 val result=it.getOrNull()
                 if (result!=null){
                     "成功删除课程".showToast()
+                    val intent=Intent("com.example.mapleleaves.Refresh")
+                    activity?.sendBroadcast(intent)
                     dismiss()
 //                val parent=parentFragment as TeachFragment
 //                parent.refreshList()
