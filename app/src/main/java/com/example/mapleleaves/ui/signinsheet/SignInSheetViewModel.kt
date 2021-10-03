@@ -21,4 +21,15 @@ class SignInSheetViewModel:ViewModel() {
         Repository.getSignInByTeacher(Repository.getUser().id,courseId)
     }
 
+    //停止签到
+    private val signInIdLiveData=MutableLiveData<String>()
+
+    fun setSignInIdLiveData(signInId:String){
+        signInIdLiveData.value=signInId
+    }
+
+    val stopResultLiveData=Transformations.switchMap(signInIdLiveData){
+        Repository.stopSignIn(it)
+    }
+
 }

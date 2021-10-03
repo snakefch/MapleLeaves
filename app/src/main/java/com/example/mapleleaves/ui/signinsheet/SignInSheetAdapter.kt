@@ -4,12 +4,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
 import com.example.mapleleaves.R
 import com.example.mapleleaves.logic.model.response.GetSignInByTeacherResponse
 
-class SignInSheetAdapter (private val signInListSheet:List<GetSignInByTeacherResponse.SignInRecord>):
+class SignInSheetAdapter (private val signInSheetActivity: SignInSheetActivity,private val signInListSheet:List<GetSignInByTeacherResponse.SignInRecord>):
     RecyclerView.Adapter<SignInSheetAdapter.ViewHolder>(){
 
     inner class ViewHolder(view: View):RecyclerView.ViewHolder(view){
@@ -19,12 +18,10 @@ class SignInSheetAdapter (private val signInListSheet:List<GetSignInByTeacherRes
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val view=LayoutInflater.from(parent.context).inflate(R.layout.sign_in_sheet_item,parent,false)
-        val holder=ViewHolder(view)
-        holder.itemView.setOnClickListener {
+        val view =
+            LayoutInflater.from(parent.context).inflate(R.layout.sign_in_sheet_item, parent, false)
 
-        }
-        return holder
+        return ViewHolder(view)
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
@@ -32,6 +29,11 @@ class SignInSheetAdapter (private val signInListSheet:List<GetSignInByTeacherRes
         holder.datetime.text=signInsheet.datetime
         holder.name.text=signInsheet.name
         holder.state.text=signInsheet.state
+        if(holder.state.text=="on"){
+            holder.state.setOnClickListener {
+                signInSheetActivity.setSignInId(signInsheet.id)
+            }
+        }
     }
 
     override fun getItemCount()=signInListSheet.size

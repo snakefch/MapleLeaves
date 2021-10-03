@@ -29,18 +29,17 @@ class SignInSheetActivity : AppCompatActivity() {
         val layoutManager= LinearLayoutManager(this)
         binding.rvSignInSheet.layoutManager=layoutManager
 
-        val courseId=intent.getStringExtra("courseId")
-        if (courseId != null) {
-            LogUtil.d("接收的id","$courseId")
-            signInSheetViewModel.setCourseIdLiveData(courseId)
-        }
+        val courseId=intent.getStringExtra("courseId")!!
+        LogUtil.d("接收的id","$courseId")
+//            signInSheetViewModel.setCourseIdLiveData(courseId)
+        refresh(courseId)
 
         signInSheetViewModel.resultLiveData.observe(this, Observer {
             val signInSheetList=it.getOrNull()
             if (signInSheetList!=null&&(signInSheetList.toString()!="[]")){
                 signInSheetViewModel.signInRecodeList.clear()
                 signInSheetViewModel.signInRecodeList.addAll(signInSheetList)
-                adapter= SignInSheetAdapter(signInSheetViewModel.signInRecodeList)
+                adapter= SignInSheetAdapter(this,signInSheetViewModel.signInRecodeList)
                 binding.rvSignInSheet.adapter=adapter
                 adapter.notifyDataSetChanged()
             }else{
@@ -48,7 +47,25 @@ class SignInSheetActivity : AppCompatActivity() {
             }
         })
 
+        signInSheetViewModel.stopResultLiveData.observe(this, Observer {
+            val result=it.getOrNull()
+            if (result=="200"){
+                "成功停止签到".showToast()
+                refresh(courseId)
+            }else{
+                "停止签到失败".showToast()
+            }
+        })
+
         setContentView(binding.root)
+    }
+
+    private fun refresh(courseId:String){
+        signInSheetViewModel.setCourseIdLiveData(courseId)
+    }
+
+    fun setSignInId(signInId:String){
+        signInSheetViewModel.setSignInIdLiveData(signInId)
     }
 
     companion object{
