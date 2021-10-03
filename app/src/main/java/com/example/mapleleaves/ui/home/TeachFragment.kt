@@ -5,7 +5,6 @@ import android.content.Context
 import android.content.Intent
 import android.content.IntentFilter
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -13,7 +12,6 @@ import android.view.ViewGroup
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.mapleleaves.R
 import com.example.mapleleaves.databinding.FragmentTeachBinding
 import com.example.mapleleaves.ui.createCourse.CreateCourseActivity
 import com.example.mapleleaves.utils.LogUtil
@@ -39,7 +37,7 @@ class TeachFragment : Fragment() {
 
     private val TAG=this::class.java.simpleName
 
-    private lateinit var refreshReceiver:RefreshReceiver
+    private lateinit var teacherRefreshReceiver:TeacherRefreshReceiver
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -55,9 +53,9 @@ class TeachFragment : Fragment() {
         teacherViewModel.refresh()
 
         val intentFilter=IntentFilter()
-        intentFilter.addAction("com.example.mapleleaves.Refresh")
-        refreshReceiver=RefreshReceiver()
-        activity?.registerReceiver(refreshReceiver,intentFilter)
+        intentFilter.addAction("com.example.mapleleaves.RefreshTeacherList")
+        teacherRefreshReceiver=TeacherRefreshReceiver()
+        activity?.registerReceiver(teacherRefreshReceiver,intentFilter)
     }
 
     override fun onCreateView(
@@ -97,7 +95,7 @@ class TeachFragment : Fragment() {
 
     override fun onPause() {
         super.onPause()
-        activity?.unregisterReceiver(refreshReceiver)
+        activity?.unregisterReceiver(teacherRefreshReceiver)
     }
 
     companion object {
@@ -129,9 +127,9 @@ class TeachFragment : Fragment() {
             }
     }
 
-    inner class RefreshReceiver:BroadcastReceiver(){
+    inner class TeacherRefreshReceiver:BroadcastReceiver(){
         override fun onReceive(context: Context?, intent: Intent?) {
-            LogUtil.d("收到广播","刷新课程列表")
+            LogUtil.d("收到广播","刷新教师课程列表")
             teacherViewModel.refresh()
         }
     }

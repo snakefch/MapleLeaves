@@ -62,10 +62,12 @@ class CourseManagementDialogFragment : BottomSheetDialogFragment() {
                 val result=it.getOrNull()
                 if (result!=null){
                     "成功退出课程".showToast()
-                    dismiss()
+                    val intent=Intent("com.example.mapleleaves.RefreshStudentList")
+                    activity?.sendBroadcast(intent)
                 }else{
                     "退出失败".showToast()
                 }
+                dismiss()
             })
 
         }else{
@@ -80,14 +82,15 @@ class CourseManagementDialogFragment : BottomSheetDialogFragment() {
                 val result=it.getOrNull()
                 if (result!=null){
                     "成功删除课程".showToast()
-                    val intent=Intent("com.example.mapleleaves.Refresh")
+                    val intent=Intent("com.example.mapleleaves.RefreshTeacherList")
                     activity?.sendBroadcast(intent)
-                    dismiss()
+//                    dismiss()
 //                val parent=parentFragment as TeachFragment
 //                parent.refreshList()
                 }else{
                     "删除失败".showToast()
                 }
+                dismiss()
             })
         }
 

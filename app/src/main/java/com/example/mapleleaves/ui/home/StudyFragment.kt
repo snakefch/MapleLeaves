@@ -1,5 +1,9 @@
 package com.example.mapleleaves.ui.home
 
+import android.content.BroadcastReceiver
+import android.content.Context
+import android.content.Intent
+import android.content.IntentFilter
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -32,6 +36,8 @@ class StudyFragment : Fragment() {
 
     private val studyViewModel by lazy { ViewModelProviders.of(this).get(StudyViewModel::class.java) }
     private lateinit var studyListAdapter: CourseListAdapter
+
+    private lateinit var studentRefreshReceiver: StudentRefreshReceiver
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -79,7 +85,16 @@ class StudyFragment : Fragment() {
 
     override fun onResume() {
         super.onResume()
-        studyViewModel.setStudentId(studyViewModel.getUserId())
+        studyViewModel.refresh()
+        val intentFilter= IntentFilter()
+        intentFilter.addAction("com.example.mapleleaves.RefreshStudentList")
+        studentRefreshReceiver= StudentRefreshReceiver()
+        activity?.registerReceiver(studentRefreshReceiver,intentFilter)
+    }
+
+    override fun onPause() {
+        super.onPause()
+        activity?.unregisterReceiver(studentRefreshReceiver)
     }
 
     override fun onDestroyView() {
@@ -114,5 +129,12 @@ class StudyFragment : Fragment() {
                     putString(ARG_PARAM2, param2)
                 }
             }
+    }
+
+    inner class StudentRefreshReceiver: BroadcastReceiver(){
+        override fun onReceive(context: Context?, intent: Intent?) {
+            LogUtil.d("收到广播","刷新学生课程列表")
+            studyViewModel.refresh()
+        }
     }
 }

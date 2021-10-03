@@ -23,4 +23,8 @@ class StudyViewModel:ViewModel() {
     fun setStudentId(studentId:String){
         studentIdLiveData.value=studentId
     }
+
+    fun refresh(){
+        studentIdLiveData.value=Repository.getUser().id
+    }
 }
