@@ -29,6 +29,8 @@ object CourseNetwork {
 
     suspend fun signInByStudent(signInByStudentBody: SignInByStudentBody)= userService.signInByStudent(signInByStudentBody).await()
 
+    suspend fun getSignInByStudent(studentId: String,courseId: String)= userService.getSignInByStudent(studentId, courseId).await()
+
     //老师事务------------------------------------
 
     suspend fun createCourse(courseForCreate: CourseForCreate)= userService.createCourse(courseForCreate).await()

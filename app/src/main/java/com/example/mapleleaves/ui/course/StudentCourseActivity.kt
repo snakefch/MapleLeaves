@@ -66,7 +66,7 @@ class StudentCourseActivity : AppCompatActivity() {
         }*/
 
         binding.ivCheckWork.setOnClickListener {
-            CheckWorkAttendanceActivity.startActivity(this)
+            CheckWorkAttendanceActivity.startActivity(this,binding.tvCourseCode.text.toString())
         }
 
         lifecycle.addObserver(MyObserver(TAG))

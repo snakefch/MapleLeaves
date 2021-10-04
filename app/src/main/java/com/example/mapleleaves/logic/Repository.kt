@@ -114,6 +114,17 @@ object Repository {
         }
     }
 
+    fun getSignInByStudent(studentId: String,courseId: String)= fire(Dispatchers.IO){
+        val getSignInByStudentResponse=CourseNetwork.getSignInByStudent(studentId, courseId)
+        if (getSignInByStudentResponse.code=="200"){
+            val data=getSignInByStudentResponse.data
+            LogUtil.d("getSignInByStudent.data",data.toString())
+            Result.success(data)
+        }else{
+            Result.failure(RuntimeException("response code is ${getSignInByStudentResponse.code}"))
+        }
+    }
+
     fun createCourse(courseForCreate: CourseForCreate)= fire(Dispatchers.IO){
         val courseForCreateResponse = CourseNetwork.createCourse(courseForCreate)
         if(courseForCreateResponse.code=="200"){

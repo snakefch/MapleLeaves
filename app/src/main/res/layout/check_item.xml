@@ -7,7 +7,7 @@
     android:elevation="10dp">
 
     <TextView
-        android:id="@+id/tv_check_title"
+        android:id="@+id/tv_sign_in_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toTopOf="parent"
@@ -18,12 +18,12 @@
         android:textColor="@color/black"/>
 
     <TextView
-        android:id="@+id/tv_check_time"
+        android:id="@+id/tv_datetime"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        app:layout_constraintTop_toBottomOf="@+id/tv_check_title"
-        app:layout_constraintStart_toStartOf="@id/tv_check_title"
+        app:layout_constraintTop_toBottomOf="@+id/tv_sign_in_name"
+        app:layout_constraintStart_toStartOf="@id/tv_sign_in_name"
         app:layout_constraintBottom_toTopOf="@id/line1"
         android:layout_marginBottom="14dp"
         android:text="14:22|数字考勤"
@@ -31,11 +31,12 @@
         android:textColor="@color/shenghui"/>
 
     <TextView
+        android:id="@+id/tv_result"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="@+id/tv_check_title"
+        app:layout_constraintTop_toTopOf="@+id/tv_sign_in_name"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toBottomOf="@+id/tv_check_time"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_datetime"
         android:layout_marginEnd="10dp"
         android:text="出勤"
         android:textSize="20sp"

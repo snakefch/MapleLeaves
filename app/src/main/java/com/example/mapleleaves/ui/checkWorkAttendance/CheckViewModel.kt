@@ -1,10 +1,24 @@
 package com.example.mapleleaves.ui.checkWorkAttendance
 
+import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.Transformations
 import androidx.lifecycle.ViewModel
+import com.example.mapleleaves.logic.Repository
 import com.example.mapleleaves.logic.model.Check
+import com.example.mapleleaves.logic.model.response.GetSignInByStudentResponse
 
 class CheckViewModel:ViewModel() {
 
-    val checkList=ArrayList<Check>()
+    val signInList=ArrayList<GetSignInByStudentResponse.StudentSignInRecord>()
+
+    private val courseIdLiveData=MutableLiveData<String>()
+
+    fun refresh(courseId:String){
+        courseIdLiveData.value=courseId
+    }
+
+    val getResultLiveData=Transformations.switchMap(courseIdLiveData){
+        Repository.getSignInByStudent("1800301333","1437390830607310860")
+    }
 
 }

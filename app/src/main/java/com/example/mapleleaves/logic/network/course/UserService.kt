@@ -4,6 +4,7 @@ import com.example.mapleleaves.logic.model.*
 import com.example.mapleleaves.logic.model.body.SignInByStudentBody
 import com.example.mapleleaves.logic.model.body.StartSignInBody
 import com.example.mapleleaves.logic.model.response.GenericResponse
+import com.example.mapleleaves.logic.model.response.GetSignInByStudentResponse
 import com.example.mapleleaves.logic.model.response.GetSignInByTeacherResponse
 import com.example.mapleleaves.logic.model.response.GetStudentSignInByTeacherResponse
 import retrofit2.Call
@@ -31,9 +32,13 @@ interface UserService {
     @POST("quitTheCourse?")
     fun quitTheCourse(@Query("studentId")studentId: String,@Query("courseId")courseId: String):Call<GenericResponse>
 
-    //学生签到 signInByStudent
+    //学生签到 signInByStudent,已废弃
     @POST("signInByStudent")
     fun signInByStudent(@Body signInByStudentBody: SignInByStudentBody):Call<GenericResponse>
+
+    //获取签到记录
+    @GET("getSignInByStudent?")
+    fun getSignInByStudent(@Query("studentId")studentId: String,@Query("courseId")courseId: String):Call<GetSignInByStudentResponse>
 
 
     //老师事务请求---------------------------------------------------------
