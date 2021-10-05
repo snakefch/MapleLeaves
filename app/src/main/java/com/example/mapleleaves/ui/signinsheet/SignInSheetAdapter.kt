@@ -7,6 +7,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.mapleleaves.R
 import com.example.mapleleaves.logic.model.response.GetSignInByTeacherResponse
+import com.example.mapleleaves.ui.signindetails.SignInDetailsActivity
 
 class SignInSheetAdapter (private val signInSheetActivity: SignInSheetActivity,private val signInListSheet:List<GetSignInByTeacherResponse.SignInRecord>):
     RecyclerView.Adapter<SignInSheetAdapter.ViewHolder>(){
@@ -26,15 +27,18 @@ class SignInSheetAdapter (private val signInSheetActivity: SignInSheetActivity,p
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val signInsheet=signInListSheet[position]
-        holder.datetime.text=signInsheet.datetime
-        holder.name.text=signInsheet.name
-        holder.state.text=signInsheet.state
-        holder.signInCode.text=signInsheet.signInCode
+        val oneSignInRecord=signInListSheet[position]
+        holder.datetime.text=oneSignInRecord.datetime
+        holder.name.text=oneSignInRecord.name
+        holder.state.text=oneSignInRecord.state
+        holder.signInCode.text=oneSignInRecord.signInCode
         if(holder.state.text=="on"){
             holder.state.setOnClickListener {
-                signInSheetActivity.setSignInId(signInsheet.id)
+                signInSheetActivity.setSignInId(oneSignInRecord.id)
             }
+        }
+        holder.itemView.setOnClickListener {
+            SignInDetailsActivity.actionStart(signInSheetActivity,oneSignInRecord.id)
         }
     }
 

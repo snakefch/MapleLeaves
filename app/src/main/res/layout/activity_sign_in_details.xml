@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.signindetails.SignInDetailsActivity">
+
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="考勤详情"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="30dp"
+        android:textSize="20sp"
+        android:textColor="@color/theme"/>
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/mcv_check_header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/tv_title"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:elevation="10dp"
+        app:cardCornerRadius="10dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="4dp"
+            android:background="@color/qianhui">
+
+            <TextView
+                android:id="@+id/tv_attendance_times"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0"
+                android:textColor="@color/theme"
+                android:textSize="20sp"
+                android:layout_marginStart="30dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="出勤"
+                app:layout_constraintTop_toBottomOf="@id/tv_attendance_times"
+                app:layout_constraintStart_toStartOf="@id/tv_attendance_times"
+                app:layout_constraintEnd_toEndOf="@id/tv_attendance_times"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:textColor="@color/shenghui"
+                android:textSize="12sp"/>
+
+            <TextView
+                android:id="@+id/tv_absenteeism_times"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0"
+                app:layout_constraintTop_toTopOf="@id/tv_attendance_times"
+                app:layout_constraintStart_toEndOf="@id/tv_attendance_times"
+                app:layout_constraintEnd_toStartOf="@id/tv_late_times"
+                android:textColor="@color/meiguihong"
+                android:textSize="20sp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="旷课"
+                app:layout_constraintTop_toBottomOf="@id/tv_absenteeism_times"
+                app:layout_constraintStart_toStartOf="@id/tv_absenteeism_times"
+                app:layout_constraintEnd_toEndOf="@id/tv_absenteeism_times"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:textColor="@color/shenghui"
+                android:textSize="12sp"/>
+
+            <TextView
+                android:id="@+id/tv_late_times"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0"
+                app:layout_constraintTop_toTopOf="@id/tv_attendance_times"
+                app:layout_constraintStart_toEndOf="@id/tv_absenteeism_times"
+                app:layout_constraintEnd_toStartOf="@id/tv_early_times"
+                android:textColor="@color/meiguihong"
+                android:textSize="20sp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="迟到"
+                app:layout_constraintTop_toBottomOf="@id/tv_late_times"
+                app:layout_constraintStart_toStartOf="@id/tv_late_times"
+                app:layout_constraintEnd_toEndOf="@id/tv_late_times"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:textColor="@color/shenghui"
+                android:textSize="12sp"/>
+
+            <TextView
+                android:id="@+id/tv_early_times"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0"
+                app:layout_constraintTop_toTopOf="@id/tv_attendance_times"
+                app:layout_constraintStart_toEndOf="@id/tv_late_times"
+                app:layout_constraintEnd_toStartOf="@id/tv_leave_times"
+                android:textColor="@color/meiguihong"
+                android:textSize="20sp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="早退"
+                app:layout_constraintTop_toBottomOf="@+id/tv_early_times"
+                app:layout_constraintStart_toStartOf="@id/tv_early_times"
+                app:layout_constraintEnd_toEndOf="@id/tv_early_times"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:textColor="@color/shenghui"
+                android:textSize="12sp"/>
+
+            <TextView
+                android:id="@+id/tv_leave_times"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0"
+                app:layout_constraintTop_toTopOf="@id/tv_attendance_times"
+                android:layout_marginEnd="30dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:textColor="@color/pinlan"
+                android:textSize="20sp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="请假"
+                app:layout_constraintTop_toBottomOf="@id/tv_leave_times"
+                app:layout_constraintStart_toStartOf="@id/tv_leave_times"
+                app:layout_constraintEnd_toEndOf="@id/tv_leave_times"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:textColor="@color/shenghui"
+                android:textSize="12sp"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+    <View
+        android:id="@+id/line1"
+        android:layout_width="match_parent"
+        android:layout_height="10dp"
+        android:layout_marginTop="16dp"
+        android:background="@color/qianhui"
+        app:layout_constraintTop_toBottomOf="@id/mcv_check_header"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_sign_in_details"
+        android:layout_width="match_parent"
+        android:layout_height="600dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/line1" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
