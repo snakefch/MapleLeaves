@@ -8,11 +8,8 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.mapleleaves.databinding.ActivitySignInSheetBinding
-import com.example.mapleleaves.logic.model.CoursesAttendedResponse
-import com.example.mapleleaves.ui.startsignin.StartSignInActivity
 import com.example.mapleleaves.utils.LogUtil
 import com.example.mapleleaves.utils.showToast
-import com.google.gson.Gson
 
 class SignInSheetActivity : AppCompatActivity() {
 

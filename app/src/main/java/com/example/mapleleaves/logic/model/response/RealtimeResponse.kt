@@ -1,4 +1,4 @@
-package com.example.mapleleaves.logic.model
+package com.example.mapleleaves.logic.model.response
 
 import com.google.gson.annotations.SerializedName
 

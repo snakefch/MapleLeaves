@@ -9,11 +9,11 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.mapleleaves.R
-import com.example.mapleleaves.logic.model.CoursesAttendedResponse
+import com.example.mapleleaves.logic.model.response.CoursesAttendedResponse
 import com.example.mapleleaves.ui.course.StudentCourseActivity
 import com.example.mapleleaves.ui.course.TeacherCourseActivity
 
-class CourseListAdapter (private val fragment: Fragment, private val courseList: List<CoursesAttendedResponse.Data>,private val userId:String=""):
+class CourseListAdapter (private val fragment: Fragment, private val courseList: List<CoursesAttendedResponse.Data>, private val userId:String=""):
     RecyclerView.Adapter<CourseListAdapter.ViewHolder>(){
 
         inner class ViewHolder(view: View):RecyclerView.ViewHolder(view){

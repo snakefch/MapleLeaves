@@ -10,7 +10,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.example.mapleleaves.databinding.ActivityCreateCourseBinding
 import com.example.mapleleaves.logic.Repository
-import com.example.mapleleaves.logic.model.CourseForCreate
+import com.example.mapleleaves.logic.model.body.CreateCourseBody
 import com.example.mapleleaves.utils.MyObserver
 import com.example.mapleleaves.utils.Notifier
 import com.example.mapleleaves.utils.showToast
@@ -30,7 +30,7 @@ class CreateCourseActivity : AppCompatActivity() {
 
         binding.creatCourse.setOnClickListener{
             Repository.getUser().apply {
-                createCourseViewModel.setCreateCourseLiveData(CourseForCreate( binding.courseName.text.toString(),binding.introduction.text.toString() ,name ,id,binding.number.text.toString().toInt()))
+                createCourseViewModel.setCreateCourseLiveData(CreateCourseBody( binding.courseName.text.toString(),binding.introduction.text.toString() ,name ,id,binding.number.text.toString().toInt()))
             }
         }
 

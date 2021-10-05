@@ -1,8 +1,8 @@
 package com.example.mapleleaves.logic.network
 
 import com.example.mapleleaves.MapleLeavesApplication
-import com.example.mapleleaves.logic.model.DailyResponse
-import com.example.mapleleaves.logic.model.RealtimeResponse
+import com.example.mapleleaves.logic.model.response.DailyResponse
+import com.example.mapleleaves.logic.model.response.RealtimeResponse
 import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Path

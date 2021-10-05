@@ -4,18 +4,18 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Transformations
 import androidx.lifecycle.ViewModel
 import com.example.mapleleaves.logic.Repository
-import com.example.mapleleaves.logic.model.CourseForCreate
+import com.example.mapleleaves.logic.model.body.CreateCourseBody
 
 class CreateCourseViewModel:ViewModel() {
 
-    private val CreateCourseLiveData= MutableLiveData<CourseForCreate>()
+    private val CreateCourseLiveData= MutableLiveData<CreateCourseBody>()
 
-    val courseLiveData= Transformations.switchMap(CreateCourseLiveData){ courseForCreate->
-        Repository.createCourse(courseForCreate)
+    val courseLiveData= Transformations.switchMap(CreateCourseLiveData){ createCourseBody->
+        Repository.createCourse(createCourseBody)
     }
 
-    fun setCreateCourseLiveData(courseForCreate: CourseForCreate){
-        CreateCourseLiveData.value=courseForCreate
+    fun setCreateCourseLiveData(createCourseBody: CreateCourseBody){
+        CreateCourseLiveData.value=createCourseBody
     }
 
 }

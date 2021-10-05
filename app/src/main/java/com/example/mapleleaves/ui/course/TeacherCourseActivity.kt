@@ -9,8 +9,7 @@ import android.view.View
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.example.mapleleaves.databinding.ActivityTeacherCourseBinding
-import com.example.mapleleaves.logic.model.CoursesAttendedResponse
-import com.example.mapleleaves.ui.home.TeachViewModel
+import com.example.mapleleaves.logic.model.response.CoursesAttendedResponse
 import com.example.mapleleaves.ui.signinsheet.SignInSheetActivity
 import com.example.mapleleaves.ui.startsignin.StartSignInActivity
 import com.example.mapleleaves.utils.LogUtil
@@ -39,7 +38,7 @@ class TeacherCourseActivity : AppCompatActivity() {
         window.statusBarColor= Color.TRANSPARENT
 
         val jsonData=intent.getStringExtra("courseData")
-        val courseData=Gson().fromJson(jsonData,CoursesAttendedResponse.Data::class.java)
+        val courseData=Gson().fromJson(jsonData, CoursesAttendedResponse.Data::class.java)
 
         teachViewModel.saveCourseData(courseData)
         teachViewModel.courseLiveData.observe(this, Observer {

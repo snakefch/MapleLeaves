@@ -9,7 +9,7 @@ import android.view.View
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.example.mapleleaves.databinding.ActivityStudentCourseBinding
-import com.example.mapleleaves.logic.model.CoursesAttendedResponse
+import com.example.mapleleaves.logic.model.response.CoursesAttendedResponse
 import com.example.mapleleaves.ui.checkWorkAttendance.CheckWorkAttendanceActivity
 import com.example.mapleleaves.utils.MyObserver
 import com.google.gson.Gson
@@ -45,7 +45,7 @@ class StudentCourseActivity : AppCompatActivity() {
          */
 
         val jsonData=intent.getStringExtra("courseData")
-        val courseData=Gson().fromJson(jsonData,CoursesAttendedResponse.Data::class.java)
+        val courseData=Gson().fromJson(jsonData, CoursesAttendedResponse.Data::class.java)
         courseViewModel.saveCourseData(courseData)
         courseViewModel.courseLiveData.observe(this, Observer {
             binding.apply {
@@ -73,7 +73,7 @@ class StudentCourseActivity : AppCompatActivity() {
     }
 
     companion object {
-        fun startCourseActivity(context: Context,courseData:CoursesAttendedResponse.Data){
+        fun startCourseActivity(context: Context,courseData: CoursesAttendedResponse.Data){
             val intent= Intent(context, StudentCourseActivity::class.java).apply {
                 putExtra("courseData",Gson().toJson(courseData))
             }

@@ -1,6 +1,6 @@
-package com.example.mapleleaves.logic.model
+package com.example.mapleleaves.logic.model.response
 
-import com.google.gson.annotations.SerializedName
+import com.example.mapleleaves.logic.model.User
 
 data class UserResponse (val code:String,val msg:String,val data: User){
     //定义在里面可以防止同名类冲突

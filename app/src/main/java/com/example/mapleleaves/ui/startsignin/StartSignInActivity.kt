@@ -7,9 +7,8 @@ import android.os.Bundle
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.example.mapleleaves.databinding.ActivityStartSignInBinding
-import com.example.mapleleaves.logic.model.CoursesAttendedResponse
+import com.example.mapleleaves.logic.model.response.CoursesAttendedResponse
 import com.example.mapleleaves.logic.model.body.StartSignInBody
-import com.example.mapleleaves.ui.course.StudentCourseActivity
 import com.example.mapleleaves.utils.LogUtil
 import com.example.mapleleaves.utils.MyObserver
 import com.example.mapleleaves.utils.showToast
@@ -29,7 +28,7 @@ class StartSignInActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         val jsonData=intent.getStringExtra("courseData")
-        val courseData=Gson().fromJson(jsonData,CoursesAttendedResponse.Data::class.java)
+        val courseData=Gson().fromJson(jsonData, CoursesAttendedResponse.Data::class.java)
 
         LogUtil.d(TAG,"$courseData")
 

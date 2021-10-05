@@ -1,14 +1,12 @@
 package com.example.mapleleaves.ui.place
 
-import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.mapleleaves.R
-import com.example.mapleleaves.logic.model.Place
-import com.example.mapleleaves.ui.weather.WeatherActivity
+import com.example.mapleleaves.logic.model.response.Place
 
 class PlaceAdapter(private val fragment: PlaceFragment, private val placeList:List<Place>):
     RecyclerView.Adapter<PlaceAdapter.ViewHolder>(){

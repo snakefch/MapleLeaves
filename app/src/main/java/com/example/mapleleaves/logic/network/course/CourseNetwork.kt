@@ -1,7 +1,7 @@
 package com.example.mapleleaves.logic.network.course
 
 import android.util.Log
-import com.example.mapleleaves.logic.model.CourseForCreate
+import com.example.mapleleaves.logic.model.body.CreateCourseBody
 import com.example.mapleleaves.logic.model.body.RegisterBody
 import com.example.mapleleaves.logic.model.body.SignInByStudentBody
 import com.example.mapleleaves.logic.model.body.StartSignInBody
@@ -41,7 +41,7 @@ object CourseNetwork {
 
     //老师事务------------------------------------
 
-    suspend fun createCourse(courseForCreate: CourseForCreate)= userService.createCourse(courseForCreate).await()
+    suspend fun createCourse(createCourseBody: CreateCourseBody)= userService.createCourse(createCourseBody).await()
 
     suspend fun getCoursesCreated(id:String)= userService.getCoursesCreated(id).await()
 

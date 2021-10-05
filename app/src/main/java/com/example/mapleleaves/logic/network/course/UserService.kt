@@ -1,13 +1,10 @@
 package com.example.mapleleaves.logic.network.course
 
-import com.example.mapleleaves.logic.model.*
+import com.example.mapleleaves.logic.model.body.CreateCourseBody
 import com.example.mapleleaves.logic.model.body.RegisterBody
 import com.example.mapleleaves.logic.model.body.SignInByStudentBody
 import com.example.mapleleaves.logic.model.body.StartSignInBody
-import com.example.mapleleaves.logic.model.response.GenericResponse
-import com.example.mapleleaves.logic.model.response.GetSignInByStudentResponse
-import com.example.mapleleaves.logic.model.response.GetSignInByTeacherResponse
-import com.example.mapleleaves.logic.model.response.GetStudentSignInByTeacherResponse
+import com.example.mapleleaves.logic.model.response.*
 import retrofit2.Call
 import retrofit2.http.*
 
@@ -54,7 +51,7 @@ interface UserService {
 
     //创建课堂
     @POST("createCourse")
-    fun createCourse(@Body course: CourseForCreate):Call<CourseForCreateResponse>
+    fun createCourse(@Body courseCourseBody: CreateCourseBody):Call<CreateCourseResponse>
 
     //查找创建的课程  getCoursesCreated?id=1800301331
     @GET("getCoursesCreated?")

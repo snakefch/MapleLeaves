@@ -4,8 +4,8 @@ import android.util.Log
 import androidx.lifecycle.liveData
 import com.example.mapleleaves.logic.dao.PlaceDao
 import com.example.mapleleaves.logic.dao.UserDao
-import com.example.mapleleaves.logic.model.CourseForCreate
-import com.example.mapleleaves.logic.model.Place
+import com.example.mapleleaves.logic.model.body.CreateCourseBody
+import com.example.mapleleaves.logic.model.response.Place
 import com.example.mapleleaves.logic.model.User
 import com.example.mapleleaves.logic.model.Weather
 import com.example.mapleleaves.logic.model.body.RegisterBody
@@ -148,8 +148,8 @@ object Repository {
         }
     }
 
-    fun createCourse(courseForCreate: CourseForCreate)= fire(Dispatchers.IO){
-        val courseForCreateResponse = CourseNetwork.createCourse(courseForCreate)
+    fun createCourse(createCourseBody: CreateCourseBody)= fire(Dispatchers.IO){
+        val courseForCreateResponse = CourseNetwork.createCourse(createCourseBody)
         if(courseForCreateResponse.code=="200"){
             val data=courseForCreateResponse.code
             Result.success(data)

@@ -1,4 +1,4 @@
-package com.example.mapleleaves.logic.model
+package com.example.mapleleaves.logic.model.response
 
 data class CoursesAttendedResponse(val code:String,val msg:String,val data:List<Data>){
 

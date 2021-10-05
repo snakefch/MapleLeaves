@@ -5,7 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Transformations
 import androidx.lifecycle.ViewModel
 import com.example.mapleleaves.logic.Repository
-import com.example.mapleleaves.logic.model.Place
+import com.example.mapleleaves.logic.model.response.Place
 
 class PlaceViewModel:ViewModel() {
 

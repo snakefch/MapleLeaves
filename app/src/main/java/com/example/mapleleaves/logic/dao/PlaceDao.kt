@@ -4,7 +4,7 @@ import android.content.Context
 import androidx.core.content.edit
 import com.example.mapleleaves.MapleLeavesApplication
 import com.google.gson.Gson
-import com.example.mapleleaves.logic.model.Place
+import com.example.mapleleaves.logic.model.response.Place
 
 object PlaceDao {
 
