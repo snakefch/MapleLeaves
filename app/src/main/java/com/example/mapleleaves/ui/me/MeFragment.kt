@@ -2,17 +2,12 @@ package com.example.mapleleaves.ui.me
 
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
-import androidx.lifecycle.Observer
-import com.example.mapleleaves.R
-import com.example.mapleleaves.databinding.FragmentHomeBinding
 import com.example.mapleleaves.databinding.FragmentMeBinding
-import com.example.mapleleaves.ui.home.HomeViewModel
+import com.example.mapleleaves.ui.personaldata.PersonalDataActivity
 import com.example.mapleleaves.utils.MyObserver
 
 class MeFragment : Fragment() {
@@ -40,9 +35,19 @@ class MeFragment : Fragment() {
             ViewModelProvider(this).get(MeViewModel::class.java)
 
         _binding = FragmentMeBinding.inflate(inflater, container, false)
-        val root: View = binding.root
 
-        return root
+        val user=meViewModel.getUser()
+
+        binding.includeMeHeader.apply {
+            tvUserName.text=user.name
+            tvUserSchool.text=user.college
+        }
+
+        binding.itemPersonalData.setOnClickListener {
+            context?.let { it1 -> PersonalDataActivity.actionStart(it1) }
+        }
+
+        return binding.root
     }
 
     override fun onDestroyView() {
