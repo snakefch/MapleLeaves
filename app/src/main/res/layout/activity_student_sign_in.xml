@@ -4,40 +4,40 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.startsignin.StartSignInActivity">
+    tools:context=".ui.studentsignin.StudentSignInActivity">
 
     <TextView
         android:id="@+id/tv_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:padding="10dp"
-        android:text="发布新签到"
-        android:textSize="20sp"
-        android:textColor="@color/theme"
+        android:text="签到"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        app:layout_constraintEnd_toEndOf="parent"
+        android:textSize="20sp"
+        android:textColor="@color/theme"
+        android:layout_marginTop="30dp"/>
 
     <TextView
-        android:id="@+id/tv_name_text"
-        android:layout_marginTop="260dp"
+        android:id="@+id/tv_sign_in_code_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="签到名"
+        android:text="签到码"
         app:layout_constraintTop_toBottomOf="@+id/tv_title"
-        android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        app:layout_constraintEnd_toEndOf="parent"
+        android:textSize="24sp"
+        android:layout_marginTop="260dp"/>
+
     <EditText
-        android:id="@+id/tv_name"
+        android:id="@+id/tv_sign_in_code"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:hint="输入签到名"
+        android:hint="输入签到码"
         android:layout_marginTop="40dp"
         android:padding="10dp"
         android:background="@drawable/shape_edit_all_circular"
-        app:layout_constraintTop_toBottomOf="@+id/tv_name_text"
+        app:layout_constraintTop_toBottomOf="@+id/tv_sign_in_code_text"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
 
@@ -51,6 +51,5 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

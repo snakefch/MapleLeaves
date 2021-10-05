@@ -18,6 +18,17 @@
         app:layout_constraintStart_toStartOf="parent"/>
 
     <TextView
+        android:id="@+id/tv_sign_in_code"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="签到码"
+        android:textSize="16sp"
+        android:textColor="@color/black"
+        app:layout_constraintTop_toTopOf="@+id/tv_datetime"
+        app:layout_constraintStart_toEndOf="@+id/tv_datetime"
+        android:layout_marginStart="10dp"/>
+
+    <TextView
         android:id="@+id/tv_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

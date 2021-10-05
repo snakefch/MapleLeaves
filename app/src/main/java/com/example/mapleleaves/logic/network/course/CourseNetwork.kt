@@ -33,7 +33,11 @@ object CourseNetwork {
 
     suspend fun signInByStudent(signInByStudentBody: SignInByStudentBody)= userService.signInByStudent(signInByStudentBody).await()
 
+    suspend fun signInByStudent(studentId: String,courseId: String,signInId: String,location:String,signInCode:String)=
+        userService.signInByStudent(studentId,courseId,signInId,location,signInCode).await()
+
     suspend fun getSignInByStudent(studentId: String,courseId: String)= userService.getSignInByStudent(studentId, courseId).await()
+
 
     //老师事务------------------------------------
 

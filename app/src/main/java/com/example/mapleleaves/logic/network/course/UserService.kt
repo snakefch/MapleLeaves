@@ -41,10 +41,14 @@ interface UserService {
     @POST("signInByStudent")
     fun signInByStudent(@Body signInByStudentBody: SignInByStudentBody):Call<GenericResponse>
 
+    //学生签到
+    @POST("signInByStudent?")
+    fun signInByStudent(@Query("studentId")studentId: String,@Query("courseId")courseId: String,
+                        @Query("signInId")signInId: String,@Query("location")loaction:String,@Query("signInCode")signInCode:String):Call<GenericResponse>
+
     //获取签到记录
     @GET("getSignInByStudent?")
     fun getSignInByStudent(@Query("studentId")studentId: String,@Query("courseId")courseId: String):Call<GetSignInByStudentResponse>
-
 
     //老师事务请求---------------------------------------------------------
 

@@ -28,10 +28,6 @@ class CheckWorkAttendanceActivity : AppCompatActivity() {
         binding= ActivityCheckWorkAttendanceBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val courseId=intent.getStringExtra("courseId")!!
-        LogUtil.d(TAG,courseId)
-        refresh(courseId)
-
         val layoutManager=LinearLayoutManager(this)
         binding.rvCheck.layoutManager=layoutManager
 
@@ -56,7 +52,7 @@ class CheckWorkAttendanceActivity : AppCompatActivity() {
 
                 checkViewModel.signInList.clear()
                 checkViewModel.signInList.addAll(signInList)
-                listAdapter= CheckListAdapter(checkViewModel.signInList)
+                listAdapter= CheckListAdapter(this,checkViewModel.signInList)
                 binding.rvCheck.adapter=listAdapter
                 listAdapter.notifyDataSetChanged()
             }else{
@@ -66,6 +62,13 @@ class CheckWorkAttendanceActivity : AppCompatActivity() {
 
 
         lifecycle.addObserver(MyObserver(TAG))
+    }
+
+    override fun onResume() {
+        super.onResume()
+        val courseId=intent.getStringExtra("courseId")!!
+        LogUtil.d(TAG,courseId)
+        refresh(courseId)
     }
 
     private fun refresh(courseId: String){

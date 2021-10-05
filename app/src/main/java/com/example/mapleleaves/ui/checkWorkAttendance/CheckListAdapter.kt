@@ -7,8 +7,9 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.mapleleaves.R
 import com.example.mapleleaves.logic.model.response.GetSignInByStudentResponse
+import com.example.mapleleaves.ui.studentsignin.StudentSignInActivity
 
-class CheckListAdapter(private val studentSignInList:List<GetSignInByStudentResponse.StudentSignInRecord>) :
+class CheckListAdapter(private val checkWorkAttendanceActivity: CheckWorkAttendanceActivity,private val studentSignInList:List<GetSignInByStudentResponse.StudentSignInRecord>) :
     RecyclerView.Adapter<CheckListAdapter.ViewHolder>() {
 
         inner class ViewHolder(view:View):RecyclerView.ViewHolder(view){
@@ -30,7 +31,8 @@ class CheckListAdapter(private val studentSignInList:List<GetSignInByStudentResp
         if (signInRecord.state=="on"&&signInRecord.result!="出勤"){
             holder.result.text="签到"
             holder.result.setOnClickListener {
-
+                StudentSignInActivity.startActivity(checkWorkAttendanceActivity,signInRecord.studentId,
+                    signInRecord.courseId,signInRecord.signInId)
             }
         }
     }

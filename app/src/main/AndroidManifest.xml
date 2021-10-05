@@ -16,6 +16,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MapleLeaves">
         <activity
+            android:name=".ui.studentsignin.StudentSignInActivity"
+            android:exported="true" />
+        <activity
             android:name=".ui.startsignin.StartSignInActivity"
             android:exported="true" />
         <activity

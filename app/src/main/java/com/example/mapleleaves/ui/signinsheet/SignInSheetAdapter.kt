@@ -15,6 +15,7 @@ class SignInSheetAdapter (private val signInSheetActivity: SignInSheetActivity,p
         val datetime:TextView=view.findViewById(R.id.tv_datetime)
         val name:TextView=view.findViewById(R.id.tv_name)
         val state:TextView=view.findViewById(R.id.tv_state)
+        val signInCode:TextView=view.findViewById(R.id.tv_sign_in_code)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -29,6 +30,7 @@ class SignInSheetAdapter (private val signInSheetActivity: SignInSheetActivity,p
         holder.datetime.text=signInsheet.datetime
         holder.name.text=signInsheet.name
         holder.state.text=signInsheet.state
+        holder.signInCode.text=signInsheet.signInCode
         if(holder.state.text=="on"){
             holder.state.setOnClickListener {
                 signInSheetActivity.setSignInId(signInsheet.id)

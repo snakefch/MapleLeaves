@@ -126,6 +126,17 @@ object Repository {
         }
     }
 
+    fun signInByStudent(studentId: String,courseId: String,signInId: String,location:String,signInCode:String)= fire(Dispatchers.IO){
+        val genericResponse=CourseNetwork.signInByStudent(studentId, courseId, signInId, location, signInCode)
+        if (genericResponse.code=="200"){
+            val data=genericResponse.code
+            LogUtil.d("genericResponse.code",data)
+            Result.success(data)
+        }else{
+            Result.failure(RuntimeException("response code is ${genericResponse.code}"))
+        }
+    }
+
     fun getSignInByStudent(studentId: String,courseId: String)= fire(Dispatchers.IO){
         val getSignInByStudentResponse=CourseNetwork.getSignInByStudent(studentId, courseId)
         if (getSignInByStudentResponse.code=="200"){
