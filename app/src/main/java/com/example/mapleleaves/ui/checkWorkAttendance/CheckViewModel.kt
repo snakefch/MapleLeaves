@@ -18,7 +18,7 @@ class CheckViewModel:ViewModel() {
     }
 
     val getResultLiveData=Transformations.switchMap(courseIdLiveData){
-        Repository.getSignInByStudent("1800301333","1437390830607310860")
+        Repository.getSignInByStudent(Repository.getUser().id,it)
     }
 
 }

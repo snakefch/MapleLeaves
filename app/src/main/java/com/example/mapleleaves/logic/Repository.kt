@@ -8,6 +8,7 @@ import com.example.mapleleaves.logic.model.CourseForCreate
 import com.example.mapleleaves.logic.model.Place
 import com.example.mapleleaves.logic.model.User
 import com.example.mapleleaves.logic.model.Weather
+import com.example.mapleleaves.logic.model.body.RegisterBody
 import com.example.mapleleaves.logic.model.body.SignInByStudentBody
 import com.example.mapleleaves.logic.model.body.StartSignInBody
 import com.example.mapleleaves.logic.network.SunnyWeatherNetwork
@@ -57,10 +58,21 @@ object Repository {
             }
     }
 
-    fun postLogin(userName:String,passWord:String)= fire(Dispatchers.IO){
-        val userResponse = CourseNetwork.postLogin(userName,passWord)
+    fun postLogin(userName:String,password:String)= fire(Dispatchers.IO){
+        val userResponse = CourseNetwork.postLogin(userName,password)
         if (userResponse.code=="200"){
             val data=userResponse.data
+            LogUtil.d("userData",data.toString())
+            Result.success(data)
+        }else{
+            Result.failure(RuntimeException("response code is ${userResponse.code}"))
+        }
+    }
+
+    fun postRegister(registerBody: RegisterBody)= fire(Dispatchers.IO){
+        val userResponse=CourseNetwork.postRegister(registerBody)
+        if (userResponse.code=="200"){
+            val data=userResponse.code
             LogUtil.d("userData",data.toString())
             Result.success(data)
         }else{

@@ -1,6 +1,7 @@
 package com.example.mapleleaves.logic.network.course
 
 import com.example.mapleleaves.logic.model.*
+import com.example.mapleleaves.logic.model.body.RegisterBody
 import com.example.mapleleaves.logic.model.body.SignInByStudentBody
 import com.example.mapleleaves.logic.model.body.StartSignInBody
 import com.example.mapleleaves.logic.model.response.GenericResponse
@@ -16,7 +17,11 @@ interface UserService {
 
     //用户登录
     @POST("login?")
-    fun postLogin(@Query("username") userName:String, @Query("password") passWord:String ): Call<UserResponse>
+    fun postLogin(@Query("username") userName:String, @Query("password") password:String ): Call<UserResponse>
+
+    //用户注册
+    @POST("register")
+    fun postRegister(@Body registerBody: RegisterBody): Call<GenericResponse>
 
     //学生事务请求---------------------------------------------------------
 

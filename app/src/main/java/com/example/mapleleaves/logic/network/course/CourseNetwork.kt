@@ -2,6 +2,7 @@ package com.example.mapleleaves.logic.network.course
 
 import android.util.Log
 import com.example.mapleleaves.logic.model.CourseForCreate
+import com.example.mapleleaves.logic.model.body.RegisterBody
 import com.example.mapleleaves.logic.model.body.SignInByStudentBody
 import com.example.mapleleaves.logic.model.body.StartSignInBody
 import retrofit2.Call
@@ -17,7 +18,10 @@ object CourseNetwork {
     private val userService=CourseServiceCreator.create(UserService::class.java)
 
     //用户登录
-    suspend fun postLogin(userName:String,passName:String)= userService.postLogin(userName,passName).await()
+    suspend fun postLogin(userName:String,password:String)= userService.postLogin(userName,password).await()
+
+    //用户注册
+    suspend fun postRegister(registerBody: RegisterBody)= userService.postRegister(registerBody).await()
 
     //学生事务-----------------------------------
 
