@@ -13,7 +13,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.mapleleaves.databinding.FragmentStudyBinding
-import com.example.mapleleaves.ui.joinCourse.JoinCourseActivity
+import com.example.mapleleaves.ui.joincourse.JoinCourseActivity
 import com.example.mapleleaves.utils.LogUtil
 import com.example.mapleleaves.utils.MyObserver
 

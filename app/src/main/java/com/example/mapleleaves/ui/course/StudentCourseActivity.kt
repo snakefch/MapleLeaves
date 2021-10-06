@@ -10,7 +10,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.example.mapleleaves.databinding.ActivityStudentCourseBinding
 import com.example.mapleleaves.logic.model.response.CoursesAttendedResponse
-import com.example.mapleleaves.ui.checkWorkAttendance.CheckWorkAttendanceActivity
+import com.example.mapleleaves.ui.checkworkattendance.CheckWorkAttendanceActivity
 import com.example.mapleleaves.utils.MyObserver
 import com.google.gson.Gson
 

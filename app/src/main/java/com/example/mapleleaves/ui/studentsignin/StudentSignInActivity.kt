@@ -7,7 +7,6 @@ import android.os.Bundle
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.example.mapleleaves.databinding.ActivityStudentSignInBinding
-import com.example.mapleleaves.ui.checkWorkAttendance.CheckWorkAttendanceActivity
 import com.example.mapleleaves.utils.showToast
 
 class StudentSignInActivity : AppCompatActivity() {

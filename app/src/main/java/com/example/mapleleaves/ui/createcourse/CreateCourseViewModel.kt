@@ -1,4 +1,4 @@
-package com.example.mapleleaves.ui.createCourse
+package com.example.mapleleaves.ui.createcourse
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Transformations

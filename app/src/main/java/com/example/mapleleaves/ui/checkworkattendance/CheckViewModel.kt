@@ -1,4 +1,4 @@
-package com.example.mapleleaves.ui.checkWorkAttendance
+package com.example.mapleleaves.ui.checkworkattendance
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Transformations

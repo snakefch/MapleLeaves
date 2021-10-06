@@ -1,4 +1,4 @@
-package com.example.mapleleaves.ui.checkWorkAttendance
+package com.example.mapleleaves.ui.checkworkattendance
 
 import android.view.LayoutInflater
 import android.view.View

@@ -34,16 +34,16 @@
             android:name=".ui.course.TeacherCourseActivity"
             android:exported="true" />
         <activity
-            android:name=".ui.createCourse.CreateCourseActivity"
+            android:name=".ui.createcourse.CreateCourseActivity"
             android:exported="true" />
         <activity
-            android:name=".ui.joinCourse.JoinCourseActivity"
+            android:name=".ui.joincourse.JoinCourseActivity"
             android:exported="true" />
         <activity
             android:name=".ui.register.RegisterActivity"
             android:exported="true" />
         <activity
-            android:name=".ui.checkWorkAttendance.CheckWorkAttendanceActivity"
+            android:name=".ui.checkworkattendance.CheckWorkAttendanceActivity"
             android:exported="true" />
         <activity
             android:name=".ui.course.StudentCourseActivity"

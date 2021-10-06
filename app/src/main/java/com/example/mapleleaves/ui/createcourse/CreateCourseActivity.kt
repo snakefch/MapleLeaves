@@ -1,4 +1,4 @@
-package com.example.mapleleaves.ui.createCourse
+package com.example.mapleleaves.ui.createcourse
 
 import android.content.Context
 import android.content.Intent

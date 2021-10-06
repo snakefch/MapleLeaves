@@ -1,4 +1,4 @@
-package com.example.mapleleaves.ui.joinCourse
+package com.example.mapleleaves.ui.joincourse
 
 import android.content.Context
 import android.content.Intent

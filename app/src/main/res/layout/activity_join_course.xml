@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.joinCourse.JoinCourseActivity">
+    tools:context=".ui.joincourse.JoinCourseActivity">
 
     <TextView
         android:id="@+id/tv_join_course_text"
