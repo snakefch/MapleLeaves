@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:id="@+id/bottomDialog"
-    android:background="@drawable/shape_bottom_dialog_fragment"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    android:background="@drawable/shape_bottom_dialog_fragment">
 
 
     <TextView
@@ -16,7 +14,7 @@
         android:layout_margin="12dp"
         android:textSize="18sp"
         android:textColor="@color/textViewColor"
-        android:text="退课"/>
+        android:text="@string/drop_out"/>
 
     <TextView
         android:id="@+id/topping"
@@ -27,7 +25,7 @@
         android:layout_margin="12dp"
         android:textSize="18sp"
         android:textColor="@color/textViewColor"
-        android:text="置顶"/>
+        android:text="@string/topping"/>
 
     <View
         android:id="@+id/line1"
@@ -45,5 +43,5 @@
         android:layout_margin="12dp"
         android:textSize="18sp"
         android:textColor="@color/textViewColor"
-        android:text="取消"/>
+        android:text="@string/cancel"/>
 </RelativeLayout>

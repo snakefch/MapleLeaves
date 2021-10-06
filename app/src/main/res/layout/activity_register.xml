@@ -29,7 +29,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:background="@drawable/shape_edit_all_circular"
-        android:hint="请输入用户名"
+        android:hint="@string/enter_one_user_name"
         android:padding="10dp"
         android:inputType="phone"
         android:autofillHints="userName" />
@@ -45,7 +45,7 @@
         app:layout_constraintTop_toBottomOf="@+id/et_user_name"
         app:layout_constraintStart_toStartOf="@+id/et_user_name"
         app:layout_constraintEnd_toEndOf="@id/et_user_name"
-        android:hint="请输入密码"
+        android:hint="@string/please_input_a_password"
         android:inputType="textPassword"
         android:padding="10dp"
         android:autofillHints="password" />
@@ -61,7 +61,7 @@
         app:layout_constraintTop_toBottomOf="@+id/et_password_first"
         app:layout_constraintStart_toStartOf="@+id/et_user_name"
         app:layout_constraintEnd_toEndOf="@+id/et_user_name"
-        android:hint="请再次输入一次密码"
+        android:hint="@string/please_enter_your_password_again"
         android:inputType="textPassword"
         android:padding="10dp"
         android:autofillHints="password" />

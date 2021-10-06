@@ -10,7 +10,7 @@
         android:id="@+id/tv_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="考勤"
+        android:text="@string/check_work_attendance"
         android:layout_marginTop="30dp"
         android:textSize="20sp"
         android:textColor="@color/theme"
@@ -36,7 +36,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/qianhui"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:baselineAligned="false">
 
             <LinearLayout
                 android:layout_width="0dp"
@@ -48,14 +49,14 @@
                     android:id="@+id/tv_attendance_times"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="0"
+                    android:text="@string/zero"
                     android:layout_gravity="center_horizontal"
                     android:textColor="@color/theme"
                     android:textSize="20sp"/>
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="出勤"
+                    android:text="@string/attendance"
                     android:layout_gravity="center_horizontal"
                     android:textColor="@color/shenghui"
                     android:textSize="12sp"/>
@@ -71,14 +72,14 @@
                     android:id="@+id/tv_absenteeism_times"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="0"
+                    android:text="@string/zero"
                     android:layout_gravity="center_horizontal"
                     android:textColor="@color/meiguihong"
                     android:textSize="20sp"/>
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="旷课"
+                    android:text="@string/absenteeism"
                     android:layout_gravity="center_horizontal"
                     android:textColor="@color/shenghui"
                     android:textSize="12sp"/>
@@ -94,14 +95,14 @@
                     android:id="@+id/tv_late_times"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="0"
+                    android:text="@string/zero"
                     android:layout_gravity="center_horizontal"
                     android:textColor="@color/meiguihong"
                     android:textSize="20sp"/>
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="迟到"
+                    android:text="@string/late"
                     android:layout_gravity="center_horizontal"
                     android:textColor="@color/shenghui"
                     android:textSize="12sp"/>
@@ -117,14 +118,14 @@
                     android:id="@+id/tv_early_times"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="0"
+                    android:text="@string/zero"
                     android:layout_gravity="center_horizontal"
                     android:textColor="@color/meiguihong"
                     android:textSize="20sp"/>
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="早退"
+                    android:text="@string/leave_early"
                     android:layout_gravity="center_horizontal"
                     android:textColor="@color/shenghui"
                     android:textSize="12sp"/>
@@ -140,14 +141,14 @@
                     android:id="@+id/tv_leave_times"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="0"
+                    android:text="@string/zero"
                     android:layout_gravity="center_horizontal"
                     android:textColor="@color/pinlan"
                     android:textSize="20sp"/>
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="请假"
+                    android:text="@string/leave"
                     android:layout_gravity="center_horizontal"
                     android:textColor="@color/shenghui"
                     android:textSize="12sp"/>

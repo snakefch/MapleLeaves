@@ -13,7 +13,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         android:layout_marginStart="10dp"
-        android:text="2021.07.28 下午1"
+        android:text="@string/student_sign_in_name"
         android:textSize="16sp"
         android:textColor="@color/black"/>
 
@@ -26,7 +26,7 @@
         app:layout_constraintStart_toStartOf="@id/tv_sign_in_name"
         app:layout_constraintBottom_toTopOf="@id/line1"
         android:layout_marginBottom="14dp"
-        android:text="14:22|数字考勤"
+        android:text="@string/student_sign_in_datetime"
         android:textSize="14sp"
         android:textColor="@color/shenghui"/>
 
@@ -38,7 +38,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="@+id/tv_datetime"
         android:layout_marginEnd="10dp"
-        android:text="出勤"
+        android:text="@string/attendance"
         android:textSize="20sp"
         android:textColor="@color/theme"/>
 

@@ -18,7 +18,7 @@
     <string name="user_name">苏前猛</string>
     <string name="school">桂林电子科技大学</string>
     <string name="message">消息</string>
-    <string name="my_study_course">我的课程</string>
+
 
     <!-- 课程项 -->
     <string name="student_count">80人</string>
@@ -34,14 +34,15 @@
     <!--天气项-->
     <string name="fp_contentDescription">背景</string>
     <string name="fp_hint">输入地址</string>
-    <string name="join_course">加入课程</string>
+
+
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="my_teach_course">我教的课</string>
-    <string name="create_course">创建课程</string>
+
     <string name="tab_text_1">我加入的课程</string>
     <string name="tab_text_2">我创建的课程</string>
-    <string name="register">注册</string>
+
+
 
     <!--登录页login-->
     <string name="enter_one_user_name">请输入用户名</string>
@@ -52,8 +53,115 @@
     <string name="new_user_registration">新用户注册</string>
     <string name="user_avatar">用户头像</string>
 
+    <!--注册页resister-->
+    <string name="register">注册</string>
+    <string name="please_enter_your_password_again">请再次输入一次密码</string>
+
+
     <!--启动页splash-->
     <string name="startup_page_picture">启动页图片</string>
     <string name="application_icon">应用图标</string>
+
+    <!--首页homeFragment-->
+    <string name="home_page_picture">主页图片</string>
+
+    <!--学生课程页studyFragment-->
+    <string name="my_study_course">我的课程</string>
+    <string name="join_course">加入课程</string>
+
+    <!--教师课程页teacherFragment-->
+    <string name="my_teach_course">我教的课</string>
+    <string name="create_course">创建课程</string>
+
+    <!--学生考勤列表页checkWorkAttendance-->
+    <string name="check_work_attendance">考勤</string>
+    <string name="zero">0</string>
+    <string name="attendance">出勤</string>
+    <string name="absenteeism">旷课</string>
+    <string name="late">迟到</string>
+    <string name="leave_early">早退</string>
+    <string name="leave">请假</string>
+
+    <!--创建课程页createCourse-->
+    <string name="course">课程</string>
+    <string name="please_enter_the_course_name">请输入课程名称</string>
+    <string name="course_introduction">课程简介</string>
+    <string name="please_enter_the_course_introduction">请输入课程简介</string>
+    <string name="number_of_people">人数</string>
+    <string name="please_enter_the_number_of_people">请输入人数</string>
+    <string name="complete">完成</string>
+
+    <!--加入课程页-->
+    <string name="join_the_course">加入课程</string>
+    <string name="please_enter_the_course_code">请输入加课码</string>
+    <string name="determine">确定</string>
+
+    <!--个人资料页personalData-->
+    <string name="personal_data">个人资料</string>
+    <string name="navigation_arrow">导航箭头</string>
+    <string name="full_name">姓名</string>
+    <string name="gender">性别</string>
+    <string name="academy">学院</string>
+    <string name="schoolText">学校</string>
+
+    <!--教师考勤详情页attendanceDetails-->
+    <string name="attendance_details">考勤详情</string>
+
+    <!--教师考勤列表-->
+    <string name="attendance_list">考勤列表</string>
+
+    <!--发布考勤页-->
+    <string name="release_new_sign_in">发布新考勤</string>
+    <string name="sign_in_name">考勤名</string>
+    <string name="enter_sign_in_name">输入考勤名</string>
+    <string name="member">成员</string>
+
+    <!--学生课程页-->
+    <string name="attendance_icon">考勤图标</string>
+    <string name="check">考勤</string>
+
+
+    <!--学生签到页-->
+    <string name="sign_in">签到</string>
+    <string name="sign_in_code">签到码</string>
+    <string name="enter_sign_in_code">输入签到码</string>
+
+    <!--老师课程页-->
+    <string name="publish_attendance">发布考勤</string>
+    <string name="attendance_details_icon">考勤详情图标</string>
+
+    <!--学生考勤详细列表子项-->
+    <string name="student_sign_in_name">2021.07.28 下午1</string>
+    <string name="student_sign_in_datetime">14:22|数字考勤</string>
+
+    <!--课程管理对话框-->
+    <string name="drop_out">退课</string>
+    <string name="topping">置顶</string>
+    <string name="cancel">取消</string>
+
+    <!--forecast-->
+    <string name="prediction">预报</string>
+
+    <!--forecast_item-->
+    <string name="sky_icon">天气图标</string>
+
+    <!--我的页面-->
+    <string name="personal_data_icon">个人资料图标</string>
+
+    <!--生活指数布局-->
+    <string name="life_index">生活指数</string>
+    <string name="cold">感冒</string>
+    <string name="dressing">穿衣</string>
+    <string name="real_time_ultraviolet">实时紫外线</string>
+    <string name="car_wash">洗车</string>
+    <string name="vertical_line">|</string>
+
+    <!--教师考勤详情页子项-->
+    <string name="student_id">studentId</string>
+    <string name="student_name">studentName</string>
+    <string name="datetime">datetime</string>
+    <string name="na">NA</string>
+
+
 
 </resources>

@@ -28,7 +28,7 @@ class CreateCourseActivity : AppCompatActivity() {
         binding= ActivityCreateCourseBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        binding.creatCourse.setOnClickListener{
+        binding.createCourse.setOnClickListener{
             Repository.getUser().apply {
                 createCourseViewModel.setCreateCourseLiveData(CreateCourseBody( binding.courseName.text.toString(),binding.introduction.text.toString() ,name ,id,binding.number.text.toString().toInt()))
             }

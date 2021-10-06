@@ -10,7 +10,7 @@
         android:id="@+id/tv_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="个人资料"
+        android:text="@string/personal_data"
         android:layout_marginTop="30dp"
         android:textSize="20sp"
         android:textColor="@color/theme"
@@ -43,7 +43,7 @@
             android:id="@+id/userNameText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="用户名"
+            android:text="@string/user_name"
             android:layout_marginStart="10dp"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -55,7 +55,7 @@
             android:id="@+id/userName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="用户名"
+            android:text="@string/user_name"
             android:layout_marginEnd="6dp"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/nav1"
@@ -67,12 +67,13 @@
             android:id="@+id/nav1"
             android:layout_width="24dp"
             android:layout_height="24dp"
-            android:layout_marginRight="6dp"
+            android:layout_marginEnd="6dp"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
             android:visibility="invisible"
-            android:background="@drawable/ic_baseline_navigate_next_24"/>
+            android:background="@drawable/ic_baseline_navigate_next_24"
+            android:contentDescription="@string/navigation_arrow" />
 
         <View
             android:layout_width="match_parent"
@@ -99,7 +100,7 @@
             android:id="@+id/nameText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="姓名"
+            android:text="@string/full_name"
             android:layout_marginStart="10dp"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -111,7 +112,7 @@
             android:id="@+id/name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="姓名"
+            android:text="@string/full_name"
             android:layout_marginEnd="6dp"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/nav2"
@@ -123,11 +124,12 @@
             android:id="@+id/nav2"
             android:layout_width="24dp"
             android:layout_height="24dp"
-            android:layout_marginRight="6dp"
+            android:layout_marginEnd="6dp"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
-            android:background="@drawable/ic_baseline_navigate_next_24"/>
+            android:background="@drawable/ic_baseline_navigate_next_24"
+            android:contentDescription="@string/navigation_arrow" />
 
         <View
             android:layout_width="match_parent"
@@ -155,7 +157,7 @@
             android:id="@+id/genderText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="性别"
+            android:text="@string/gender"
             android:layout_marginStart="10dp"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -167,7 +169,7 @@
             android:id="@+id/gender"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="性别"
+            android:text="@string/gender"
             android:layout_marginEnd="6dp"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/nav3"
@@ -179,11 +181,12 @@
             android:id="@+id/nav3"
             android:layout_width="24dp"
             android:layout_height="24dp"
-            android:layout_marginRight="6dp"
+            android:layout_marginEnd="6dp"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
-            android:background="@drawable/ic_baseline_navigate_next_24"/>
+            android:background="@drawable/ic_baseline_navigate_next_24"
+            android:contentDescription="@string/navigation_arrow" />
 
         <View
             android:layout_width="match_parent"
@@ -211,7 +214,7 @@
             android:id="@+id/collegeText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="学校"
+            android:text="@string/schoolText"
             android:layout_marginStart="10dp"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -223,7 +226,7 @@
             android:id="@+id/college"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="学校"
+            android:text="@string/schoolText"
             android:layout_marginEnd="6dp"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/nav4"
@@ -235,11 +238,12 @@
             android:id="@+id/nav4"
             android:layout_width="24dp"
             android:layout_height="24dp"
-            android:layout_marginRight="6dp"
+            android:layout_marginEnd="6dp"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
-            android:background="@drawable/ic_baseline_navigate_next_24"/>
+            android:background="@drawable/ic_baseline_navigate_next_24"
+            android:contentDescription="@string/navigation_arrow" />
 
         <View
             android:layout_width="match_parent"
@@ -267,7 +271,7 @@
             android:id="@+id/academyText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="学院"
+            android:text="@string/academy"
             android:layout_marginStart="10dp"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -279,7 +283,7 @@
             android:id="@+id/academy"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="学院"
+            android:text="@string/academy"
             android:layout_marginEnd="6dp"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/nav5"
@@ -291,11 +295,12 @@
             android:id="@+id/nav5"
             android:layout_width="24dp"
             android:layout_height="24dp"
-            android:layout_marginRight="6dp"
+            android:layout_marginEnd="6dp"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
-            android:background="@drawable/ic_baseline_navigate_next_24"/>
+            android:background="@drawable/ic_baseline_navigate_next_24"
+            android:contentDescription="@string/navigation_arrow" />
 
         <View
             android:layout_width="match_parent"

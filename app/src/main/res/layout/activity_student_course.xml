@@ -78,7 +78,7 @@
             android:id="@+id/tv_course_member"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="成员"
+            android:text="@string/member"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tv_course_code_text"
             android:layout_marginTop="20dp"
@@ -91,7 +91,7 @@
             android:layout_marginStart="10dp"
             app:layout_constraintStart_toEndOf="@+id/tv_course_member"
             app:layout_constraintTop_toTopOf="@id/tv_course_member"
-            android:text="80人"
+            android:text="@string/zero"
             android:textColor="@color/white"
             android:textSize="14sp"/>
 
@@ -120,7 +120,8 @@
                 android:layout_gravity="center_horizontal"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                android:background="@drawable/check_work_attendance_cuilv"/>
+                android:background="@drawable/check_work_attendance_cuilv"
+                android:contentDescription="@string/attendance_icon" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -130,7 +131,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/iv_check_work"
                 app:layout_constraintStart_toStartOf="@+id/iv_check_work"
                 app:layout_constraintEnd_toEndOf="@+id/iv_check_work"
-                android:text="考勤"
+                android:text="@string/check"
                 android:textAlignment="center"
                 android:textColor="@color/black"
                 android:textSize="14sp" />
