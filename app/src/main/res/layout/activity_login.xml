@@ -1,104 +1,101 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical">
 
-    <RelativeLayout
+    <ImageView
+        android:id="@+id/img_portrait"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="80dp"
+        android:background="@drawable/blue_circle"
+        android:contentDescription="@string/user_avatar" />
+
+    <EditText
+        android:id="@+id/tv_user_name"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:orientation="vertical"
-        android:layout_weight="6">
-
-        <ImageView
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_centerInParent="true"
-            android:background="@drawable/blue_circle"/>
-
-    </RelativeLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:orientation="vertical"
-        android:layout_marginTop="40dp"
+        android:layout_height="48dp"
+        android:background="@drawable/shape_edit_all_circular"
+        app:layout_constraintTop_toBottomOf="@+id/img_portrait"
+        android:hint="@string/enter_one_user_name"
+        android:layout_marginTop="100dp"
         android:layout_marginLeft="40dp"
         android:layout_marginRight="40dp"
-        android:layout_weight="11"
-        android:gravity="center_horizontal">
+        android:padding="10dp"
+        android:autofillHints="username"
+        android:inputType="phone" />
 
-        <EditText
-            android:id="@+id/tv_user_name"
-            android:layout_width="match_parent"
-            android:layout_height="48dp"
-            android:background="@drawable/shape_edit_all_circular"
-            android:hint="请输入用户名"
-            android:padding="10dp" />
-
-        <EditText
-            android:id="@+id/tv_password"
-            android:layout_width="match_parent"
-            android:layout_height="48dp"
-            android:layout_marginTop="30dp"
-            android:background="@drawable/shape_edit_all_circular"
-            android:hint="请输入密码"
-            android:inputType="textPassword"
-            android:padding="10dp" />
-
-        <Button
-            android:id="@+id/login"
-            android:layout_width="120dp"
-            android:layout_height="48dp"
-            android:layout_marginLeft="40dp"
-            android:layout_marginRight="40dp"
-            android:layout_marginTop="50dp"
-            android:background="@drawable/shape_btn_all_circular"
-            android:text="登录"
-            android:textColor="@color/white" />
-
-    </LinearLayout>
-
-    <LinearLayout
+    <EditText
+        android:id="@+id/tv_password"
         android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp"
+        android:background="@drawable/shape_edit_all_circular"
+        app:layout_constraintTop_toBottomOf="@+id/tv_user_name"
+        android:hint="@string/please_input_a_password"
+        android:inputType="textPassword"
+        android:padding="10dp"
+        android:autofillHints="password" />
+
+    <Button
+        android:id="@+id/login"
+        android:layout_width="120dp"
+        android:layout_height="48dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp"
+        android:layout_marginTop="50dp"
+        app:layout_constraintTop_toBottomOf="@+id/tv_password"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:background="@drawable/shape_btn_all_circular"
+        android:text="@string/login"
+        android:textColor="@color/white" />
+
+    <TextView
+        android:id="@+id/tv_forget_pass"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="40dp"
-        android:layout_marginRight="40dp"
+        android:layout_marginStart="40dp"
         android:layout_marginBottom="30dp"
-        android:orientation="horizontal">
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:text="@string/retrieve_password" />
 
-        <TextView
-            android:id="@+id/tv_forget_pass"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="找回密码" />
 
-        <View
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1" />
+    <CheckBox
+        android:id="@+id/cb_remember_pass"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        app:layout_constraintTop_toTopOf="@id/tv_forget_pass"
+        app:layout_constraintEnd_toStartOf="@id/tv_remember_pass"
+        app:layout_constraintBottom_toBottomOf="@id/tv_forget_pass"/>
 
-        <CheckBox
-            android:id="@+id/cb_remember_pass"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+    <TextView
+        android:id="@+id/tv_remember_pass"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        app:layout_constraintTop_toTopOf="@id/tv_forget_pass"
+        app:layout_constraintBottom_toBottomOf="@id/tv_forget_pass"
+        app:layout_constraintStart_toEndOf="@+id/tv_forget_pass"
+        app:layout_constraintEnd_toStartOf="@id/tv_register"
+        android:text="@string/remember_password"/>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="记住密码"/>
+    <TextView
+        android:id="@+id/tv_register"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="@id/tv_forget_pass"
+        app:layout_constraintBottom_toBottomOf="@id/tv_forget_pass"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginEnd="40dp"
+        android:text="@string/new_user_registration" />
 
-        <View
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1" />
-
-        <TextView
-            android:id="@+id/tv_register"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="新用户注册" />
-
-    </LinearLayout>
-
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
