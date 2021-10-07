@@ -1,4 +1,4 @@
-package com.example.mapleleaves.logic.network
+package com.example.mapleleaves.logic.network.sunnyweather
 
 import com.example.mapleleaves.MapleLeavesApplication
 import com.example.mapleleaves.logic.model.response.PlaceResponse

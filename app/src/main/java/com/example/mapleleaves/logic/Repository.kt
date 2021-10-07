@@ -11,7 +11,7 @@ import com.example.mapleleaves.logic.model.Weather
 import com.example.mapleleaves.logic.model.body.RegisterBody
 import com.example.mapleleaves.logic.model.body.SignInByStudentBody
 import com.example.mapleleaves.logic.model.body.StartSignInBody
-import com.example.mapleleaves.logic.network.SunnyWeatherNetwork
+import com.example.mapleleaves.logic.network.sunnyweather.SunnyWeatherNetwork
 import com.example.mapleleaves.logic.network.course.CourseNetwork
 import com.example.mapleleaves.utils.LogUtil
 import kotlinx.coroutines.Dispatchers

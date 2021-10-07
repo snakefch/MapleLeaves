@@ -1,9 +1,9 @@
-package com.example.mapleleaves.logic.network
+package com.example.mapleleaves.logic.network.sunnyweather
 
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-object ServiceCreator {
+object SunnyWeatherServiceCreator {
 
     private const val BASE_URL = "https://api.caiyunapp.com/"
 
