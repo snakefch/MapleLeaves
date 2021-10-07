@@ -44,8 +44,11 @@ class StudentCourseActivity : AppCompatActivity() {
         注意： fitsSystemWindows只作用在Android4.4及以上的系统，因为4.4以下的系统StatusBar没有透明状态。
          */
 
-        val jsonData=intent.getStringExtra("courseData")
-        val courseData=Gson().fromJson(jsonData, CoursesAttendedResponse.Data::class.java)
+        //val jsonData=intent.getStringExtra("courseData")
+        //val courseData=Gson().fromJson(jsonData, CoursesAttendedResponse.Data::class.java)
+
+        val courseData=intent.getParcelableExtra<CoursesAttendedResponse.Data>("courseData")!!
+
         courseViewModel.saveCourseData(courseData)
         courseViewModel.courseLiveData.observe(this, Observer {
             binding.apply {
@@ -75,7 +78,8 @@ class StudentCourseActivity : AppCompatActivity() {
     companion object {
         fun startCourseActivity(context: Context,courseData: CoursesAttendedResponse.Data){
             val intent= Intent(context, StudentCourseActivity::class.java).apply {
-                putExtra("courseData",Gson().toJson(courseData))
+                //putExtra("courseData",Gson().toJson(courseData))
+                putExtra("courseData", courseData)
             }
             context.startActivity(intent)
         }

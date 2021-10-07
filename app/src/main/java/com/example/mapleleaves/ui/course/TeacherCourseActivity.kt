@@ -37,8 +37,10 @@ class TeacherCourseActivity : AppCompatActivity() {
         //将状态栏设置成透明色
         window.statusBarColor= Color.TRANSPARENT
 
-        val jsonData=intent.getStringExtra("courseData")
-        val courseData=Gson().fromJson(jsonData, CoursesAttendedResponse.Data::class.java)
+//        val jsonData=intent.getStringExtra("courseData")
+//        val courseData=Gson().fromJson(jsonData, CoursesAttendedResponse.Data::class.java)
+
+        val courseData=intent.getParcelableExtra<CoursesAttendedResponse.Data>("courseData")!!
 
         teachViewModel.saveCourseData(courseData)
         teachViewModel.courseLiveData.observe(this, Observer {
@@ -66,7 +68,8 @@ class TeacherCourseActivity : AppCompatActivity() {
     companion object {
         fun startTeacherCourseActivity(context: Context, courseData: CoursesAttendedResponse.Data){
             val intent= Intent(context, TeacherCourseActivity::class.java).apply {
-                putExtra("courseData", Gson().toJson(courseData))
+//                putExtra("courseData", Gson().toJson(courseData))
+                putExtra("courseData", courseData)
             }
             context.startActivity(intent)
         }
