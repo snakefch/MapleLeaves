@@ -30,12 +30,15 @@ class SignInSheetAdapter (private val signInSheetActivity: SignInSheetActivity,p
         val oneSignInRecord=signInListSheet[position]
         holder.datetime.text=oneSignInRecord.datetime
         holder.name.text=oneSignInRecord.name
-        holder.state.text=oneSignInRecord.state
+        //holder.state.text=oneSignInRecord.state
         holder.signInCode.text=oneSignInRecord.signInCode
-        if(holder.state.text=="on"){
+        if(oneSignInRecord.state=="on"){
+            holder.state.text="停止"
             holder.state.setOnClickListener {
                 signInSheetActivity.setSignInId(oneSignInRecord.id)
             }
+        }else{
+            holder.state.text="已停止"
         }
         holder.itemView.setOnClickListener {
             SignInDetailsActivity.actionStart(signInSheetActivity,oneSignInRecord.id)
