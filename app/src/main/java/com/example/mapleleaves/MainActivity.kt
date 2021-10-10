@@ -11,6 +11,7 @@ import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.example.mapleleaves.databinding.ActivityMainBinding
+import com.example.mapleleaves.utils.ActivityCollector
 import com.example.mapleleaves.utils.MyObserver
 import com.example.mapleleaves.utils.Notifier
 
@@ -23,6 +24,8 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        ActivityCollector.addActivity(this)
 
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
@@ -45,6 +48,11 @@ class MainActivity : AppCompatActivity() {
 
         lifecycle.addObserver(MyObserver(TAG))
         Notifier.init(this)
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        ActivityCollector.removeActivity(this)
     }
 
     companion object {

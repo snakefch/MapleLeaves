@@ -118,6 +118,7 @@ class LoginActivity : AppCompatActivity() {
                 }
                 MainActivity.startMainActivity(this )
                 Log.d("用户数据",userData.toString())
+                finish()
             }else{
                 Toast.makeText(this,"登录失败",Toast.LENGTH_SHORT).show()
                 result.exceptionOrNull()?.printStackTrace()

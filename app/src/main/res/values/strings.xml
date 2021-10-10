@@ -99,6 +99,7 @@
     <!--个人资料页personalData-->
     <string name="personal_data">个人资料</string>
     <string name="navigation_arrow">导航箭头</string>
+    <string name="user_name_text">用户名</string>
     <string name="full_name">姓名</string>
     <string name="gender">性别</string>
     <string name="academy">学院</string>

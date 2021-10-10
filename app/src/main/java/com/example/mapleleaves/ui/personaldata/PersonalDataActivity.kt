@@ -6,7 +6,9 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.lifecycle.ViewModelProviders
 import com.example.mapleleaves.databinding.ActivityPersonalDataBinding
+import com.example.mapleleaves.ui.login.LoginActivity
 import com.example.mapleleaves.ui.signindetails.SignInDetailsActivity
+import com.example.mapleleaves.utils.ActivityCollector
 
 class PersonalDataActivity : AppCompatActivity(){
 
@@ -16,6 +18,9 @@ class PersonalDataActivity : AppCompatActivity(){
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        ActivityCollector.addActivity(this)
+
         binding= ActivityPersonalDataBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
@@ -26,9 +31,17 @@ class PersonalDataActivity : AppCompatActivity(){
             gender.text=user.gender
             college.text=user.college
             academy.text=user.academy
+            signOut.setOnClickListener {
+                ActivityCollector.finishAll()
+                LoginActivity.startLoginActivity(this@PersonalDataActivity)
+            }
         }
 
+    }
 
+    override fun onDestroy() {
+        super.onDestroy()
+        ActivityCollector.removeActivity(this)
     }
 
     companion object{
