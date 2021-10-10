@@ -115,6 +115,8 @@ class PlaceFragment:Fragment() {
         inputMethodManager.hideSoftInputFromWindow(binding.searchPlaceEdit.windowToken,0)
         //清空editText内容
         binding.searchPlaceEdit.setText("")
+        //为父布局设置 android:focusable="true" android:focusableInTouchMode="true" 结合clearFocus()取消光标闪烁
+        binding.searchPlaceEdit.clearFocus()
         //获取WeatherFragment实例，并调用其refreshWeather()方法刷新天气
         val weatherFragment=childFragmentManager.findFragmentById(R.id.weatherFragment) as WeatherFragment
         weatherFragment.refreshWeather()
