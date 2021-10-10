@@ -33,7 +33,8 @@ class CourseListAdapter (private val fragment: Fragment, private val courseList:
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val course=courseList[position]
         val typedArray=fragment.resources.obtainTypedArray(R.array.images)
-        holder.courseImage.setImageResource(typedArray.getResourceId(position%10,0))
+        val imageId=typedArray.getResourceId(position%10,0)
+        holder.courseImage.setImageResource(imageId)
         typedArray.recycle()
         holder.courseName.text=course.name
         holder.courseCode.text=course.id
@@ -51,8 +52,8 @@ class CourseListAdapter (private val fragment: Fragment, private val courseList:
         holder.itemView.setOnClickListener {
             fragment.context?.let { context ->
                 //将判断放到里面可以减少重复判断fragment.context?
-                if (fragment is StudyFragment) StudentCourseActivity.startCourseActivity(context,course)
-                else TeacherCourseActivity.startTeacherCourseActivity(context,course)
+                if (fragment is StudyFragment) StudentCourseActivity.startCourseActivity(context,course,imageId)
+                else TeacherCourseActivity.startTeacherCourseActivity(context,course,imageId)
             }
         }
     }

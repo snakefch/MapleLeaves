@@ -42,6 +42,10 @@ class TeacherCourseActivity : AppCompatActivity() {
 
         val courseData=intent.getParcelableExtra<CoursesAttendedResponse.Data>("courseData")!!
 
+        val imageId=intent.getIntExtra("imageId",0)
+
+        binding.clCourseHead.setBackgroundResource(imageId)
+
         teachViewModel.saveCourseData(courseData)
         teachViewModel.courseLiveData.observe(this, Observer {
             binding.apply {
@@ -66,10 +70,11 @@ class TeacherCourseActivity : AppCompatActivity() {
     }
 
     companion object {
-        fun startTeacherCourseActivity(context: Context, courseData: CoursesAttendedResponse.Data){
+        fun startTeacherCourseActivity(context: Context, courseData: CoursesAttendedResponse.Data,imageId:Int){
             val intent= Intent(context, TeacherCourseActivity::class.java).apply {
 //                putExtra("courseData", Gson().toJson(courseData))
                 putExtra("courseData", courseData)
+                putExtra("imageId", imageId)
             }
             context.startActivity(intent)
         }
