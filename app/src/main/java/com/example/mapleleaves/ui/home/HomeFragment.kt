@@ -58,7 +58,7 @@ class HomeFragment : Fragment() {
 
         //第二次，使用viewPage,有Bug
         val sectionsPagerAdapter =
-            this.context?.let { parentFragmentManager?.let { it1 -> SectionsPagerAdapter(it, it1) } }
+            this.context?.let { SectionsPagerAdapter(it, childFragmentManager) }
         val viewPager: ViewPager = binding.viewPager
         viewPager.adapter = sectionsPagerAdapter
         val tabs: TabLayout = binding.tabs
