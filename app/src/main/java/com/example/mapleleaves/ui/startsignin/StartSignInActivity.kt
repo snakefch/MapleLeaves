@@ -9,6 +9,7 @@ import androidx.lifecycle.ViewModelProviders
 import com.example.mapleleaves.databinding.ActivityStartSignInBinding
 import com.example.mapleleaves.logic.model.response.CoursesAttendedResponse
 import com.example.mapleleaves.logic.model.body.StartSignInBody
+import com.example.mapleleaves.ui.signinsheet.SignInSheetActivity
 import com.example.mapleleaves.utils.LogUtil
 import com.example.mapleleaves.utils.MyObserver
 import com.example.mapleleaves.utils.showToast
@@ -41,6 +42,7 @@ class StartSignInActivity : AppCompatActivity() {
             val result=it.getOrNull()
             if (result!=null){
                 "已发布新考勤".showToast()
+                SignInSheetActivity.actionStart(this,courseData.id)
             }else{
                 "发布考勤失败".showToast()
             }

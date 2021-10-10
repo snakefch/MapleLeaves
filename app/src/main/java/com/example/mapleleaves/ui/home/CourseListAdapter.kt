@@ -17,6 +17,7 @@ class CourseListAdapter (private val fragment: Fragment, private val courseList:
     RecyclerView.Adapter<CourseListAdapter.ViewHolder>(){
 
         inner class ViewHolder(view: View):RecyclerView.ViewHolder(view){
+            val courseImage:ImageView=view.findViewById(R.id.iv_course)
             val courseName: TextView =view.findViewById(R.id.tv_course_name)
             val courseCode: TextView =view.findViewById(R.id.tv_course_code)
             val studentCount:TextView=view.findViewById(R.id.tv_student_count)
@@ -24,14 +25,16 @@ class CourseListAdapter (private val fragment: Fragment, private val courseList:
         }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val view=LayoutInflater.from(parent.context).inflate(R.layout.course_item,parent,false)
-        val holder=ViewHolder(view)
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.course_item, parent, false)
 
-        return holder
+        return ViewHolder(view)
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val course=courseList[position]
+        val typedArray=fragment.resources.obtainTypedArray(R.array.images)
+        holder.courseImage.setImageResource(typedArray.getResourceId(position%10,0))
+        typedArray.recycle()
         holder.courseName.text=course.name
         holder.courseCode.text=course.id
         holder.studentCount.text= course.number.toString()+"人"
