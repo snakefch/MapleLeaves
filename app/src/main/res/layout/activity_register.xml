@@ -35,7 +35,7 @@
         android:autofillHints="userName" />
 
     <EditText
-        android:id="@+id/et_password_first"
+        android:id="@+id/et_name"
         android:layout_width="match_parent"
         android:layout_height="48dp"
         android:layout_marginTop="30dp"
@@ -45,6 +45,22 @@
         app:layout_constraintTop_toBottomOf="@+id/et_user_name"
         app:layout_constraintStart_toStartOf="@+id/et_user_name"
         app:layout_constraintEnd_toEndOf="@id/et_user_name"
+        android:hint="@string/enter_name"
+        android:inputType="text"
+        android:padding="10dp"
+        android:autofillHints="password" />
+
+    <EditText
+        android:id="@+id/et_password_first"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp"
+        android:background="@drawable/shape_edit_all_circular"
+        app:layout_constraintTop_toBottomOf="@+id/et_name"
+        app:layout_constraintStart_toStartOf="@+id/et_name"
+        app:layout_constraintEnd_toEndOf="@id/et_name"
         android:hint="@string/please_input_a_password"
         android:inputType="textPassword"
         android:padding="10dp"

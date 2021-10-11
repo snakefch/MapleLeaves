@@ -38,6 +38,7 @@ class RegisterActivity : AppCompatActivity() {
 
         binding.btRegister.setOnClickListener {
             val userName=binding.etUserName.text.toString()
+            val name=binding.etName.text.toString()
             val passwordFirst=binding.etPasswordFirst.text.toString()
             val passwordSecond=binding.etPasswordSecond.text.toString()
             if ((userName!=null&&userName.trim().isNotEmpty())&&(passwordFirst!=null&&passwordFirst.trim().isNotEmpty())
@@ -45,7 +46,7 @@ class RegisterActivity : AppCompatActivity() {
                 viewModel.refresh(
                     RegisterBody(
                         userName, passwordFirst,
-                        "NA", "男", "NA", "NA"
+                        name, "男", "NA", "NA"
                     )
                 )
             }else{

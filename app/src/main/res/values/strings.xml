@@ -162,7 +162,7 @@
     <string name="student_name">studentName</string>
     <string name="datetime">datetime</string>
     <string name="na">NA</string>
-
+    <string name="enter_name">请输入姓名</string>
 
 
 </resources>
