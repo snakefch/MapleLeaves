@@ -31,6 +31,7 @@ class SignInDetailsAdapter(private val signInList:List<GetStudentSignInByTeacher
         holder.signInName.text=oneSignInRecord.signInName
         holder.datetime.text=oneSignInRecord.datetime
         holder.result.text=oneSignInRecord.result
+        holder.location.text=oneSignInRecord.location
     }
 
     override fun getItemCount()=signInList.size

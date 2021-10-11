@@ -52,7 +52,7 @@ class LoginActivity : AppCompatActivity() {
 
         //使用PermissionX获取权限
         PermissionX.init(this)
-            .permissions(Manifest.permission.ACCESS_FINE_LOCATION,Manifest.permission.CAMERA)
+            .permissions(Manifest.permission.ACCESS_FINE_LOCATION,Manifest.permission.CAMERA,Manifest.permission.ACCESS_COARSE_LOCATION)
             .onExplainRequestReason { scope, deniedList ->
                 val message = "PermissionX需要您同意以下权限才能正常使用"
                 scope.showRequestReasonDialog(deniedList, message, "Allow", "Deny")
